@@ -6,7 +6,6 @@
   "repository": "git@github.com:commaai/log_reader_js.git",
   "author": "Chris Vickery <chrisinajar@gmail.com>",
   "license": "MIT",
-  "private": true,
   "bin": {
     "log-to-json": "./log-to-json.js"
   },
