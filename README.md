@@ -41,6 +41,25 @@ Returns a normal JavaScript object where all data available in the event is expo
 #### `EventWrapper.toStruct`
 Return the raw [capnp-ts](https://npm.im/capnp-ts) struct. This is not recommended as using the raw struct in incorrect ways can result in *massive* performance drops. Since the JSON objects fetch all their data lazily, changes made to the underlying struct will be reflected in JSON objects who have not yet tried to look up the value.
 
+## Command Line Tools
+This package ships with a CLI tool. Check the `--help` command to see all of the options.
+
+#### `log-to-json [source]`
+The most simple and obvious use case for this library. This tool takes in the path to a `source` log file and converts the entire thing into JSON. If `source` is is not specified then `stdin` will be used. The `-o` flag can be used to write the output to a file instead of `stdout`
+
+Examples:
+```bash
+# Convert an entire log file into a JSON feed
+$ log-to-json rlog -o rlog.json
+
+# Write the JSON as 1 giant array instead of newline deliminated objects
+$ log-to-json rlog --array -o rlog.json
+```
+```bash
+# read from stdin and write to stdout
+$ cat rlog | log-to-json
+```
+
 # License
 MIT @ comma.ai
 

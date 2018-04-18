@@ -8,17 +8,15 @@ const package = require('./package');
 
 cli
   .version(package.version)
-  .usage('<source> [output]')
+  .usage('[source]')
   .description('Take an rlog file and convert it to json. If no output file is specified, prints to stdout')
   .option('-a, --array', 'Output json as a massive array instead of newline deliminated json objects')
+  .option('-o, --output <filename>', 'Output file to write the JSON values to')
   .parse(process.argv);
 
-if (!process.argv.slice(2).length) {
-  cli.help();
-}
-
 let source = cli.args[0];
-let destination = cli.args[1];
+let sourceStream = process.stdin;
+let destination = cli.output;
 let destinationStream = process.stdout;
 
 if (destination) {
@@ -28,7 +26,10 @@ if (destination) {
   destinationStream = fs.createWriteStream(destination);
 }
 
-var fileStream = fs.createReadStream(source);
+if (source) {
+  sourceStream = fs.createReadStream(source);
+}
+
 var jsonStream = null;
 if (cli.array) {
   // default is '[', '\n,\n', ']'
@@ -40,10 +41,10 @@ if (cli.array) {
   jsonStream = JSONStream.stringify(false);
 }
 
-fileStream.on('end', () => jsonStream.end());
+sourceStream.on('end', () => jsonStream.end());
 jsonStream.pipe(destinationStream);
 
-var reader = Reader(fileStream);
+var reader = Reader(sourceStream);
 var i = 0;
 reader(function (jsonData) {
   jsonStream.write(jsonData);
