@@ -22,8 +22,6 @@
     "capnp-split": "^0.1.1",
     "capnp-ts": "^0.2.4",
     "commander": "^2.15.1",
-    "geval": "^2.2.0",
-    "long": "^4.0.0",
-    "performance-now": "^2.1.0"
+    "geval": "^2.2.0"
   }
 }
