@@ -21,6 +21,10 @@
     "capnp-split": "^0.1.1",
     "capnp-ts": "^0.2.4",
     "commander": "^2.15.1",
-    "geval": "^2.2.0"
+    "file-type": "^7.6.0",
+    "geval": "^2.2.0",
+    "lz4": "^0.5.3",
+    "stream-selector": "^0.3.0",
+    "unbzip2-stream": "^1.2.5"
   }
 }

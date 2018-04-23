@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const Reader = require('./src/reader');
+const Reader = require('./');
 const cli = require('commander');
 const JSONStream = require('JSONStream');
 const package = require('./package');

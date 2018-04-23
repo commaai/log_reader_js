@@ -1,4 +1,4 @@
-const Reader = require('./src/reader');
+const Reader = require('./src/decompress');
 
 Reader.Event = require('./src/event');
 
