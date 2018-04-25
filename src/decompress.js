@@ -8,6 +8,7 @@ const PassThrough = require('stream').PassThrough;
 module.exports = DecompressStream;
 
 function DecompressStream (inputStream, options) {
+  options = options || {};
   var selectorStream = new StreamSelector({
     minBuffer: 6,
     selector: selector
