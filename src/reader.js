@@ -4,11 +4,17 @@ const Event = require('geval/event');
 
 module.exports = streamReader;
 
-function streamReader (inputStream) {
-  var event = Event();
-  var capnpStream = new CapnpStream();
+function streamReader (inputStream, options) {
+  const event = Event();
+  const capnpStream = new CapnpStream();
+  const isBinary = !!options.binary;
+
   capnpStream.on('message', function (buf) {
-    event.broadcast((new EventWrapper(buf)).toJSON());
+    if (!isBinary) {
+      event.broadcast((new EventWrapper(buf)).toJSON());
+    } else {
+      event.broadcast(buf);
+    }
   });
   inputStream.pipe(capnpStream);
 

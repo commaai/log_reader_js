@@ -7,7 +7,7 @@ const PassThrough = require('stream').PassThrough;
 
 module.exports = DecompressStream;
 
-function DecompressStream (inputStream) {
+function DecompressStream (inputStream, options) {
   var selectorStream = new StreamSelector({
     minBuffer: 6,
     selector: selector
@@ -15,7 +15,7 @@ function DecompressStream (inputStream) {
 
   selectorStream.on('error', (err) => { throw err });
   
-  return new ReaderStream(inputStream.pipe(selectorStream));
+  return new ReaderStream(inputStream.pipe(selectorStream), options);
 
   function selector (chunk) {
     var type = fileType(chunk);

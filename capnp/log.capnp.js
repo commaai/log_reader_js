@@ -339,6 +339,12 @@ var FrameData = /** @class */ (function (_super) {
     FrameData.prototype.setGlobalGain = function (value) { capnp_ts_1.Struct.setInt32(24, value, this); };
     FrameData.prototype.getLensPos = function () { return capnp_ts_1.Struct.getInt32(40, this); };
     FrameData.prototype.setLensPos = function (value) { capnp_ts_1.Struct.setInt32(40, value, this); };
+    FrameData.prototype.getLensSag = function () { return capnp_ts_1.Struct.getFloat32(44, this); };
+    FrameData.prototype.setLensSag = function (value) { capnp_ts_1.Struct.setFloat32(44, value, this); };
+    FrameData.prototype.getLensErr = function () { return capnp_ts_1.Struct.getFloat32(48, this); };
+    FrameData.prototype.setLensErr = function (value) { capnp_ts_1.Struct.setFloat32(48, value, this); };
+    FrameData.prototype.getLensTruePos = function () { return capnp_ts_1.Struct.getFloat32(52, this); };
+    FrameData.prototype.setLensTruePos = function (value) { capnp_ts_1.Struct.setFloat32(52, value, this); };
     FrameData.prototype.adoptImage = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); };
     FrameData.prototype.disownImage = function () { return capnp_ts_1.Struct.disown(this.getImage()); };
     FrameData.prototype.getImage = function () { return capnp_ts_1.Struct.getData(0, this); };
@@ -364,7 +370,7 @@ var FrameData = /** @class */ (function (_super) {
     FrameData.prototype.toString = function () { return "FrameData_" + _super.prototype.toString.call(this); };
     FrameData.FrameType = FrameData_FrameType;
     FrameData.AndroidCaptureResult = FrameData_AndroidCaptureResult;
-    FrameData._capnp = { displayName: "FrameData", id: "ea0245f695ae0a33", size: new capnp_ts_1.ObjectSize(48, 3) };
+    FrameData._capnp = { displayName: "FrameData", id: "ea0245f695ae0a33", size: new capnp_ts_1.ObjectSize(56, 3) };
     return FrameData;
 }(capnp_ts_1.Struct));
 exports.FrameData = FrameData;
@@ -1214,6 +1220,7 @@ var EncodeIndex_Type;
     EncodeIndex_Type[EncodeIndex_Type["BIG_BOX_HEVC"] = 2] = "BIG_BOX_HEVC";
     EncodeIndex_Type[EncodeIndex_Type["CHFFR_ANDROID_H264"] = 3] = "CHFFR_ANDROID_H264";
     EncodeIndex_Type[EncodeIndex_Type["FULL_LOSSLESS_CLIP"] = 4] = "FULL_LOSSLESS_CLIP";
+    EncodeIndex_Type[EncodeIndex_Type["FRONT"] = 5] = "FRONT";
 })(EncodeIndex_Type = exports.EncodeIndex_Type || (exports.EncodeIndex_Type = {}));
 var EncodeIndex = /** @class */ (function (_super) {
     __extends(EncodeIndex, _super);
@@ -1303,6 +1310,7 @@ var Plan_LongitudinalPlanSource;
     Plan_LongitudinalPlanSource[Plan_LongitudinalPlanSource["CRUISE"] = 0] = "CRUISE";
     Plan_LongitudinalPlanSource[Plan_LongitudinalPlanSource["MPC1"] = 1] = "MPC1";
     Plan_LongitudinalPlanSource[Plan_LongitudinalPlanSource["MPC2"] = 2] = "MPC2";
+    Plan_LongitudinalPlanSource[Plan_LongitudinalPlanSource["MPC3"] = 3] = "MPC3";
 })(Plan_LongitudinalPlanSource = exports.Plan_LongitudinalPlanSource || (exports.Plan_LongitudinalPlanSource = {}));
 var Plan = /** @class */ (function (_super) {
     __extends(Plan, _super);
@@ -1339,6 +1347,8 @@ var Plan = /** @class */ (function (_super) {
     Plan.prototype.setVTarget = function (value) { capnp_ts_1.Struct.setFloat32(4, value, this); };
     Plan.prototype.getVTargetFuture = function () { return capnp_ts_1.Struct.getFloat32(40, this); };
     Plan.prototype.setVTargetFuture = function (value) { capnp_ts_1.Struct.setFloat32(40, value, this); };
+    Plan.prototype.getVMax = function () { return capnp_ts_1.Struct.getFloat32(56, this); };
+    Plan.prototype.setVMax = function (value) { capnp_ts_1.Struct.setFloat32(56, value, this); };
     Plan.prototype.getATargetMinDEPRECATED = function () { return capnp_ts_1.Struct.getFloat32(8, this); };
     Plan.prototype.setATargetMinDEPRECATED = function (value) { capnp_ts_1.Struct.setFloat32(8, value, this); };
     Plan.prototype.getATargetMaxDEPRECATED = function () { return capnp_ts_1.Struct.getFloat32(12, this); };
@@ -1364,7 +1374,7 @@ var Plan = /** @class */ (function (_super) {
     Plan.prototype.toString = function () { return "Plan_" + _super.prototype.toString.call(this); };
     Plan.GpsTrajectory = Plan_GpsTrajectory;
     Plan.LongitudinalPlanSource = Plan_LongitudinalPlanSource;
-    Plan._capnp = { displayName: "Plan", id: "e00b5b3eba12876c", size: new capnp_ts_1.ObjectSize(56, 3) };
+    Plan._capnp = { displayName: "Plan", id: "e00b5b3eba12876c", size: new capnp_ts_1.ObjectSize(64, 3) };
     return Plan;
 }(capnp_ts_1.Struct));
 exports.Plan = Plan;
@@ -1479,10 +1489,14 @@ var LiveLocationData = /** @class */ (function (_super) {
     LiveLocationData.prototype.hasPoseQuatECEF = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(5, this)); };
     LiveLocationData.prototype.initPoseQuatECEF = function (length) { return capnp_ts_1.Struct.initList(5, capnp.Float32List, length, this); };
     LiveLocationData.prototype.setPoseQuatECEF = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(5, this)); };
+    LiveLocationData.prototype.getPitchCalibration = function () { return capnp_ts_1.Struct.getFloat32(60, this); };
+    LiveLocationData.prototype.setPitchCalibration = function (value) { capnp_ts_1.Struct.setFloat32(60, value, this); };
+    LiveLocationData.prototype.getYawCalibration = function () { return capnp_ts_1.Struct.getFloat32(72, this); };
+    LiveLocationData.prototype.setYawCalibration = function (value) { capnp_ts_1.Struct.setFloat32(72, value, this); };
     LiveLocationData.prototype.toString = function () { return "LiveLocationData_" + _super.prototype.toString.call(this); };
     LiveLocationData.Accuracy = LiveLocationData_Accuracy;
     LiveLocationData.SensorSource = LiveLocationData_SensorSource;
-    LiveLocationData._capnp = { displayName: "LiveLocationData", id: "b99b2bc7a57e8128", size: new capnp_ts_1.ObjectSize(72, 6) };
+    LiveLocationData._capnp = { displayName: "LiveLocationData", id: "b99b2bc7a57e8128", size: new capnp_ts_1.ObjectSize(80, 6) };
     return LiveLocationData;
 }(capnp_ts_1.Struct));
 exports.LiveLocationData = LiveLocationData;
@@ -2964,8 +2978,22 @@ var UbloxGnss_Ephemeris = /** @class */ (function (_super) {
     UbloxGnss_Ephemeris.prototype.setFitInterval = function (value) { capnp_ts_1.Struct.setFloat64(240, value, this); };
     UbloxGnss_Ephemeris.prototype.getToc = function () { return capnp_ts_1.Struct.getFloat64(248, this); };
     UbloxGnss_Ephemeris.prototype.setToc = function (value) { capnp_ts_1.Struct.setFloat64(248, value, this); };
+    UbloxGnss_Ephemeris.prototype.getIonoCoeffsValid = function () { return capnp_ts_1.Struct.getBit(2048, this); };
+    UbloxGnss_Ephemeris.prototype.setIonoCoeffsValid = function (value) { capnp_ts_1.Struct.setBit(2048, value, this); };
+    UbloxGnss_Ephemeris.prototype.adoptIonoAlpha = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    UbloxGnss_Ephemeris.prototype.disownIonoAlpha = function () { return capnp_ts_1.Struct.disown(this.getIonoAlpha()); };
+    UbloxGnss_Ephemeris.prototype.getIonoAlpha = function () { return capnp_ts_1.Struct.getList(0, capnp.Float64List, this); };
+    UbloxGnss_Ephemeris.prototype.hasIonoAlpha = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    UbloxGnss_Ephemeris.prototype.initIonoAlpha = function (length) { return capnp_ts_1.Struct.initList(0, capnp.Float64List, length, this); };
+    UbloxGnss_Ephemeris.prototype.setIonoAlpha = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    UbloxGnss_Ephemeris.prototype.adoptIonoBeta = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    UbloxGnss_Ephemeris.prototype.disownIonoBeta = function () { return capnp_ts_1.Struct.disown(this.getIonoBeta()); };
+    UbloxGnss_Ephemeris.prototype.getIonoBeta = function () { return capnp_ts_1.Struct.getList(1, capnp.Float64List, this); };
+    UbloxGnss_Ephemeris.prototype.hasIonoBeta = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(1, this)); };
+    UbloxGnss_Ephemeris.prototype.initIonoBeta = function (length) { return capnp_ts_1.Struct.initList(1, capnp.Float64List, length, this); };
+    UbloxGnss_Ephemeris.prototype.setIonoBeta = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(1, this)); };
     UbloxGnss_Ephemeris.prototype.toString = function () { return "UbloxGnss_Ephemeris_" + _super.prototype.toString.call(this); };
-    UbloxGnss_Ephemeris._capnp = { displayName: "Ephemeris", id: "d8418c788118f85c", size: new capnp_ts_1.ObjectSize(256, 0) };
+    UbloxGnss_Ephemeris._capnp = { displayName: "Ephemeris", id: "d8418c788118f85c", size: new capnp_ts_1.ObjectSize(264, 2) };
     return UbloxGnss_Ephemeris;
 }(capnp_ts_1.Struct));
 exports.UbloxGnss_Ephemeris = UbloxGnss_Ephemeris;
@@ -3134,8 +3162,10 @@ var LiveMpcData = /** @class */ (function (_super) {
     LiveMpcData.prototype.setQpIterations = function (value) { capnp_ts_1.Struct.setUint32(0, value, this); };
     LiveMpcData.prototype.getCalculationTime = function () { return capnp_ts_1.Struct.getUint64(8, this); };
     LiveMpcData.prototype.setCalculationTime = function (value) { capnp_ts_1.Struct.setUint64(8, value, this); };
+    LiveMpcData.prototype.getCost = function () { return capnp_ts_1.Struct.getFloat64(16, this); };
+    LiveMpcData.prototype.setCost = function (value) { capnp_ts_1.Struct.setFloat64(16, value, this); };
     LiveMpcData.prototype.toString = function () { return "LiveMpcData_" + _super.prototype.toString.call(this); };
-    LiveMpcData._capnp = { displayName: "LiveMpcData", id: "92a5e332a85f32a0", size: new capnp_ts_1.ObjectSize(16, 4) };
+    LiveMpcData._capnp = { displayName: "LiveMpcData", id: "92a5e332a85f32a0", size: new capnp_ts_1.ObjectSize(24, 4) };
     return LiveMpcData;
 }(capnp_ts_1.Struct));
 exports.LiveMpcData = LiveMpcData;
@@ -3188,24 +3218,42 @@ var LiveLongitudinalMpcData = /** @class */ (function (_super) {
     LiveLongitudinalMpcData.prototype.setMpcId = function (value) { capnp_ts_1.Struct.setUint32(8, value, this); };
     LiveLongitudinalMpcData.prototype.getCalculationTime = function () { return capnp_ts_1.Struct.getUint64(16, this); };
     LiveLongitudinalMpcData.prototype.setCalculationTime = function (value) { capnp_ts_1.Struct.setUint64(16, value, this); };
+    LiveLongitudinalMpcData.prototype.getCost = function () { return capnp_ts_1.Struct.getFloat64(24, this); };
+    LiveLongitudinalMpcData.prototype.setCost = function (value) { capnp_ts_1.Struct.setFloat64(24, value, this); };
     LiveLongitudinalMpcData.prototype.toString = function () { return "LiveLongitudinalMpcData_" + _super.prototype.toString.call(this); };
-    LiveLongitudinalMpcData._capnp = { displayName: "LiveLongitudinalMpcData", id: "e7e17c434f865ae2", size: new capnp_ts_1.ObjectSize(24, 6) };
+    LiveLongitudinalMpcData._capnp = { displayName: "LiveLongitudinalMpcData", id: "e7e17c434f865ae2", size: new capnp_ts_1.ObjectSize(32, 6) };
     return LiveLongitudinalMpcData;
 }(capnp_ts_1.Struct));
 exports.LiveLongitudinalMpcData = LiveLongitudinalMpcData;
+var ECEFPointDEPRECATED = /** @class */ (function (_super) {
+    __extends(ECEFPointDEPRECATED, _super);
+    function ECEFPointDEPRECATED() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ECEFPointDEPRECATED.prototype.getX = function () { return capnp_ts_1.Struct.getFloat32(0, this); };
+    ECEFPointDEPRECATED.prototype.setX = function (value) { capnp_ts_1.Struct.setFloat32(0, value, this); };
+    ECEFPointDEPRECATED.prototype.getY = function () { return capnp_ts_1.Struct.getFloat32(4, this); };
+    ECEFPointDEPRECATED.prototype.setY = function (value) { capnp_ts_1.Struct.setFloat32(4, value, this); };
+    ECEFPointDEPRECATED.prototype.getZ = function () { return capnp_ts_1.Struct.getFloat32(8, this); };
+    ECEFPointDEPRECATED.prototype.setZ = function (value) { capnp_ts_1.Struct.setFloat32(8, value, this); };
+    ECEFPointDEPRECATED.prototype.toString = function () { return "ECEFPointDEPRECATED_" + _super.prototype.toString.call(this); };
+    ECEFPointDEPRECATED._capnp = { displayName: "ECEFPointDEPRECATED", id: "e10e21168db0c7f7", size: new capnp_ts_1.ObjectSize(16, 0) };
+    return ECEFPointDEPRECATED;
+}(capnp_ts_1.Struct));
+exports.ECEFPointDEPRECATED = ECEFPointDEPRECATED;
 var ECEFPoint = /** @class */ (function (_super) {
     __extends(ECEFPoint, _super);
     function ECEFPoint() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    ECEFPoint.prototype.getX = function () { return capnp_ts_1.Struct.getFloat32(0, this); };
-    ECEFPoint.prototype.setX = function (value) { capnp_ts_1.Struct.setFloat32(0, value, this); };
-    ECEFPoint.prototype.getY = function () { return capnp_ts_1.Struct.getFloat32(4, this); };
-    ECEFPoint.prototype.setY = function (value) { capnp_ts_1.Struct.setFloat32(4, value, this); };
-    ECEFPoint.prototype.getZ = function () { return capnp_ts_1.Struct.getFloat32(8, this); };
-    ECEFPoint.prototype.setZ = function (value) { capnp_ts_1.Struct.setFloat32(8, value, this); };
+    ECEFPoint.prototype.getX = function () { return capnp_ts_1.Struct.getFloat64(0, this); };
+    ECEFPoint.prototype.setX = function (value) { capnp_ts_1.Struct.setFloat64(0, value, this); };
+    ECEFPoint.prototype.getY = function () { return capnp_ts_1.Struct.getFloat64(8, this); };
+    ECEFPoint.prototype.setY = function (value) { capnp_ts_1.Struct.setFloat64(8, value, this); };
+    ECEFPoint.prototype.getZ = function () { return capnp_ts_1.Struct.getFloat64(16, this); };
+    ECEFPoint.prototype.setZ = function (value) { capnp_ts_1.Struct.setFloat64(16, value, this); };
     ECEFPoint.prototype.toString = function () { return "ECEFPoint_" + _super.prototype.toString.call(this); };
-    ECEFPoint._capnp = { displayName: "ECEFPoint", id: "e10e21168db0c7f7", size: new capnp_ts_1.ObjectSize(16, 0) };
+    ECEFPoint._capnp = { displayName: "ECEFPoint", id: "c25bbbd524983447", size: new capnp_ts_1.ObjectSize(24, 0) };
     return ECEFPoint;
 }(capnp_ts_1.Struct));
 exports.ECEFPoint = ECEFPoint;
@@ -3214,26 +3262,40 @@ var GPSPlannerPoints = /** @class */ (function (_super) {
     function GPSPlannerPoints() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    GPSPlannerPoints.prototype.adoptCurPos = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    GPSPlannerPoints.prototype.adoptCurPosDEPRECATED = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    GPSPlannerPoints.prototype.disownCurPosDEPRECATED = function () { return capnp_ts_1.Struct.disown(this.getCurPosDEPRECATED()); };
+    GPSPlannerPoints.prototype.getCurPosDEPRECATED = function () { return capnp_ts_1.Struct.getStruct(0, ECEFPointDEPRECATED, this); };
+    GPSPlannerPoints.prototype.hasCurPosDEPRECATED = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    GPSPlannerPoints.prototype.initCurPosDEPRECATED = function () { return capnp_ts_1.Struct.initStructAt(0, ECEFPointDEPRECATED, this); };
+    GPSPlannerPoints.prototype.setCurPosDEPRECATED = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    GPSPlannerPoints.prototype.adoptPointsDEPRECATED = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    GPSPlannerPoints.prototype.disownPointsDEPRECATED = function () { return capnp_ts_1.Struct.disown(this.getPointsDEPRECATED()); };
+    GPSPlannerPoints.prototype.getPointsDEPRECATED = function () { return capnp_ts_1.Struct.getList(1, GPSPlannerPoints._PointsDEPRECATED, this); };
+    GPSPlannerPoints.prototype.hasPointsDEPRECATED = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(1, this)); };
+    GPSPlannerPoints.prototype.initPointsDEPRECATED = function (length) { return capnp_ts_1.Struct.initList(1, GPSPlannerPoints._PointsDEPRECATED, length, this); };
+    GPSPlannerPoints.prototype.setPointsDEPRECATED = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    GPSPlannerPoints.prototype.adoptCurPos = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(3, this)); };
     GPSPlannerPoints.prototype.disownCurPos = function () { return capnp_ts_1.Struct.disown(this.getCurPos()); };
-    GPSPlannerPoints.prototype.getCurPos = function () { return capnp_ts_1.Struct.getStruct(0, ECEFPoint, this); };
-    GPSPlannerPoints.prototype.hasCurPos = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
-    GPSPlannerPoints.prototype.initCurPos = function () { return capnp_ts_1.Struct.initStructAt(0, ECEFPoint, this); };
-    GPSPlannerPoints.prototype.setCurPos = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this)); };
-    GPSPlannerPoints.prototype.adoptPoints = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    GPSPlannerPoints.prototype.getCurPos = function () { return capnp_ts_1.Struct.getStruct(3, ECEFPoint, this); };
+    GPSPlannerPoints.prototype.hasCurPos = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(3, this)); };
+    GPSPlannerPoints.prototype.initCurPos = function () { return capnp_ts_1.Struct.initStructAt(3, ECEFPoint, this); };
+    GPSPlannerPoints.prototype.setCurPos = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(3, this)); };
+    GPSPlannerPoints.prototype.adoptPoints = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(4, this)); };
     GPSPlannerPoints.prototype.disownPoints = function () { return capnp_ts_1.Struct.disown(this.getPoints()); };
-    GPSPlannerPoints.prototype.getPoints = function () { return capnp_ts_1.Struct.getList(1, GPSPlannerPoints._Points, this); };
-    GPSPlannerPoints.prototype.hasPoints = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(1, this)); };
-    GPSPlannerPoints.prototype.initPoints = function (length) { return capnp_ts_1.Struct.initList(1, GPSPlannerPoints._Points, length, this); };
-    GPSPlannerPoints.prototype.setPoints = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    GPSPlannerPoints.prototype.getPoints = function () { return capnp_ts_1.Struct.getList(4, GPSPlannerPoints._Points, this); };
+    GPSPlannerPoints.prototype.hasPoints = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(4, this)); };
+    GPSPlannerPoints.prototype.initPoints = function (length) { return capnp_ts_1.Struct.initList(4, GPSPlannerPoints._Points, length, this); };
+    GPSPlannerPoints.prototype.setPoints = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(4, this)); };
     GPSPlannerPoints.prototype.getValid = function () { return capnp_ts_1.Struct.getBit(0, this); };
     GPSPlannerPoints.prototype.setValid = function (value) { capnp_ts_1.Struct.setBit(0, value, this); };
     GPSPlannerPoints.prototype.getTrackName = function () { return capnp_ts_1.Struct.getText(2, this); };
     GPSPlannerPoints.prototype.setTrackName = function (value) { capnp_ts_1.Struct.setText(2, value, this); };
-    GPSPlannerPoints.prototype.getInstructionProgress = function () { return capnp_ts_1.Struct.getFloat32(4, this); };
-    GPSPlannerPoints.prototype.setInstructionProgress = function (value) { capnp_ts_1.Struct.setFloat32(4, value, this); };
+    GPSPlannerPoints.prototype.getSpeedLimit = function () { return capnp_ts_1.Struct.getFloat32(4, this); };
+    GPSPlannerPoints.prototype.setSpeedLimit = function (value) { capnp_ts_1.Struct.setFloat32(4, value, this); };
+    GPSPlannerPoints.prototype.getAccelTarget = function () { return capnp_ts_1.Struct.getFloat32(8, this); };
+    GPSPlannerPoints.prototype.setAccelTarget = function (value) { capnp_ts_1.Struct.setFloat32(8, value, this); };
     GPSPlannerPoints.prototype.toString = function () { return "GPSPlannerPoints_" + _super.prototype.toString.call(this); };
-    GPSPlannerPoints._capnp = { displayName: "GPSPlannerPoints", id: "ab54c59699f8f9f3", size: new capnp_ts_1.ObjectSize(8, 3) };
+    GPSPlannerPoints._capnp = { displayName: "GPSPlannerPoints", id: "ab54c59699f8f9f3", size: new capnp_ts_1.ObjectSize(16, 5) };
     return GPSPlannerPoints;
 }(capnp_ts_1.Struct));
 exports.GPSPlannerPoints = GPSPlannerPoints;
@@ -3256,14 +3318,22 @@ var GPSPlannerPlan = /** @class */ (function (_super) {
     GPSPlannerPlan.prototype.setSpeed = function (value) { capnp_ts_1.Struct.setFloat32(4, value, this); };
     GPSPlannerPlan.prototype.getAcceleration = function () { return capnp_ts_1.Struct.getFloat32(8, this); };
     GPSPlannerPlan.prototype.setAcceleration = function (value) { capnp_ts_1.Struct.setFloat32(8, value, this); };
-    GPSPlannerPlan.prototype.adoptPoints = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(2, this)); };
+    GPSPlannerPlan.prototype.adoptPointsDEPRECATED = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(2, this)); };
+    GPSPlannerPlan.prototype.disownPointsDEPRECATED = function () { return capnp_ts_1.Struct.disown(this.getPointsDEPRECATED()); };
+    GPSPlannerPlan.prototype.getPointsDEPRECATED = function () { return capnp_ts_1.Struct.getList(2, GPSPlannerPlan._PointsDEPRECATED, this); };
+    GPSPlannerPlan.prototype.hasPointsDEPRECATED = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(2, this)); };
+    GPSPlannerPlan.prototype.initPointsDEPRECATED = function (length) { return capnp_ts_1.Struct.initList(2, GPSPlannerPlan._PointsDEPRECATED, length, this); };
+    GPSPlannerPlan.prototype.setPointsDEPRECATED = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(2, this)); };
+    GPSPlannerPlan.prototype.adoptPoints = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(3, this)); };
     GPSPlannerPlan.prototype.disownPoints = function () { return capnp_ts_1.Struct.disown(this.getPoints()); };
-    GPSPlannerPlan.prototype.getPoints = function () { return capnp_ts_1.Struct.getList(2, GPSPlannerPlan._Points, this); };
-    GPSPlannerPlan.prototype.hasPoints = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(2, this)); };
-    GPSPlannerPlan.prototype.initPoints = function (length) { return capnp_ts_1.Struct.initList(2, GPSPlannerPlan._Points, length, this); };
-    GPSPlannerPlan.prototype.setPoints = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(2, this)); };
+    GPSPlannerPlan.prototype.getPoints = function () { return capnp_ts_1.Struct.getList(3, GPSPlannerPlan._Points, this); };
+    GPSPlannerPlan.prototype.hasPoints = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(3, this)); };
+    GPSPlannerPlan.prototype.initPoints = function (length) { return capnp_ts_1.Struct.initList(3, GPSPlannerPlan._Points, length, this); };
+    GPSPlannerPlan.prototype.setPoints = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(3, this)); };
+    GPSPlannerPlan.prototype.getXLookahead = function () { return capnp_ts_1.Struct.getFloat32(12, this); };
+    GPSPlannerPlan.prototype.setXLookahead = function (value) { capnp_ts_1.Struct.setFloat32(12, value, this); };
     GPSPlannerPlan.prototype.toString = function () { return "GPSPlannerPlan_" + _super.prototype.toString.call(this); };
-    GPSPlannerPlan._capnp = { displayName: "GPSPlannerPlan", id: "f5ad1d90cdc1dd6b", size: new capnp_ts_1.ObjectSize(16, 3) };
+    GPSPlannerPlan._capnp = { displayName: "GPSPlannerPlan", id: "f5ad1d90cdc1dd6b", size: new capnp_ts_1.ObjectSize(16, 4) };
     return GPSPlannerPlan;
 }(capnp_ts_1.Struct));
 exports.GPSPlannerPlan = GPSPlannerPlan;
@@ -3340,30 +3410,32 @@ var OrbslamCorrection = /** @class */ (function (_super) {
     return OrbslamCorrection;
 }(capnp_ts_1.Struct));
 exports.OrbslamCorrection = OrbslamCorrection;
-var OrbslamObservation = /** @class */ (function (_super) {
-    __extends(OrbslamObservation, _super);
-    function OrbslamObservation() {
+var OrbObservation = /** @class */ (function (_super) {
+    __extends(OrbObservation, _super);
+    function OrbObservation() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    OrbslamObservation.prototype.getObservationMonoTime = function () { return capnp_ts_1.Struct.getUint64(0, this); };
-    OrbslamObservation.prototype.setObservationMonoTime = function (value) { capnp_ts_1.Struct.setUint64(0, value, this); };
-    OrbslamObservation.prototype.adoptNormalizedCoordinates = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); };
-    OrbslamObservation.prototype.disownNormalizedCoordinates = function () { return capnp_ts_1.Struct.disown(this.getNormalizedCoordinates()); };
-    OrbslamObservation.prototype.getNormalizedCoordinates = function () { return capnp_ts_1.Struct.getList(0, capnp.Float32List, this); };
-    OrbslamObservation.prototype.hasNormalizedCoordinates = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
-    OrbslamObservation.prototype.initNormalizedCoordinates = function (length) { return capnp_ts_1.Struct.initList(0, capnp.Float32List, length, this); };
-    OrbslamObservation.prototype.setNormalizedCoordinates = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this)); };
-    OrbslamObservation.prototype.adoptLocationECEF = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(1, this)); };
-    OrbslamObservation.prototype.disownLocationECEF = function () { return capnp_ts_1.Struct.disown(this.getLocationECEF()); };
-    OrbslamObservation.prototype.getLocationECEF = function () { return capnp_ts_1.Struct.getList(1, capnp.Float64List, this); };
-    OrbslamObservation.prototype.hasLocationECEF = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(1, this)); };
-    OrbslamObservation.prototype.initLocationECEF = function (length) { return capnp_ts_1.Struct.initList(1, capnp.Float64List, length, this); };
-    OrbslamObservation.prototype.setLocationECEF = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(1, this)); };
-    OrbslamObservation.prototype.toString = function () { return "OrbslamObservation_" + _super.prototype.toString.call(this); };
-    OrbslamObservation._capnp = { displayName: "OrbslamObservation", id: "e6a9dcd0282b25cc", size: new capnp_ts_1.ObjectSize(8, 2) };
-    return OrbslamObservation;
+    OrbObservation.prototype.getObservationMonoTime = function () { return capnp_ts_1.Struct.getUint64(0, this); };
+    OrbObservation.prototype.setObservationMonoTime = function (value) { capnp_ts_1.Struct.setUint64(0, value, this); };
+    OrbObservation.prototype.adoptNormalizedCoordinates = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    OrbObservation.prototype.disownNormalizedCoordinates = function () { return capnp_ts_1.Struct.disown(this.getNormalizedCoordinates()); };
+    OrbObservation.prototype.getNormalizedCoordinates = function () { return capnp_ts_1.Struct.getList(0, capnp.Float32List, this); };
+    OrbObservation.prototype.hasNormalizedCoordinates = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    OrbObservation.prototype.initNormalizedCoordinates = function (length) { return capnp_ts_1.Struct.initList(0, capnp.Float32List, length, this); };
+    OrbObservation.prototype.setNormalizedCoordinates = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    OrbObservation.prototype.adoptLocationECEF = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    OrbObservation.prototype.disownLocationECEF = function () { return capnp_ts_1.Struct.disown(this.getLocationECEF()); };
+    OrbObservation.prototype.getLocationECEF = function () { return capnp_ts_1.Struct.getList(1, capnp.Float64List, this); };
+    OrbObservation.prototype.hasLocationECEF = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(1, this)); };
+    OrbObservation.prototype.initLocationECEF = function (length) { return capnp_ts_1.Struct.initList(1, capnp.Float64List, length, this); };
+    OrbObservation.prototype.setLocationECEF = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    OrbObservation.prototype.getMatchDistance = function () { return capnp_ts_1.Struct.getUint32(8, this); };
+    OrbObservation.prototype.setMatchDistance = function (value) { capnp_ts_1.Struct.setUint32(8, value, this); };
+    OrbObservation.prototype.toString = function () { return "OrbObservation_" + _super.prototype.toString.call(this); };
+    OrbObservation._capnp = { displayName: "OrbObservation", id: "9b326d4e436afec7", size: new capnp_ts_1.ObjectSize(16, 2) };
+    return OrbObservation;
 }(capnp_ts_1.Struct));
-exports.OrbslamObservation = OrbslamObservation;
+exports.OrbObservation = OrbObservation;
 var UiNavigationEvent_Type;
 (function (UiNavigationEvent_Type) {
     UiNavigationEvent_Type[UiNavigationEvent_Type["NONE"] = 0] = "NONE";
@@ -3376,9 +3448,10 @@ var UiNavigationEvent_Type;
 })(UiNavigationEvent_Type = exports.UiNavigationEvent_Type || (exports.UiNavigationEvent_Type = {}));
 var UiNavigationEvent_Status;
 (function (UiNavigationEvent_Status) {
-    UiNavigationEvent_Status[UiNavigationEvent_Status["PASSIVE"] = 0] = "PASSIVE";
-    UiNavigationEvent_Status[UiNavigationEvent_Status["APPROACHING"] = 1] = "APPROACHING";
-    UiNavigationEvent_Status[UiNavigationEvent_Status["ACTIVE"] = 2] = "ACTIVE";
+    UiNavigationEvent_Status[UiNavigationEvent_Status["NONE"] = 0] = "NONE";
+    UiNavigationEvent_Status[UiNavigationEvent_Status["PASSIVE"] = 1] = "PASSIVE";
+    UiNavigationEvent_Status[UiNavigationEvent_Status["APPROACHING"] = 2] = "APPROACHING";
+    UiNavigationEvent_Status[UiNavigationEvent_Status["ACTIVE"] = 3] = "ACTIVE";
 })(UiNavigationEvent_Status = exports.UiNavigationEvent_Status || (exports.UiNavigationEvent_Status = {}));
 var UiNavigationEvent = /** @class */ (function (_super) {
     __extends(UiNavigationEvent, _super);
@@ -3391,19 +3464,194 @@ var UiNavigationEvent = /** @class */ (function (_super) {
     UiNavigationEvent.prototype.setStatus = function (value) { capnp_ts_1.Struct.setUint16(2, value, this); };
     UiNavigationEvent.prototype.getDistanceTo = function () { return capnp_ts_1.Struct.getFloat32(4, this); };
     UiNavigationEvent.prototype.setDistanceTo = function (value) { capnp_ts_1.Struct.setFloat32(4, value, this); };
-    UiNavigationEvent.prototype.adoptEndRoadPoint = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    UiNavigationEvent.prototype.adoptEndRoadPointDEPRECATED = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    UiNavigationEvent.prototype.disownEndRoadPointDEPRECATED = function () { return capnp_ts_1.Struct.disown(this.getEndRoadPointDEPRECATED()); };
+    UiNavigationEvent.prototype.getEndRoadPointDEPRECATED = function () { return capnp_ts_1.Struct.getStruct(0, ECEFPointDEPRECATED, this); };
+    UiNavigationEvent.prototype.hasEndRoadPointDEPRECATED = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    UiNavigationEvent.prototype.initEndRoadPointDEPRECATED = function () { return capnp_ts_1.Struct.initStructAt(0, ECEFPointDEPRECATED, this); };
+    UiNavigationEvent.prototype.setEndRoadPointDEPRECATED = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    UiNavigationEvent.prototype.adoptEndRoadPoint = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(1, this)); };
     UiNavigationEvent.prototype.disownEndRoadPoint = function () { return capnp_ts_1.Struct.disown(this.getEndRoadPoint()); };
-    UiNavigationEvent.prototype.getEndRoadPoint = function () { return capnp_ts_1.Struct.getStruct(0, ECEFPoint, this); };
-    UiNavigationEvent.prototype.hasEndRoadPoint = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
-    UiNavigationEvent.prototype.initEndRoadPoint = function () { return capnp_ts_1.Struct.initStructAt(0, ECEFPoint, this); };
-    UiNavigationEvent.prototype.setEndRoadPoint = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    UiNavigationEvent.prototype.getEndRoadPoint = function () { return capnp_ts_1.Struct.getStruct(1, ECEFPoint, this); };
+    UiNavigationEvent.prototype.hasEndRoadPoint = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(1, this)); };
+    UiNavigationEvent.prototype.initEndRoadPoint = function () { return capnp_ts_1.Struct.initStructAt(1, ECEFPoint, this); };
+    UiNavigationEvent.prototype.setEndRoadPoint = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(1, this)); };
     UiNavigationEvent.prototype.toString = function () { return "UiNavigationEvent_" + _super.prototype.toString.call(this); };
     UiNavigationEvent.Type = UiNavigationEvent_Type;
     UiNavigationEvent.Status = UiNavigationEvent_Status;
-    UiNavigationEvent._capnp = { displayName: "UiNavigationEvent", id: "90c8426c3eaddd3b", size: new capnp_ts_1.ObjectSize(8, 1) };
+    UiNavigationEvent._capnp = { displayName: "UiNavigationEvent", id: "90c8426c3eaddd3b", size: new capnp_ts_1.ObjectSize(8, 2) };
     return UiNavigationEvent;
 }(capnp_ts_1.Struct));
 exports.UiNavigationEvent = UiNavigationEvent;
+var UiLayoutState_App;
+(function (UiLayoutState_App) {
+    UiLayoutState_App[UiLayoutState_App["HOME"] = 0] = "HOME";
+    UiLayoutState_App[UiLayoutState_App["MUSIC"] = 1] = "MUSIC";
+    UiLayoutState_App[UiLayoutState_App["NAV"] = 2] = "NAV";
+})(UiLayoutState_App = exports.UiLayoutState_App || (exports.UiLayoutState_App = {}));
+var UiLayoutState = /** @class */ (function (_super) {
+    __extends(UiLayoutState, _super);
+    function UiLayoutState() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    UiLayoutState.prototype.getActiveApp = function () { return capnp_ts_1.Struct.getUint16(0, this); };
+    UiLayoutState.prototype.setActiveApp = function (value) { capnp_ts_1.Struct.setUint16(0, value, this); };
+    UiLayoutState.prototype.getSidebarCollapsed = function () { return capnp_ts_1.Struct.getBit(16, this); };
+    UiLayoutState.prototype.setSidebarCollapsed = function (value) { capnp_ts_1.Struct.setBit(16, value, this); };
+    UiLayoutState.prototype.getMapEnabled = function () { return capnp_ts_1.Struct.getBit(17, this); };
+    UiLayoutState.prototype.setMapEnabled = function (value) { capnp_ts_1.Struct.setBit(17, value, this); };
+    UiLayoutState.prototype.toString = function () { return "UiLayoutState_" + _super.prototype.toString.call(this); };
+    UiLayoutState.App = UiLayoutState_App;
+    UiLayoutState._capnp = { displayName: "UiLayoutState", id: "88dcce08ad29dda0", size: new capnp_ts_1.ObjectSize(8, 0) };
+    return UiLayoutState;
+}(capnp_ts_1.Struct));
+exports.UiLayoutState = UiLayoutState;
+var Joystick = /** @class */ (function (_super) {
+    __extends(Joystick, _super);
+    function Joystick() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Joystick.prototype.adoptAxes = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    Joystick.prototype.disownAxes = function () { return capnp_ts_1.Struct.disown(this.getAxes()); };
+    Joystick.prototype.getAxes = function () { return capnp_ts_1.Struct.getList(0, capnp.Float32List, this); };
+    Joystick.prototype.hasAxes = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    Joystick.prototype.initAxes = function (length) { return capnp_ts_1.Struct.initList(0, capnp.Float32List, length, this); };
+    Joystick.prototype.setAxes = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    Joystick.prototype.adoptButtons = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    Joystick.prototype.disownButtons = function () { return capnp_ts_1.Struct.disown(this.getButtons()); };
+    Joystick.prototype.getButtons = function () { return capnp_ts_1.Struct.getList(1, capnp.BoolList, this); };
+    Joystick.prototype.hasButtons = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(1, this)); };
+    Joystick.prototype.initButtons = function (length) { return capnp_ts_1.Struct.initList(1, capnp.BoolList, length, this); };
+    Joystick.prototype.setButtons = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    Joystick.prototype.toString = function () { return "Joystick_" + _super.prototype.toString.call(this); };
+    Joystick._capnp = { displayName: "Joystick", id: "e42401658e2715e2", size: new capnp_ts_1.ObjectSize(0, 2) };
+    return Joystick;
+}(capnp_ts_1.Struct));
+exports.Joystick = Joystick;
+var OrbOdometry = /** @class */ (function (_super) {
+    __extends(OrbOdometry, _super);
+    function OrbOdometry() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    OrbOdometry.prototype.getStartMonoTime = function () { return capnp_ts_1.Struct.getUint64(0, this); };
+    OrbOdometry.prototype.setStartMonoTime = function (value) { capnp_ts_1.Struct.setUint64(0, value, this); };
+    OrbOdometry.prototype.getEndMonoTime = function () { return capnp_ts_1.Struct.getUint64(8, this); };
+    OrbOdometry.prototype.setEndMonoTime = function (value) { capnp_ts_1.Struct.setUint64(8, value, this); };
+    OrbOdometry.prototype.adoptF = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    OrbOdometry.prototype.disownF = function () { return capnp_ts_1.Struct.disown(this.getF()); };
+    OrbOdometry.prototype.getF = function () { return capnp_ts_1.Struct.getList(0, capnp.Float64List, this); };
+    OrbOdometry.prototype.hasF = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    OrbOdometry.prototype.initF = function (length) { return capnp_ts_1.Struct.initList(0, capnp.Float64List, length, this); };
+    OrbOdometry.prototype.setF = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    OrbOdometry.prototype.getErr = function () { return capnp_ts_1.Struct.getFloat64(16, this); };
+    OrbOdometry.prototype.setErr = function (value) { capnp_ts_1.Struct.setFloat64(16, value, this); };
+    OrbOdometry.prototype.getInliers = function () { return capnp_ts_1.Struct.getInt32(24, this); };
+    OrbOdometry.prototype.setInliers = function (value) { capnp_ts_1.Struct.setInt32(24, value, this); };
+    OrbOdometry.prototype.adoptMatches = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    OrbOdometry.prototype.disownMatches = function () { return capnp_ts_1.Struct.disown(this.getMatches()); };
+    OrbOdometry.prototype.getMatches = function () { return capnp_ts_1.Struct.getList(1, capnp.Int16List, this); };
+    OrbOdometry.prototype.hasMatches = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(1, this)); };
+    OrbOdometry.prototype.initMatches = function (length) { return capnp_ts_1.Struct.initList(1, capnp.Int16List, length, this); };
+    OrbOdometry.prototype.setMatches = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    OrbOdometry.prototype.toString = function () { return "OrbOdometry_" + _super.prototype.toString.call(this); };
+    OrbOdometry._capnp = { displayName: "OrbOdometry", id: "d7700859ed1f5b76", size: new capnp_ts_1.ObjectSize(32, 2) };
+    return OrbOdometry;
+}(capnp_ts_1.Struct));
+exports.OrbOdometry = OrbOdometry;
+var OrbFeatures = /** @class */ (function (_super) {
+    __extends(OrbFeatures, _super);
+    function OrbFeatures() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    OrbFeatures.prototype.getTimestampEof = function () { return capnp_ts_1.Struct.getUint64(0, this); };
+    OrbFeatures.prototype.setTimestampEof = function (value) { capnp_ts_1.Struct.setUint64(0, value, this); };
+    OrbFeatures.prototype.adoptXs = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    OrbFeatures.prototype.disownXs = function () { return capnp_ts_1.Struct.disown(this.getXs()); };
+    OrbFeatures.prototype.getXs = function () { return capnp_ts_1.Struct.getList(0, capnp.Float32List, this); };
+    OrbFeatures.prototype.hasXs = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    OrbFeatures.prototype.initXs = function (length) { return capnp_ts_1.Struct.initList(0, capnp.Float32List, length, this); };
+    OrbFeatures.prototype.setXs = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    OrbFeatures.prototype.adoptYs = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    OrbFeatures.prototype.disownYs = function () { return capnp_ts_1.Struct.disown(this.getYs()); };
+    OrbFeatures.prototype.getYs = function () { return capnp_ts_1.Struct.getList(1, capnp.Float32List, this); };
+    OrbFeatures.prototype.hasYs = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(1, this)); };
+    OrbFeatures.prototype.initYs = function (length) { return capnp_ts_1.Struct.initList(1, capnp.Float32List, length, this); };
+    OrbFeatures.prototype.setYs = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    OrbFeatures.prototype.adoptDescriptors = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(2, this)); };
+    OrbFeatures.prototype.disownDescriptors = function () { return capnp_ts_1.Struct.disown(this.getDescriptors()); };
+    OrbFeatures.prototype.getDescriptors = function () { return capnp_ts_1.Struct.getData(2, this); };
+    OrbFeatures.prototype.hasDescriptors = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(2, this)); };
+    OrbFeatures.prototype.initDescriptors = function (length) { return capnp_ts_1.Struct.initData(2, length, this); };
+    OrbFeatures.prototype.setDescriptors = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(2, this)); };
+    OrbFeatures.prototype.adoptOctaves = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(3, this)); };
+    OrbFeatures.prototype.disownOctaves = function () { return capnp_ts_1.Struct.disown(this.getOctaves()); };
+    OrbFeatures.prototype.getOctaves = function () { return capnp_ts_1.Struct.getList(3, capnp.Int8List, this); };
+    OrbFeatures.prototype.hasOctaves = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(3, this)); };
+    OrbFeatures.prototype.initOctaves = function (length) { return capnp_ts_1.Struct.initList(3, capnp.Int8List, length, this); };
+    OrbFeatures.prototype.setOctaves = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(3, this)); };
+    OrbFeatures.prototype.getTimestampLastEof = function () { return capnp_ts_1.Struct.getUint64(8, this); };
+    OrbFeatures.prototype.setTimestampLastEof = function (value) { capnp_ts_1.Struct.setUint64(8, value, this); };
+    OrbFeatures.prototype.adoptMatches = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(4, this)); };
+    OrbFeatures.prototype.disownMatches = function () { return capnp_ts_1.Struct.disown(this.getMatches()); };
+    OrbFeatures.prototype.getMatches = function () { return capnp_ts_1.Struct.getList(4, capnp.Int16List, this); };
+    OrbFeatures.prototype.hasMatches = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(4, this)); };
+    OrbFeatures.prototype.initMatches = function (length) { return capnp_ts_1.Struct.initList(4, capnp.Int16List, length, this); };
+    OrbFeatures.prototype.setMatches = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(4, this)); };
+    OrbFeatures.prototype.toString = function () { return "OrbFeatures_" + _super.prototype.toString.call(this); };
+    OrbFeatures._capnp = { displayName: "OrbFeatures", id: "cd60164a8a0159ef", size: new capnp_ts_1.ObjectSize(16, 5) };
+    return OrbFeatures;
+}(capnp_ts_1.Struct));
+exports.OrbFeatures = OrbFeatures;
+var OrbFeaturesSummary = /** @class */ (function (_super) {
+    __extends(OrbFeaturesSummary, _super);
+    function OrbFeaturesSummary() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    OrbFeaturesSummary.prototype.getTimestampEof = function () { return capnp_ts_1.Struct.getUint64(0, this); };
+    OrbFeaturesSummary.prototype.setTimestampEof = function (value) { capnp_ts_1.Struct.setUint64(0, value, this); };
+    OrbFeaturesSummary.prototype.getTimestampLastEof = function () { return capnp_ts_1.Struct.getUint64(8, this); };
+    OrbFeaturesSummary.prototype.setTimestampLastEof = function (value) { capnp_ts_1.Struct.setUint64(8, value, this); };
+    OrbFeaturesSummary.prototype.getFeatureCount = function () { return capnp_ts_1.Struct.getUint16(16, this); };
+    OrbFeaturesSummary.prototype.setFeatureCount = function (value) { capnp_ts_1.Struct.setUint16(16, value, this); };
+    OrbFeaturesSummary.prototype.getMatchCount = function () { return capnp_ts_1.Struct.getUint16(18, this); };
+    OrbFeaturesSummary.prototype.setMatchCount = function (value) { capnp_ts_1.Struct.setUint16(18, value, this); };
+    OrbFeaturesSummary.prototype.getComputeNs = function () { return capnp_ts_1.Struct.getUint64(24, this); };
+    OrbFeaturesSummary.prototype.setComputeNs = function (value) { capnp_ts_1.Struct.setUint64(24, value, this); };
+    OrbFeaturesSummary.prototype.toString = function () { return "OrbFeaturesSummary_" + _super.prototype.toString.call(this); };
+    OrbFeaturesSummary._capnp = { displayName: "OrbFeaturesSummary", id: "d500d30c5803fa4f", size: new capnp_ts_1.ObjectSize(32, 0) };
+    return OrbFeaturesSummary;
+}(capnp_ts_1.Struct));
+exports.OrbFeaturesSummary = OrbFeaturesSummary;
+var OrbKeyFrame = /** @class */ (function (_super) {
+    __extends(OrbKeyFrame, _super);
+    function OrbKeyFrame() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    OrbKeyFrame.prototype.getId = function () { return capnp_ts_1.Struct.getUint64(0, this); };
+    OrbKeyFrame.prototype.setId = function (value) { capnp_ts_1.Struct.setUint64(0, value, this); };
+    OrbKeyFrame.prototype.adoptPos = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    OrbKeyFrame.prototype.disownPos = function () { return capnp_ts_1.Struct.disown(this.getPos()); };
+    OrbKeyFrame.prototype.getPos = function () { return capnp_ts_1.Struct.getStruct(0, ECEFPoint, this); };
+    OrbKeyFrame.prototype.hasPos = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    OrbKeyFrame.prototype.initPos = function () { return capnp_ts_1.Struct.initStructAt(0, ECEFPoint, this); };
+    OrbKeyFrame.prototype.setPos = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    OrbKeyFrame.prototype.adoptDpos = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    OrbKeyFrame.prototype.disownDpos = function () { return capnp_ts_1.Struct.disown(this.getDpos()); };
+    OrbKeyFrame.prototype.getDpos = function () { return capnp_ts_1.Struct.getList(1, OrbKeyFrame._Dpos, this); };
+    OrbKeyFrame.prototype.hasDpos = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(1, this)); };
+    OrbKeyFrame.prototype.initDpos = function (length) { return capnp_ts_1.Struct.initList(1, OrbKeyFrame._Dpos, length, this); };
+    OrbKeyFrame.prototype.setDpos = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    OrbKeyFrame.prototype.adoptDescriptors = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(2, this)); };
+    OrbKeyFrame.prototype.disownDescriptors = function () { return capnp_ts_1.Struct.disown(this.getDescriptors()); };
+    OrbKeyFrame.prototype.getDescriptors = function () { return capnp_ts_1.Struct.getData(2, this); };
+    OrbKeyFrame.prototype.hasDescriptors = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(2, this)); };
+    OrbKeyFrame.prototype.initDescriptors = function (length) { return capnp_ts_1.Struct.initData(2, length, this); };
+    OrbKeyFrame.prototype.setDescriptors = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(2, this)); };
+    OrbKeyFrame.prototype.toString = function () { return "OrbKeyFrame_" + _super.prototype.toString.call(this); };
+    OrbKeyFrame._capnp = { displayName: "OrbKeyFrame", id: "c8233c0345e27e24", size: new capnp_ts_1.ObjectSize(8, 3) };
+    return OrbKeyFrame;
+}(capnp_ts_1.Struct));
+exports.OrbKeyFrame = OrbKeyFrame;
 var Event_Which;
 (function (Event_Which) {
     Event_Which[Event_Which["INIT_DATA"] = 0] = "INIT_DATA";
@@ -3450,12 +3698,20 @@ var Event_Which;
     Event_Which[Event_Which["APPLANIX_RAW"] = 41] = "APPLANIX_RAW";
     Event_Which[Event_Which["TRAFFIC_EVENTS"] = 42] = "TRAFFIC_EVENTS";
     Event_Which[Event_Which["LIVE_LOCATION_TIMING"] = 43] = "LIVE_LOCATION_TIMING";
-    Event_Which[Event_Which["ORBSLAM_CORRECTION"] = 44] = "ORBSLAM_CORRECTION";
+    Event_Which[Event_Which["ORBSLAM_CORRECTION_DEPRECATED"] = 44] = "ORBSLAM_CORRECTION_DEPRECATED";
     Event_Which[Event_Which["LIVE_LOCATION_CORRECTED"] = 45] = "LIVE_LOCATION_CORRECTED";
-    Event_Which[Event_Which["ORBSLAM_OBSERVATION"] = 46] = "ORBSLAM_OBSERVATION";
+    Event_Which[Event_Which["ORB_OBSERVATION"] = 46] = "ORB_OBSERVATION";
     Event_Which[Event_Which["GPS_LOCATION_EXTERNAL"] = 47] = "GPS_LOCATION_EXTERNAL";
     Event_Which[Event_Which["LOCATION"] = 48] = "LOCATION";
     Event_Which[Event_Which["UI_NAVIGATION_EVENT"] = 49] = "UI_NAVIGATION_EVENT";
+    Event_Which[Event_Which["LIVE_LOCATION_KALMAN"] = 50] = "LIVE_LOCATION_KALMAN";
+    Event_Which[Event_Which["TEST_JOYSTICK"] = 51] = "TEST_JOYSTICK";
+    Event_Which[Event_Which["ORB_ODOMETRY"] = 52] = "ORB_ODOMETRY";
+    Event_Which[Event_Which["ORB_FEATURES"] = 53] = "ORB_FEATURES";
+    Event_Which[Event_Which["APPLANIX_LOCATION"] = 54] = "APPLANIX_LOCATION";
+    Event_Which[Event_Which["ORB_KEY_FRAME"] = 55] = "ORB_KEY_FRAME";
+    Event_Which[Event_Which["UI_LAYOUT_STATE"] = 56] = "UI_LAYOUT_STATE";
+    Event_Which[Event_Which["ORB_FEATURES_SUMMARY"] = 57] = "ORB_FEATURES_SUMMARY";
 })(Event_Which = exports.Event_Which || (exports.Event_Which = {}));
 var Event = /** @class */ (function (_super) {
     __extends(Event, _super);
@@ -4290,22 +4546,22 @@ var Event = /** @class */ (function (_super) {
         capnp_ts_1.Struct.setUint16(8, 43, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     };
-    Event.prototype.adoptOrbslamCorrection = function (value) {
+    Event.prototype.adoptOrbslamCorrectionDEPRECATED = function (value) {
         capnp_ts_1.Struct.setUint16(8, 44, this);
         capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
     };
-    Event.prototype.disownOrbslamCorrection = function () { return capnp_ts_1.Struct.disown(this.getOrbslamCorrection()); };
-    Event.prototype.getOrbslamCorrection = function () {
-        capnp_ts_1.Struct.testWhich("orbslamCorrection", capnp_ts_1.Struct.getUint16(8, this), 44, this);
+    Event.prototype.disownOrbslamCorrectionDEPRECATED = function () { return capnp_ts_1.Struct.disown(this.getOrbslamCorrectionDEPRECATED()); };
+    Event.prototype.getOrbslamCorrectionDEPRECATED = function () {
+        capnp_ts_1.Struct.testWhich("orbslamCorrectionDEPRECATED", capnp_ts_1.Struct.getUint16(8, this), 44, this);
         return capnp_ts_1.Struct.getStruct(0, OrbslamCorrection, this);
     };
-    Event.prototype.hasOrbslamCorrection = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
-    Event.prototype.initOrbslamCorrection = function () {
+    Event.prototype.hasOrbslamCorrectionDEPRECATED = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    Event.prototype.initOrbslamCorrectionDEPRECATED = function () {
         capnp_ts_1.Struct.setUint16(8, 44, this);
         return capnp_ts_1.Struct.initStructAt(0, OrbslamCorrection, this);
     };
-    Event.prototype.isOrbslamCorrection = function () { return capnp_ts_1.Struct.getUint16(8, this) === 44; };
-    Event.prototype.setOrbslamCorrection = function (value) {
+    Event.prototype.isOrbslamCorrectionDEPRECATED = function () { return capnp_ts_1.Struct.getUint16(8, this) === 44; };
+    Event.prototype.setOrbslamCorrectionDEPRECATED = function (value) {
         capnp_ts_1.Struct.setUint16(8, 44, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     };
@@ -4328,22 +4584,22 @@ var Event = /** @class */ (function (_super) {
         capnp_ts_1.Struct.setUint16(8, 45, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     };
-    Event.prototype.adoptOrbslamObservation = function (value) {
+    Event.prototype.adoptOrbObservation = function (value) {
         capnp_ts_1.Struct.setUint16(8, 46, this);
         capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
     };
-    Event.prototype.disownOrbslamObservation = function () { return capnp_ts_1.Struct.disown(this.getOrbslamObservation()); };
-    Event.prototype.getOrbslamObservation = function () {
-        capnp_ts_1.Struct.testWhich("orbslamObservation", capnp_ts_1.Struct.getUint16(8, this), 46, this);
-        return capnp_ts_1.Struct.getList(0, Event._OrbslamObservation, this);
+    Event.prototype.disownOrbObservation = function () { return capnp_ts_1.Struct.disown(this.getOrbObservation()); };
+    Event.prototype.getOrbObservation = function () {
+        capnp_ts_1.Struct.testWhich("orbObservation", capnp_ts_1.Struct.getUint16(8, this), 46, this);
+        return capnp_ts_1.Struct.getList(0, Event._OrbObservation, this);
     };
-    Event.prototype.hasOrbslamObservation = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
-    Event.prototype.initOrbslamObservation = function (length) {
+    Event.prototype.hasOrbObservation = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    Event.prototype.initOrbObservation = function (length) {
         capnp_ts_1.Struct.setUint16(8, 46, this);
-        return capnp_ts_1.Struct.initList(0, Event._OrbslamObservation, length, this);
+        return capnp_ts_1.Struct.initList(0, Event._OrbObservation, length, this);
     };
-    Event.prototype.isOrbslamObservation = function () { return capnp_ts_1.Struct.getUint16(8, this) === 46; };
-    Event.prototype.setOrbslamObservation = function (value) {
+    Event.prototype.isOrbObservation = function () { return capnp_ts_1.Struct.getUint16(8, this) === 46; };
+    Event.prototype.setOrbObservation = function (value) {
         capnp_ts_1.Struct.setUint16(8, 46, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     };
@@ -4404,6 +4660,158 @@ var Event = /** @class */ (function (_super) {
         capnp_ts_1.Struct.setUint16(8, 49, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     };
+    Event.prototype.adoptLiveLocationKalman = function (value) {
+        capnp_ts_1.Struct.setUint16(8, 50, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    };
+    Event.prototype.disownLiveLocationKalman = function () { return capnp_ts_1.Struct.disown(this.getLiveLocationKalman()); };
+    Event.prototype.getLiveLocationKalman = function () {
+        capnp_ts_1.Struct.testWhich("liveLocationKalman", capnp_ts_1.Struct.getUint16(8, this), 50, this);
+        return capnp_ts_1.Struct.getStruct(0, LiveLocationData, this);
+    };
+    Event.prototype.hasLiveLocationKalman = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    Event.prototype.initLiveLocationKalman = function () {
+        capnp_ts_1.Struct.setUint16(8, 50, this);
+        return capnp_ts_1.Struct.initStructAt(0, LiveLocationData, this);
+    };
+    Event.prototype.isLiveLocationKalman = function () { return capnp_ts_1.Struct.getUint16(8, this) === 50; };
+    Event.prototype.setLiveLocationKalman = function (value) {
+        capnp_ts_1.Struct.setUint16(8, 50, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    };
+    Event.prototype.adoptTestJoystick = function (value) {
+        capnp_ts_1.Struct.setUint16(8, 51, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    };
+    Event.prototype.disownTestJoystick = function () { return capnp_ts_1.Struct.disown(this.getTestJoystick()); };
+    Event.prototype.getTestJoystick = function () {
+        capnp_ts_1.Struct.testWhich("testJoystick", capnp_ts_1.Struct.getUint16(8, this), 51, this);
+        return capnp_ts_1.Struct.getStruct(0, Joystick, this);
+    };
+    Event.prototype.hasTestJoystick = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    Event.prototype.initTestJoystick = function () {
+        capnp_ts_1.Struct.setUint16(8, 51, this);
+        return capnp_ts_1.Struct.initStructAt(0, Joystick, this);
+    };
+    Event.prototype.isTestJoystick = function () { return capnp_ts_1.Struct.getUint16(8, this) === 51; };
+    Event.prototype.setTestJoystick = function (value) {
+        capnp_ts_1.Struct.setUint16(8, 51, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    };
+    Event.prototype.adoptOrbOdometry = function (value) {
+        capnp_ts_1.Struct.setUint16(8, 52, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    };
+    Event.prototype.disownOrbOdometry = function () { return capnp_ts_1.Struct.disown(this.getOrbOdometry()); };
+    Event.prototype.getOrbOdometry = function () {
+        capnp_ts_1.Struct.testWhich("orbOdometry", capnp_ts_1.Struct.getUint16(8, this), 52, this);
+        return capnp_ts_1.Struct.getStruct(0, OrbOdometry, this);
+    };
+    Event.prototype.hasOrbOdometry = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    Event.prototype.initOrbOdometry = function () {
+        capnp_ts_1.Struct.setUint16(8, 52, this);
+        return capnp_ts_1.Struct.initStructAt(0, OrbOdometry, this);
+    };
+    Event.prototype.isOrbOdometry = function () { return capnp_ts_1.Struct.getUint16(8, this) === 52; };
+    Event.prototype.setOrbOdometry = function (value) {
+        capnp_ts_1.Struct.setUint16(8, 52, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    };
+    Event.prototype.adoptOrbFeatures = function (value) {
+        capnp_ts_1.Struct.setUint16(8, 53, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    };
+    Event.prototype.disownOrbFeatures = function () { return capnp_ts_1.Struct.disown(this.getOrbFeatures()); };
+    Event.prototype.getOrbFeatures = function () {
+        capnp_ts_1.Struct.testWhich("orbFeatures", capnp_ts_1.Struct.getUint16(8, this), 53, this);
+        return capnp_ts_1.Struct.getStruct(0, OrbFeatures, this);
+    };
+    Event.prototype.hasOrbFeatures = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    Event.prototype.initOrbFeatures = function () {
+        capnp_ts_1.Struct.setUint16(8, 53, this);
+        return capnp_ts_1.Struct.initStructAt(0, OrbFeatures, this);
+    };
+    Event.prototype.isOrbFeatures = function () { return capnp_ts_1.Struct.getUint16(8, this) === 53; };
+    Event.prototype.setOrbFeatures = function (value) {
+        capnp_ts_1.Struct.setUint16(8, 53, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    };
+    Event.prototype.adoptApplanixLocation = function (value) {
+        capnp_ts_1.Struct.setUint16(8, 54, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    };
+    Event.prototype.disownApplanixLocation = function () { return capnp_ts_1.Struct.disown(this.getApplanixLocation()); };
+    Event.prototype.getApplanixLocation = function () {
+        capnp_ts_1.Struct.testWhich("applanixLocation", capnp_ts_1.Struct.getUint16(8, this), 54, this);
+        return capnp_ts_1.Struct.getStruct(0, LiveLocationData, this);
+    };
+    Event.prototype.hasApplanixLocation = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    Event.prototype.initApplanixLocation = function () {
+        capnp_ts_1.Struct.setUint16(8, 54, this);
+        return capnp_ts_1.Struct.initStructAt(0, LiveLocationData, this);
+    };
+    Event.prototype.isApplanixLocation = function () { return capnp_ts_1.Struct.getUint16(8, this) === 54; };
+    Event.prototype.setApplanixLocation = function (value) {
+        capnp_ts_1.Struct.setUint16(8, 54, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    };
+    Event.prototype.adoptOrbKeyFrame = function (value) {
+        capnp_ts_1.Struct.setUint16(8, 55, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    };
+    Event.prototype.disownOrbKeyFrame = function () { return capnp_ts_1.Struct.disown(this.getOrbKeyFrame()); };
+    Event.prototype.getOrbKeyFrame = function () {
+        capnp_ts_1.Struct.testWhich("orbKeyFrame", capnp_ts_1.Struct.getUint16(8, this), 55, this);
+        return capnp_ts_1.Struct.getStruct(0, OrbKeyFrame, this);
+    };
+    Event.prototype.hasOrbKeyFrame = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    Event.prototype.initOrbKeyFrame = function () {
+        capnp_ts_1.Struct.setUint16(8, 55, this);
+        return capnp_ts_1.Struct.initStructAt(0, OrbKeyFrame, this);
+    };
+    Event.prototype.isOrbKeyFrame = function () { return capnp_ts_1.Struct.getUint16(8, this) === 55; };
+    Event.prototype.setOrbKeyFrame = function (value) {
+        capnp_ts_1.Struct.setUint16(8, 55, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    };
+    Event.prototype.adoptUiLayoutState = function (value) {
+        capnp_ts_1.Struct.setUint16(8, 56, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    };
+    Event.prototype.disownUiLayoutState = function () { return capnp_ts_1.Struct.disown(this.getUiLayoutState()); };
+    Event.prototype.getUiLayoutState = function () {
+        capnp_ts_1.Struct.testWhich("uiLayoutState", capnp_ts_1.Struct.getUint16(8, this), 56, this);
+        return capnp_ts_1.Struct.getStruct(0, UiLayoutState, this);
+    };
+    Event.prototype.hasUiLayoutState = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    Event.prototype.initUiLayoutState = function () {
+        capnp_ts_1.Struct.setUint16(8, 56, this);
+        return capnp_ts_1.Struct.initStructAt(0, UiLayoutState, this);
+    };
+    Event.prototype.isUiLayoutState = function () { return capnp_ts_1.Struct.getUint16(8, this) === 56; };
+    Event.prototype.setUiLayoutState = function (value) {
+        capnp_ts_1.Struct.setUint16(8, 56, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    };
+    Event.prototype.adoptOrbFeaturesSummary = function (value) {
+        capnp_ts_1.Struct.setUint16(8, 57, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    };
+    Event.prototype.disownOrbFeaturesSummary = function () { return capnp_ts_1.Struct.disown(this.getOrbFeaturesSummary()); };
+    Event.prototype.getOrbFeaturesSummary = function () {
+        capnp_ts_1.Struct.testWhich("orbFeaturesSummary", capnp_ts_1.Struct.getUint16(8, this), 57, this);
+        return capnp_ts_1.Struct.getStruct(0, OrbFeaturesSummary, this);
+    };
+    Event.prototype.hasOrbFeaturesSummary = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    Event.prototype.initOrbFeaturesSummary = function () {
+        capnp_ts_1.Struct.setUint16(8, 57, this);
+        return capnp_ts_1.Struct.initStructAt(0, OrbFeaturesSummary, this);
+    };
+    Event.prototype.isOrbFeaturesSummary = function () { return capnp_ts_1.Struct.getUint16(8, this) === 57; };
+    Event.prototype.setOrbFeaturesSummary = function (value) {
+        capnp_ts_1.Struct.setUint16(8, 57, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    };
     Event.prototype.toString = function () { return "Event_" + _super.prototype.toString.call(this); };
     Event.prototype.which = function () { return capnp_ts_1.Struct.getUint16(8, this); };
     Event.INIT_DATA = Event_Which.INIT_DATA;
@@ -4450,12 +4858,20 @@ var Event = /** @class */ (function (_super) {
     Event.APPLANIX_RAW = Event_Which.APPLANIX_RAW;
     Event.TRAFFIC_EVENTS = Event_Which.TRAFFIC_EVENTS;
     Event.LIVE_LOCATION_TIMING = Event_Which.LIVE_LOCATION_TIMING;
-    Event.ORBSLAM_CORRECTION = Event_Which.ORBSLAM_CORRECTION;
+    Event.ORBSLAM_CORRECTION_DEPRECATED = Event_Which.ORBSLAM_CORRECTION_DEPRECATED;
     Event.LIVE_LOCATION_CORRECTED = Event_Which.LIVE_LOCATION_CORRECTED;
-    Event.ORBSLAM_OBSERVATION = Event_Which.ORBSLAM_OBSERVATION;
+    Event.ORB_OBSERVATION = Event_Which.ORB_OBSERVATION;
     Event.GPS_LOCATION_EXTERNAL = Event_Which.GPS_LOCATION_EXTERNAL;
     Event.LOCATION = Event_Which.LOCATION;
     Event.UI_NAVIGATION_EVENT = Event_Which.UI_NAVIGATION_EVENT;
+    Event.LIVE_LOCATION_KALMAN = Event_Which.LIVE_LOCATION_KALMAN;
+    Event.TEST_JOYSTICK = Event_Which.TEST_JOYSTICK;
+    Event.ORB_ODOMETRY = Event_Which.ORB_ODOMETRY;
+    Event.ORB_FEATURES = Event_Which.ORB_FEATURES;
+    Event.APPLANIX_LOCATION = Event_Which.APPLANIX_LOCATION;
+    Event.ORB_KEY_FRAME = Event_Which.ORB_KEY_FRAME;
+    Event.UI_LAYOUT_STATE = Event_Which.UI_LAYOUT_STATE;
+    Event.ORB_FEATURES_SUMMARY = Event_Which.ORB_FEATURES_SUMMARY;
     Event._capnp = { displayName: "Event", id: "d314cfd957229c11", size: new capnp_ts_1.ObjectSize(16, 1) };
     return Event;
 }(capnp_ts_1.Struct));
@@ -4471,8 +4887,11 @@ QcomGnss_DrMeasurementReport._Sv = capnp.CompositeList(QcomGnss_DrMeasurementRep
 ProcLog._CpuTimes = capnp.CompositeList(ProcLog_CPUTimes);
 ProcLog._Procs = capnp.CompositeList(ProcLog_Process);
 UbloxGnss_MeasurementReport._Measurements = capnp.CompositeList(UbloxGnss_MeasurementReport_Measurement);
+GPSPlannerPoints._PointsDEPRECATED = capnp.CompositeList(ECEFPointDEPRECATED);
 GPSPlannerPoints._Points = capnp.CompositeList(ECEFPoint);
+GPSPlannerPlan._PointsDEPRECATED = capnp.CompositeList(ECEFPointDEPRECATED);
 GPSPlannerPlan._Points = capnp.CompositeList(ECEFPoint);
+OrbKeyFrame._Dpos = capnp.CompositeList(ECEFPoint);
 Event._Can = capnp.CompositeList(CanData);
 Event._LiveEventDEPRECATED = capnp.CompositeList(LiveEventData);
 Event._SensorEvents = capnp.CompositeList(SensorEventData);
@@ -4482,4 +4901,4 @@ Event._EthernetData = capnp.CompositeList(EthernetPacket);
 Event._CellInfo = capnp.CompositeList(CellInfo);
 Event._WifiScan = capnp.CompositeList(WifiScan);
 Event._TrafficEvents = capnp.CompositeList(TrafficEvent);
-Event._OrbslamObservation = capnp.CompositeList(OrbslamObservation);
+Event._OrbObservation = capnp.CompositeList(OrbObservation);
