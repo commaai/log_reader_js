@@ -1,9 +1,8 @@
 const ReaderStream = require('./reader');
 const StreamSelector = require('stream-selector');
 const fileType = require('file-type');
-const lz4 = require('lz4');
 const zlib = require('zlib');
-const bz2 = require('unbzip2-stream');
+const bz2 = require('@commaai/unbzip2-stream');
 const PassThrough = require('stream').PassThrough;
 
 module.exports = DecompressStream;
@@ -28,7 +27,8 @@ function DecompressStream (inputStream, options) {
     }
     switch (type.ext) {
       case '7z':
-        return lz4.createDecoderStream();
+        // return lz4.createDecoderStream();
+        throw new Error('No streaming 7z decompressor yet');
       case 'bz2':
         return new bz2();
       case 'gz':
