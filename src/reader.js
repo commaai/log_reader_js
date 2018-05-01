@@ -10,6 +10,8 @@ function streamReader (inputStream, options) {
   const capnpStream = new CapnpStream();
   const isBinary = !!options.binary;
 
+  var isStarted = false;
+
   capnpStream.on('message', function (buf) {
     if (!isBinary) {
       event.broadcast((new EventWrapper(buf)).toJSON());
@@ -17,7 +19,15 @@ function streamReader (inputStream, options) {
       event.broadcast(buf);
     }
   });
-  inputStream.pipe(capnpStream);
 
-  return event.listen;
+  return pipeAndListen;
+
+  function pipeAndListen (fn) {
+    if (!isStarted) {
+      isStarted = true;
+      inputStream.pipe(capnpStream);
+    }
+
+    return event.listen(fn);
+  }
 }

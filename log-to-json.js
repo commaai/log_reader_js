@@ -48,7 +48,6 @@ if (cli.array) {
   jsonStream = JSONStream.stringify(false);
 }
 
-sourceStream.on('end', () => jsonStream.end());
 jsonStream.pipe(destinationStream);
 
 var reader = Reader(sourceStream, {
