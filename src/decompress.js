@@ -14,9 +14,9 @@ function DecompressStream (inputStream, options) {
     selector: selector
   });
 
-  selectorStream.on('error', (err) => { throw err });
+  selectorStream.on('error', (err) => { throw err; });
   inputStream.pipe(selectorStream);
-  
+
   return new ReaderStream(selectorStream, options);
 
   function selector (chunk) {

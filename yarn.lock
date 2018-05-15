@@ -1317,9 +1317,9 @@ standard-engine@~8.0.0:
     minimist "^1.1.0"
     pkg-conf "^2.0.0"
 
-stream-selector@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/stream-selector/-/stream-selector-0.3.0.tgz#ba2223c0fd449e3a9ea16444f52142ea79506ec4"
+stream-selector@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/stream-selector/-/stream-selector-0.4.0.tgz#9d162b1667a656d0f0199ab1e6cb775fb9072c27"
   dependencies:
     inherits "^2.0.3"
     through2 "^2.0.3"

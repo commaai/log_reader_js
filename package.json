@@ -24,6 +24,6 @@
     "commander": "^2.15.1",
     "file-type": "^7.6.0",
     "geval": "^2.2.0",
-    "stream-selector": "^0.3.0"
+    "stream-selector": "^0.4.0"
   }
 }
