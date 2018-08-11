@@ -2,7 +2,7 @@ const ReaderStream = require('./reader');
 const StreamSelector = require('stream-selector');
 const fileType = require('file-type');
 const zlib = require('zlib');
-const bz2 = require('@commaai/unbzip2-stream');
+const bz2 = require('wasm-bz2/stream');
 const PassThrough = require('stream').PassThrough;
 
 module.exports = DecompressStream;
