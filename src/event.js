@@ -2,7 +2,7 @@ const capnp = require('capnp-ts');
 const partial = require('ap').partial;
 
 const Log = require('../capnp/log.capnp');
-const toJSON = require('capnp-json');
+const toJSON = require('@commaai/capnp-json');
 
 const CapnpEvent = Log.Event;
 
