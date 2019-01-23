@@ -17,7 +17,7 @@
   "dependencies": {
     "JSONStream": "^1.3.2",
     "ap": "^0.2.0",
-    "capnp-json": "^0.1.2",
+    "@commaai/capnp-json": "^0.1.6",
     "capnp-split": "^0.1.1",
     "capnp-ts": "^0.2.4",
     "commander": "^2.15.1",
