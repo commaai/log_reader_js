@@ -2,10 +2,12 @@
 # yarn lockfile v1
 
 
-"@commaai/capnp-json@^0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@commaai/capnp-json/-/capnp-json-0.1.6.tgz#75d7fe92e5d45a041abc3c5849fd8f3fe6b6fe9a"
-  integrity sha512-bsNTzZ4uqLl1to+xHVJyZDoX6OIR/piF1luWBLUrJrAcaYPoUfL4bEHmHmCfIiIKtJF+3ty3oYtIFn7o9Rmp/Q==
+"@commaai/capnp-json@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@commaai/capnp-json/-/capnp-json-0.2.0.tgz#866bba39274b02f899803dc7968a7fe79fb02321"
+  integrity sha512-PXqEjvoLkb7VPaeMlFV7NspHAUMfTGhd6plQ72rilrjagf1os73fdItdlhk/q2XELx+l/Vq1xRSLJT1Os0DVqQ==
+  dependencies:
+    capnp-ts "0.2.4"
 
 JSONStream@^1.3.2:
   version "1.3.2"
@@ -143,9 +145,10 @@ capnp-split@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/capnp-split/-/capnp-split-0.1.1.tgz#22823becdfc6fc9a40921c119e85a1035e3e22e4"
 
-capnp-ts@^0.2.4:
+capnp-ts@0.2.4, capnp-ts@^0.2.4:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/capnp-ts/-/capnp-ts-0.2.4.tgz#da729493311f384d65d480d9afe979ceab9f41bb"
+  integrity sha512-A9+Awl2WQDhg0fpEoyDpIF7RUQp27gpYBLRGV2zKA37a0IBEutdgIKDI7pO44C9AhzxvCfR6Ooj5W14D3TKaQA==
   dependencies:
     debug "^2.6.3"
     format "^0.2.2"
