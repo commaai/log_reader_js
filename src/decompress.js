@@ -21,7 +21,6 @@ function DecompressStream (inputStream, options) {
 
   function selector (chunk) {
     var type = fileType(chunk);
-    console.log(type);
     if (!type) {
       return new PassThrough();
     }
