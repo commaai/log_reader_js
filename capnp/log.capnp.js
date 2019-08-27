@@ -774,8 +774,6 @@ var ThermalData = /** @class */ (function (_super) {
     ThermalData.prototype.setChargingError = function (value) { capnp_ts_1.Struct.setBit(194, value, this); };
     ThermalData.prototype.getChargingDisabled = function () { return capnp_ts_1.Struct.getBit(195, this); };
     ThermalData.prototype.setChargingDisabled = function (value) { capnp_ts_1.Struct.setBit(195, value, this); };
-    ThermalData.prototype.getHwType = function () { return capnp_ts_1.Struct.getUint16(44, this); };
-    ThermalData.prototype.setHwType = function (value) { capnp_ts_1.Struct.setUint16(44, value, this); };
     ThermalData.prototype.toString = function () { return "ThermalData_" + _super.prototype.toString.call(this); };
     ThermalData.ThermalStatus = ThermalData_ThermalStatus;
     ThermalData._capnp = { displayName: "ThermalData", id: "8d8231a40b7fe6e0", size: new capnp_ts_1.ObjectSize(48, 1) };
@@ -973,8 +971,14 @@ var LiveCalibrationData = /** @class */ (function (_super) {
     LiveCalibrationData.prototype.hasExtrinsicMatrix = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(1, this)); };
     LiveCalibrationData.prototype.initExtrinsicMatrix = function (length) { return capnp_ts_1.Struct.initList(1, capnp.Float32List, length, this); };
     LiveCalibrationData.prototype.setExtrinsicMatrix = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    LiveCalibrationData.prototype.adoptRpyCalib = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(4, this)); };
+    LiveCalibrationData.prototype.disownRpyCalib = function () { return capnp_ts_1.Struct.disown(this.getRpyCalib()); };
+    LiveCalibrationData.prototype.getRpyCalib = function () { return capnp_ts_1.Struct.getList(4, capnp.Float32List, this); };
+    LiveCalibrationData.prototype.hasRpyCalib = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(4, this)); };
+    LiveCalibrationData.prototype.initRpyCalib = function (length) { return capnp_ts_1.Struct.initList(4, capnp.Float32List, length, this); };
+    LiveCalibrationData.prototype.setRpyCalib = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(4, this)); };
     LiveCalibrationData.prototype.toString = function () { return "LiveCalibrationData_" + _super.prototype.toString.call(this); };
-    LiveCalibrationData._capnp = { displayName: "LiveCalibrationData", id: "96df70754d8390bc", size: new capnp_ts_1.ObjectSize(8, 4) };
+    LiveCalibrationData._capnp = { displayName: "LiveCalibrationData", id: "96df70754d8390bc", size: new capnp_ts_1.ObjectSize(8, 5) };
     return LiveCalibrationData;
 }(capnp_ts_1.Struct));
 exports.LiveCalibrationData = LiveCalibrationData;
@@ -1093,10 +1097,29 @@ var ControlsState_LateralPIDState = /** @class */ (function (_super) {
     return ControlsState_LateralPIDState;
 }(capnp_ts_1.Struct));
 exports.ControlsState_LateralPIDState = ControlsState_LateralPIDState;
+var ControlsState_LateralLQRState = /** @class */ (function (_super) {
+    __extends(ControlsState_LateralLQRState, _super);
+    function ControlsState_LateralLQRState() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ControlsState_LateralLQRState.prototype.getActive = function () { return capnp_ts_1.Struct.getBit(0, this); };
+    ControlsState_LateralLQRState.prototype.setActive = function (value) { capnp_ts_1.Struct.setBit(0, value, this); };
+    ControlsState_LateralLQRState.prototype.getSteerAngle = function () { return capnp_ts_1.Struct.getFloat32(4, this); };
+    ControlsState_LateralLQRState.prototype.setSteerAngle = function (value) { capnp_ts_1.Struct.setFloat32(4, value, this); };
+    ControlsState_LateralLQRState.prototype.getI = function () { return capnp_ts_1.Struct.getFloat32(8, this); };
+    ControlsState_LateralLQRState.prototype.setI = function (value) { capnp_ts_1.Struct.setFloat32(8, value, this); };
+    ControlsState_LateralLQRState.prototype.getOutput = function () { return capnp_ts_1.Struct.getFloat32(12, this); };
+    ControlsState_LateralLQRState.prototype.setOutput = function (value) { capnp_ts_1.Struct.setFloat32(12, value, this); };
+    ControlsState_LateralLQRState.prototype.toString = function () { return "ControlsState_LateralLQRState_" + _super.prototype.toString.call(this); };
+    ControlsState_LateralLQRState._capnp = { displayName: "LateralLQRState", id: "9024e2d790c82ade", size: new capnp_ts_1.ObjectSize(16, 0) };
+    return ControlsState_LateralLQRState;
+}(capnp_ts_1.Struct));
+exports.ControlsState_LateralLQRState = ControlsState_LateralLQRState;
 var ControlsState_LateralControlState_Which;
 (function (ControlsState_LateralControlState_Which) {
     ControlsState_LateralControlState_Which[ControlsState_LateralControlState_Which["INDI_STATE"] = 0] = "INDI_STATE";
     ControlsState_LateralControlState_Which[ControlsState_LateralControlState_Which["PID_STATE"] = 1] = "PID_STATE";
+    ControlsState_LateralControlState_Which[ControlsState_LateralControlState_Which["LQR_STATE"] = 2] = "LQR_STATE";
 })(ControlsState_LateralControlState_Which = exports.ControlsState_LateralControlState_Which || (exports.ControlsState_LateralControlState_Which = {}));
 var ControlsState_LateralControlState = /** @class */ (function (_super) {
     __extends(ControlsState_LateralControlState, _super);
@@ -1141,11 +1164,31 @@ var ControlsState_LateralControlState = /** @class */ (function (_super) {
         capnp_ts_1.Struct.setUint16(142, 1, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(5, this));
     };
+    ControlsState_LateralControlState.prototype.adoptLqrState = function (value) {
+        capnp_ts_1.Struct.setUint16(142, 2, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(5, this));
+    };
+    ControlsState_LateralControlState.prototype.disownLqrState = function () { return capnp_ts_1.Struct.disown(this.getLqrState()); };
+    ControlsState_LateralControlState.prototype.getLqrState = function () {
+        capnp_ts_1.Struct.testWhich("lqrState", capnp_ts_1.Struct.getUint16(142, this), 2, this);
+        return capnp_ts_1.Struct.getStruct(5, ControlsState_LateralLQRState, this);
+    };
+    ControlsState_LateralControlState.prototype.hasLqrState = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(5, this)); };
+    ControlsState_LateralControlState.prototype.initLqrState = function () {
+        capnp_ts_1.Struct.setUint16(142, 2, this);
+        return capnp_ts_1.Struct.initStructAt(5, ControlsState_LateralLQRState, this);
+    };
+    ControlsState_LateralControlState.prototype.isLqrState = function () { return capnp_ts_1.Struct.getUint16(142, this) === 2; };
+    ControlsState_LateralControlState.prototype.setLqrState = function (value) {
+        capnp_ts_1.Struct.setUint16(142, 2, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(5, this));
+    };
     ControlsState_LateralControlState.prototype.toString = function () { return "ControlsState_LateralControlState_" + _super.prototype.toString.call(this); };
     ControlsState_LateralControlState.prototype.which = function () { return capnp_ts_1.Struct.getUint16(142, this); };
     ControlsState_LateralControlState.INDI_STATE = ControlsState_LateralControlState_Which.INDI_STATE;
     ControlsState_LateralControlState.PID_STATE = ControlsState_LateralControlState_Which.PID_STATE;
-    ControlsState_LateralControlState._capnp = { displayName: "lateralControlState", id: "fd5b914d6b444695", size: new capnp_ts_1.ObjectSize(168, 6) };
+    ControlsState_LateralControlState.LQR_STATE = ControlsState_LateralControlState_Which.LQR_STATE;
+    ControlsState_LateralControlState._capnp = { displayName: "lateralControlState", id: "fd5b914d6b444695", size: new capnp_ts_1.ObjectSize(176, 6) };
     return ControlsState_LateralControlState;
 }(capnp_ts_1.Struct));
 exports.ControlsState_LateralControlState = ControlsState_LateralControlState;
@@ -1246,8 +1289,10 @@ var ControlsState = /** @class */ (function (_super) {
     ControlsState.prototype.setAlertBlinkingRate = function (value) { capnp_ts_1.Struct.setFloat32(144, value, this); };
     ControlsState.prototype.getAlertType = function () { return capnp_ts_1.Struct.getText(3, this); };
     ControlsState.prototype.setAlertType = function (value) { capnp_ts_1.Struct.setText(3, value, this); };
-    ControlsState.prototype.getAlertSound = function () { return capnp_ts_1.Struct.getText(4, this); };
-    ControlsState.prototype.setAlertSound = function (value) { capnp_ts_1.Struct.setText(4, value, this); };
+    ControlsState.prototype.getAlertSoundDEPRECATED = function () { return capnp_ts_1.Struct.getText(4, this); };
+    ControlsState.prototype.setAlertSoundDEPRECATED = function (value) { capnp_ts_1.Struct.setText(4, value, this); };
+    ControlsState.prototype.getAlertSound = function () { return capnp_ts_1.Struct.getUint16(168, this); };
+    ControlsState.prototype.setAlertSound = function (value) { capnp_ts_1.Struct.setUint16(168, value, this); };
     ControlsState.prototype.getAwarenessStatus = function () { return capnp_ts_1.Struct.getFloat32(96, this); };
     ControlsState.prototype.setAwarenessStatus = function (value) { capnp_ts_1.Struct.setFloat32(96, value, this); };
     ControlsState.prototype.getAngleModelBias = function () { return capnp_ts_1.Struct.getFloat32(100, this); };
@@ -1262,6 +1307,8 @@ var ControlsState = /** @class */ (function (_super) {
     ControlsState.prototype.setVCurvature = function (value) { capnp_ts_1.Struct.setFloat32(148, value, this); };
     ControlsState.prototype.getDecelForTurn = function () { return capnp_ts_1.Struct.getBit(711, this); };
     ControlsState.prototype.setDecelForTurn = function (value) { capnp_ts_1.Struct.setBit(711, value, this); };
+    ControlsState.prototype.getDecelForModel = function () { return capnp_ts_1.Struct.getBit(714, this); };
+    ControlsState.prototype.setDecelForModel = function (value) { capnp_ts_1.Struct.setBit(714, value, this); };
     ControlsState.prototype.getLateralControlState = function () { return capnp_ts_1.Struct.getAs(ControlsState_LateralControlState, this); };
     ControlsState.prototype.initLateralControlState = function () { return capnp_ts_1.Struct.getAs(ControlsState_LateralControlState, this); };
     ControlsState.prototype.toString = function () { return "ControlsState_" + _super.prototype.toString.call(this); };
@@ -1271,7 +1318,8 @@ var ControlsState = /** @class */ (function (_super) {
     ControlsState.AlertSize = ControlsState_AlertSize;
     ControlsState.LateralINDIState = ControlsState_LateralINDIState;
     ControlsState.LateralPIDState = ControlsState_LateralPIDState;
-    ControlsState._capnp = { displayName: "ControlsState", id: "97ff69c53601abf1", size: new capnp_ts_1.ObjectSize(168, 6) };
+    ControlsState.LateralLQRState = ControlsState_LateralLQRState;
+    ControlsState._capnp = { displayName: "ControlsState", id: "97ff69c53601abf1", size: new capnp_ts_1.ObjectSize(176, 6) };
     return ControlsState;
 }(capnp_ts_1.Struct));
 exports.ControlsState = ControlsState;
@@ -1576,6 +1624,7 @@ var Plan_LongitudinalPlanSource;
     Plan_LongitudinalPlanSource[Plan_LongitudinalPlanSource["MPC1"] = 1] = "MPC1";
     Plan_LongitudinalPlanSource[Plan_LongitudinalPlanSource["MPC2"] = 2] = "MPC2";
     Plan_LongitudinalPlanSource[Plan_LongitudinalPlanSource["MPC3"] = 3] = "MPC3";
+    Plan_LongitudinalPlanSource[Plan_LongitudinalPlanSource["MODEL"] = 4] = "MODEL";
 })(Plan_LongitudinalPlanSource = exports.Plan_LongitudinalPlanSource || (exports.Plan_LongitudinalPlanSource = {}));
 var Plan = /** @class */ (function (_super) {
     __extends(Plan, _super);
@@ -4014,16 +4063,38 @@ var DriverMonitoring = /** @class */ (function (_super) {
     }
     DriverMonitoring.prototype.getFrameId = function () { return capnp_ts_1.Struct.getUint32(0, this); };
     DriverMonitoring.prototype.setFrameId = function (value) { capnp_ts_1.Struct.setUint32(0, value, this); };
-    DriverMonitoring.prototype.adoptDescriptor = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); };
-    DriverMonitoring.prototype.disownDescriptor = function () { return capnp_ts_1.Struct.disown(this.getDescriptor()); };
-    DriverMonitoring.prototype.getDescriptor = function () { return capnp_ts_1.Struct.getList(0, capnp.Float32List, this); };
-    DriverMonitoring.prototype.hasDescriptor = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
-    DriverMonitoring.prototype.initDescriptor = function (length) { return capnp_ts_1.Struct.initList(0, capnp.Float32List, length, this); };
-    DriverMonitoring.prototype.setDescriptor = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this)); };
-    DriverMonitoring.prototype.getStd = function () { return capnp_ts_1.Struct.getFloat32(4, this); };
-    DriverMonitoring.prototype.setStd = function (value) { capnp_ts_1.Struct.setFloat32(4, value, this); };
+    DriverMonitoring.prototype.adoptDescriptorDEPRECATED = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    DriverMonitoring.prototype.disownDescriptorDEPRECATED = function () { return capnp_ts_1.Struct.disown(this.getDescriptorDEPRECATED()); };
+    DriverMonitoring.prototype.getDescriptorDEPRECATED = function () { return capnp_ts_1.Struct.getList(0, capnp.Float32List, this); };
+    DriverMonitoring.prototype.hasDescriptorDEPRECATED = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    DriverMonitoring.prototype.initDescriptorDEPRECATED = function (length) { return capnp_ts_1.Struct.initList(0, capnp.Float32List, length, this); };
+    DriverMonitoring.prototype.setDescriptorDEPRECATED = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    DriverMonitoring.prototype.getStdDEPRECATED = function () { return capnp_ts_1.Struct.getFloat32(4, this); };
+    DriverMonitoring.prototype.setStdDEPRECATED = function (value) { capnp_ts_1.Struct.setFloat32(4, value, this); };
+    DriverMonitoring.prototype.adoptFaceOrientation = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    DriverMonitoring.prototype.disownFaceOrientation = function () { return capnp_ts_1.Struct.disown(this.getFaceOrientation()); };
+    DriverMonitoring.prototype.getFaceOrientation = function () { return capnp_ts_1.Struct.getList(1, capnp.Float32List, this); };
+    DriverMonitoring.prototype.hasFaceOrientation = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(1, this)); };
+    DriverMonitoring.prototype.initFaceOrientation = function (length) { return capnp_ts_1.Struct.initList(1, capnp.Float32List, length, this); };
+    DriverMonitoring.prototype.setFaceOrientation = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    DriverMonitoring.prototype.adoptFacePosition = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(2, this)); };
+    DriverMonitoring.prototype.disownFacePosition = function () { return capnp_ts_1.Struct.disown(this.getFacePosition()); };
+    DriverMonitoring.prototype.getFacePosition = function () { return capnp_ts_1.Struct.getList(2, capnp.Float32List, this); };
+    DriverMonitoring.prototype.hasFacePosition = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(2, this)); };
+    DriverMonitoring.prototype.initFacePosition = function (length) { return capnp_ts_1.Struct.initList(2, capnp.Float32List, length, this); };
+    DriverMonitoring.prototype.setFacePosition = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(2, this)); };
+    DriverMonitoring.prototype.getFaceProb = function () { return capnp_ts_1.Struct.getFloat32(8, this); };
+    DriverMonitoring.prototype.setFaceProb = function (value) { capnp_ts_1.Struct.setFloat32(8, value, this); };
+    DriverMonitoring.prototype.getLeftEyeProb = function () { return capnp_ts_1.Struct.getFloat32(12, this); };
+    DriverMonitoring.prototype.setLeftEyeProb = function (value) { capnp_ts_1.Struct.setFloat32(12, value, this); };
+    DriverMonitoring.prototype.getRightEyeProb = function () { return capnp_ts_1.Struct.getFloat32(16, this); };
+    DriverMonitoring.prototype.setRightEyeProb = function (value) { capnp_ts_1.Struct.setFloat32(16, value, this); };
+    DriverMonitoring.prototype.getLeftBlinkProb = function () { return capnp_ts_1.Struct.getFloat32(20, this); };
+    DriverMonitoring.prototype.setLeftBlinkProb = function (value) { capnp_ts_1.Struct.setFloat32(20, value, this); };
+    DriverMonitoring.prototype.getRightBlinkProb = function () { return capnp_ts_1.Struct.getFloat32(24, this); };
+    DriverMonitoring.prototype.setRightBlinkProb = function (value) { capnp_ts_1.Struct.setFloat32(24, value, this); };
     DriverMonitoring.prototype.toString = function () { return "DriverMonitoring_" + _super.prototype.toString.call(this); };
-    DriverMonitoring._capnp = { displayName: "DriverMonitoring", id: "debcb913d14cfb94", size: new capnp_ts_1.ObjectSize(8, 1) };
+    DriverMonitoring._capnp = { displayName: "DriverMonitoring", id: "debcb913d14cfb94", size: new capnp_ts_1.ObjectSize(32, 3) };
     return DriverMonitoring;
 }(capnp_ts_1.Struct));
 exports.DriverMonitoring = DriverMonitoring;

@@ -75,6 +75,7 @@ var CarEvent_EventName;
     CarEvent_EventName[CarEvent_EventName["COMM_ISSUE"] = 53] = "COMM_ISSUE";
     CarEvent_EventName[CarEvent_EventName["TOO_DISTRACTED"] = 54] = "TOO_DISTRACTED";
     CarEvent_EventName[CarEvent_EventName["POSENET_INVALID"] = 55] = "POSENET_INVALID";
+    CarEvent_EventName[CarEvent_EventName["SOUNDS_UNAVAILABLE"] = 56] = "SOUNDS_UNAVAILABLE";
 })(CarEvent_EventName = exports.CarEvent_EventName || (exports.CarEvent_EventName = {}));
 var CarEvent = /** @class */ (function (_super) {
     __extends(CarEvent, _super);
@@ -230,6 +231,8 @@ var CarState = /** @class */ (function (_super) {
     CarState.prototype.setSteeringRate = function (value) { capnp_ts_1.Struct.setFloat32(24, value, this); };
     CarState.prototype.getSteeringTorque = function () { return capnp_ts_1.Struct.getFloat32(20, this); };
     CarState.prototype.setSteeringTorque = function (value) { capnp_ts_1.Struct.setFloat32(20, value, this); };
+    CarState.prototype.getSteeringTorqueEps = function () { return capnp_ts_1.Struct.getFloat32(40, this); };
+    CarState.prototype.setSteeringTorqueEps = function (value) { capnp_ts_1.Struct.setFloat32(40, value, this); };
     CarState.prototype.getSteeringPressed = function () { return capnp_ts_1.Struct.getBit(66, this); };
     CarState.prototype.setSteeringPressed = function (value) { capnp_ts_1.Struct.setBit(66, value, this); };
     CarState.prototype.adoptCruiseState = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(2, this)); };
@@ -269,7 +272,7 @@ var CarState = /** @class */ (function (_super) {
     CarState.CruiseState = CarState_CruiseState;
     CarState.GearShifter = CarState_GearShifter;
     CarState.ButtonEvent = CarState_ButtonEvent;
-    CarState._capnp = { displayName: "CarState", id: "9da4fa09e052903c", size: new capnp_ts_1.ObjectSize(40, 6) };
+    CarState._capnp = { displayName: "CarState", id: "9da4fa09e052903c", size: new capnp_ts_1.ObjectSize(48, 6) };
     return CarState;
 }(capnp_ts_1.Struct));
 exports.CarState = CarState;
@@ -563,6 +566,52 @@ var CarParams_LateralINDITuning = /** @class */ (function (_super) {
     return CarParams_LateralINDITuning;
 }(capnp_ts_1.Struct));
 exports.CarParams_LateralINDITuning = CarParams_LateralINDITuning;
+var CarParams_LateralLQRTuning = /** @class */ (function (_super) {
+    __extends(CarParams_LateralLQRTuning, _super);
+    function CarParams_LateralLQRTuning() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    CarParams_LateralLQRTuning.prototype.getScale = function () { return capnp_ts_1.Struct.getFloat32(0, this); };
+    CarParams_LateralLQRTuning.prototype.setScale = function (value) { capnp_ts_1.Struct.setFloat32(0, value, this); };
+    CarParams_LateralLQRTuning.prototype.getKi = function () { return capnp_ts_1.Struct.getFloat32(4, this); };
+    CarParams_LateralLQRTuning.prototype.setKi = function (value) { capnp_ts_1.Struct.setFloat32(4, value, this); };
+    CarParams_LateralLQRTuning.prototype.getDcGain = function () { return capnp_ts_1.Struct.getFloat32(8, this); };
+    CarParams_LateralLQRTuning.prototype.setDcGain = function (value) { capnp_ts_1.Struct.setFloat32(8, value, this); };
+    CarParams_LateralLQRTuning.prototype.adoptA = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    CarParams_LateralLQRTuning.prototype.disownA = function () { return capnp_ts_1.Struct.disown(this.getA()); };
+    CarParams_LateralLQRTuning.prototype.getA = function () { return capnp_ts_1.Struct.getList(0, capnp.Float32List, this); };
+    CarParams_LateralLQRTuning.prototype.hasA = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); };
+    CarParams_LateralLQRTuning.prototype.initA = function (length) { return capnp_ts_1.Struct.initList(0, capnp.Float32List, length, this); };
+    CarParams_LateralLQRTuning.prototype.setA = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this)); };
+    CarParams_LateralLQRTuning.prototype.adoptB = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    CarParams_LateralLQRTuning.prototype.disownB = function () { return capnp_ts_1.Struct.disown(this.getB()); };
+    CarParams_LateralLQRTuning.prototype.getB = function () { return capnp_ts_1.Struct.getList(1, capnp.Float32List, this); };
+    CarParams_LateralLQRTuning.prototype.hasB = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(1, this)); };
+    CarParams_LateralLQRTuning.prototype.initB = function (length) { return capnp_ts_1.Struct.initList(1, capnp.Float32List, length, this); };
+    CarParams_LateralLQRTuning.prototype.setB = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(1, this)); };
+    CarParams_LateralLQRTuning.prototype.adoptC = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(2, this)); };
+    CarParams_LateralLQRTuning.prototype.disownC = function () { return capnp_ts_1.Struct.disown(this.getC()); };
+    CarParams_LateralLQRTuning.prototype.getC = function () { return capnp_ts_1.Struct.getList(2, capnp.Float32List, this); };
+    CarParams_LateralLQRTuning.prototype.hasC = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(2, this)); };
+    CarParams_LateralLQRTuning.prototype.initC = function (length) { return capnp_ts_1.Struct.initList(2, capnp.Float32List, length, this); };
+    CarParams_LateralLQRTuning.prototype.setC = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(2, this)); };
+    CarParams_LateralLQRTuning.prototype.adoptK = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(3, this)); };
+    CarParams_LateralLQRTuning.prototype.disownK = function () { return capnp_ts_1.Struct.disown(this.getK()); };
+    CarParams_LateralLQRTuning.prototype.getK = function () { return capnp_ts_1.Struct.getList(3, capnp.Float32List, this); };
+    CarParams_LateralLQRTuning.prototype.hasK = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(3, this)); };
+    CarParams_LateralLQRTuning.prototype.initK = function (length) { return capnp_ts_1.Struct.initList(3, capnp.Float32List, length, this); };
+    CarParams_LateralLQRTuning.prototype.setK = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(3, this)); };
+    CarParams_LateralLQRTuning.prototype.adoptL = function (value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(4, this)); };
+    CarParams_LateralLQRTuning.prototype.disownL = function () { return capnp_ts_1.Struct.disown(this.getL()); };
+    CarParams_LateralLQRTuning.prototype.getL = function () { return capnp_ts_1.Struct.getList(4, capnp.Float32List, this); };
+    CarParams_LateralLQRTuning.prototype.hasL = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(4, this)); };
+    CarParams_LateralLQRTuning.prototype.initL = function (length) { return capnp_ts_1.Struct.initList(4, capnp.Float32List, length, this); };
+    CarParams_LateralLQRTuning.prototype.setL = function (value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(4, this)); };
+    CarParams_LateralLQRTuning.prototype.toString = function () { return "CarParams_LateralLQRTuning_" + _super.prototype.toString.call(this); };
+    CarParams_LateralLQRTuning._capnp = { displayName: "LateralLQRTuning", id: "9d151e3f28616a12", size: new capnp_ts_1.ObjectSize(16, 5) };
+    return CarParams_LateralLQRTuning;
+}(capnp_ts_1.Struct));
+exports.CarParams_LateralLQRTuning = CarParams_LateralLQRTuning;
 var CarParams_SafetyModel;
 (function (CarParams_SafetyModel) {
     CarParams_SafetyModel[CarParams_SafetyModel["NO_OUTPUT"] = 0] = "NO_OUTPUT";
@@ -587,6 +636,7 @@ var CarParams_LateralTuning_Which;
 (function (CarParams_LateralTuning_Which) {
     CarParams_LateralTuning_Which[CarParams_LateralTuning_Which["PID"] = 0] = "PID";
     CarParams_LateralTuning_Which[CarParams_LateralTuning_Which["INDI"] = 1] = "INDI";
+    CarParams_LateralTuning_Which[CarParams_LateralTuning_Which["LQR"] = 2] = "LQR";
 })(CarParams_LateralTuning_Which = exports.CarParams_LateralTuning_Which || (exports.CarParams_LateralTuning_Which = {}));
 var CarParams_LateralTuning = /** @class */ (function (_super) {
     __extends(CarParams_LateralTuning, _super);
@@ -631,10 +681,30 @@ var CarParams_LateralTuning = /** @class */ (function (_super) {
         capnp_ts_1.Struct.setUint16(14, 1, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(9, this));
     };
+    CarParams_LateralTuning.prototype.adoptLqr = function (value) {
+        capnp_ts_1.Struct.setUint16(14, 2, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(9, this));
+    };
+    CarParams_LateralTuning.prototype.disownLqr = function () { return capnp_ts_1.Struct.disown(this.getLqr()); };
+    CarParams_LateralTuning.prototype.getLqr = function () {
+        capnp_ts_1.Struct.testWhich("lqr", capnp_ts_1.Struct.getUint16(14, this), 2, this);
+        return capnp_ts_1.Struct.getStruct(9, CarParams_LateralLQRTuning, this);
+    };
+    CarParams_LateralTuning.prototype.hasLqr = function () { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(9, this)); };
+    CarParams_LateralTuning.prototype.initLqr = function () {
+        capnp_ts_1.Struct.setUint16(14, 2, this);
+        return capnp_ts_1.Struct.initStructAt(9, CarParams_LateralLQRTuning, this);
+    };
+    CarParams_LateralTuning.prototype.isLqr = function () { return capnp_ts_1.Struct.getUint16(14, this) === 2; };
+    CarParams_LateralTuning.prototype.setLqr = function (value) {
+        capnp_ts_1.Struct.setUint16(14, 2, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(9, this));
+    };
     CarParams_LateralTuning.prototype.toString = function () { return "CarParams_LateralTuning_" + _super.prototype.toString.call(this); };
     CarParams_LateralTuning.prototype.which = function () { return capnp_ts_1.Struct.getUint16(14, this); };
     CarParams_LateralTuning.PID = CarParams_LateralTuning_Which.PID;
     CarParams_LateralTuning.INDI = CarParams_LateralTuning_Which.INDI;
+    CarParams_LateralTuning.LQR = CarParams_LateralTuning_Which.LQR;
     CarParams_LateralTuning._capnp = { displayName: "lateralTuning", id: "93fc580a35339568", size: new capnp_ts_1.ObjectSize(72, 11) };
     return CarParams_LateralTuning;
 }(capnp_ts_1.Struct));
@@ -754,6 +824,7 @@ var CarParams = /** @class */ (function (_super) {
     CarParams.LateralPIDTuning = CarParams_LateralPIDTuning;
     CarParams.LongitudinalPIDTuning = CarParams_LongitudinalPIDTuning;
     CarParams.LateralINDITuning = CarParams_LateralINDITuning;
+    CarParams.LateralLQRTuning = CarParams_LateralLQRTuning;
     CarParams.SafetyModel = CarParams_SafetyModel;
     CarParams.SteerControlType = CarParams_SteerControlType;
     CarParams._capnp = { displayName: "CarParams", id: "8c69372490aaa9da", size: new capnp_ts_1.ObjectSize(72, 11) };
