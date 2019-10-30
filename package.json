@@ -1,6 +1,6 @@
 {
   "name": "@commaai/log_reader",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "Read in comma.ai capnp logfiles whilst retaining sanity",
   "main": "index.js",
   "repository": "git@github.com:commaai/log_reader_js.git",
