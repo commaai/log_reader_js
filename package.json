@@ -24,6 +24,6 @@
     "file-type": "^7.6.0",
     "geval": "^2.2.0",
     "stream-selector": "^0.4.0",
-    "wasm-bz2": "^0.0.3"
+    "wasm-bz2": "^0.0.4"
   }
 }

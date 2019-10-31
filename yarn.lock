@@ -1501,10 +1501,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-wasm-bz2@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/wasm-bz2/-/wasm-bz2-0.0.3.tgz#0b2afddde6721dc4025248db38eef6025f96f7e3"
-  integrity sha512-QJV9jwhqgtqkSo97v75Dw46TAJfTEau+GkAKS/s9THHZ7W2gAT/21GtdZWcVd3WoSJcMXrXNs/SlXJ5mCK6Ghw==
+wasm-bz2@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/wasm-bz2/-/wasm-bz2-0.0.4.tgz#98094b0d22367df2e5b237aef0dcd5f5f55be800"
+  integrity sha512-8CcHAO3U/+BqZZy/DH4gHmhNNqllJ3J4ILfVTX01wlpPMgdJWxE+gwKhCcxnQirXTvalEG4YrWDdr6cDXbawWg==
   dependencies:
     ap "^0.2.0"
     weakmap-event "^2.0.7"
