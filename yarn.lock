@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@commaai/capnp-json@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@commaai/capnp-json/-/capnp-json-0.4.0.tgz#149bc49b50a916ebefa7b4da4e24d988329ebaa6"
-  integrity sha512-FV9ssLkFaNGP9grxgefQZJu5/QHm9rrX2Rc+2t8FpfZNHZ7JVap+3hxDq/p0mmtnBfJwXRg/fhi1RCvibj8ZmQ==
+"@commaai/capnp-json@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@commaai/capnp-json/-/capnp-json-0.5.0.tgz#44f3be1e842d6e883b44827febb372e4cbe7d569"
+  integrity sha512-IFrCw772wJzYGbAb7h/F9zNC9COHWoFrrvCtaLngWdxXHLJx00bzJq+6sYkxEJKApMmM/WADW0/JqvBnUtFUCw==
   dependencies:
     capnp-ts "^0.4.0"
 
