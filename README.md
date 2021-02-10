@@ -60,6 +60,30 @@ $ log-to-json rlog --array -o rlog.json
 $ cat rlog | log-to-json
 ```
 
+# Update capnproto schema
+first get the commaai capnp-ts fork set up (requires some enhancements)
+```
+# needs to be in home dir
+cd ~/
+git clone git@github.com:commaai/capnp-ts.git
+cd capnp-ts
+# requires node v8.x
+nvm use lts/carbon
+yarn install
+yarn build
+```
+then convert the schema definiton to javascript
+```
+# needs to be in home dir
+cd ~/
+git clone git@github.com:commaai/log_reader_js.git
+# requires node v14.x
+nvm use lts/fermium
+yarn install
+# assumes path to capnpc-ts is: ../capnp-ts/packages/capnpc-js/bin/capnpc-js.js
+yarn run generate-capnp-js
+```
+
 # License
 MIT @ comma.ai
 
