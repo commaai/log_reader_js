@@ -631,8 +631,8 @@ class GpsLocationData extends capnp_ts_1.Struct {
     setAltitude(value) { capnp_ts_1.Struct.setFloat64(24, value, this); }
     getSpeed() { return capnp_ts_1.Struct.getFloat32(4, this); }
     setSpeed(value) { capnp_ts_1.Struct.setFloat32(4, value, this); }
-    getBearing() { return capnp_ts_1.Struct.getFloat32(32, this); }
-    setBearing(value) { capnp_ts_1.Struct.setFloat32(32, value, this); }
+    getBearingDeg() { return capnp_ts_1.Struct.getFloat32(32, this); }
+    setBearingDeg(value) { capnp_ts_1.Struct.setFloat32(32, value, this); }
     getAccuracy() { return capnp_ts_1.Struct.getFloat32(36, this); }
     setAccuracy(value) { capnp_ts_1.Struct.setFloat32(36, value, this); }
     getTimestamp() { return capnp_ts_1.Struct.getInt64(40, this); }
@@ -647,8 +647,8 @@ class GpsLocationData extends capnp_ts_1.Struct {
     setVNED(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this)); }
     getVerticalAccuracy() { return capnp_ts_1.Struct.getFloat32(48, this); }
     setVerticalAccuracy(value) { capnp_ts_1.Struct.setFloat32(48, value, this); }
-    getBearingAccuracy() { return capnp_ts_1.Struct.getFloat32(52, this); }
-    setBearingAccuracy(value) { capnp_ts_1.Struct.setFloat32(52, value, this); }
+    getBearingAccuracyDeg() { return capnp_ts_1.Struct.getFloat32(52, this); }
+    setBearingAccuracyDeg(value) { capnp_ts_1.Struct.setFloat32(52, value, this); }
     getSpeedAccuracy() { return capnp_ts_1.Struct.getFloat32(56, this); }
     setSpeedAccuracy(value) { capnp_ts_1.Struct.setFloat32(56, value, this); }
     toString() { return "GpsLocationData_" + super.toString(); }
@@ -673,31 +673,31 @@ class CanData extends capnp_ts_1.Struct {
 }
 CanData._capnp = { displayName: "CanData", id: "8785009a964c7c59", size: new capnp_ts_1.ObjectSize(8, 1) };
 exports.CanData = CanData;
-var ThermalData_ThermalStatus;
-(function (ThermalData_ThermalStatus) {
-    ThermalData_ThermalStatus[ThermalData_ThermalStatus["GREEN"] = 0] = "GREEN";
-    ThermalData_ThermalStatus[ThermalData_ThermalStatus["YELLOW"] = 1] = "YELLOW";
-    ThermalData_ThermalStatus[ThermalData_ThermalStatus["RED"] = 2] = "RED";
-    ThermalData_ThermalStatus[ThermalData_ThermalStatus["DANGER"] = 3] = "DANGER";
-})(ThermalData_ThermalStatus = exports.ThermalData_ThermalStatus || (exports.ThermalData_ThermalStatus = {}));
-var ThermalData_NetworkType;
-(function (ThermalData_NetworkType) {
-    ThermalData_NetworkType[ThermalData_NetworkType["NONE"] = 0] = "NONE";
-    ThermalData_NetworkType[ThermalData_NetworkType["WIFI"] = 1] = "WIFI";
-    ThermalData_NetworkType[ThermalData_NetworkType["CELL2G"] = 2] = "CELL2G";
-    ThermalData_NetworkType[ThermalData_NetworkType["CELL3G"] = 3] = "CELL3G";
-    ThermalData_NetworkType[ThermalData_NetworkType["CELL4G"] = 4] = "CELL4G";
-    ThermalData_NetworkType[ThermalData_NetworkType["CELL5G"] = 5] = "CELL5G";
-})(ThermalData_NetworkType = exports.ThermalData_NetworkType || (exports.ThermalData_NetworkType = {}));
-var ThermalData_NetworkStrength;
-(function (ThermalData_NetworkStrength) {
-    ThermalData_NetworkStrength[ThermalData_NetworkStrength["UNKNOWN"] = 0] = "UNKNOWN";
-    ThermalData_NetworkStrength[ThermalData_NetworkStrength["POOR"] = 1] = "POOR";
-    ThermalData_NetworkStrength[ThermalData_NetworkStrength["MODERATE"] = 2] = "MODERATE";
-    ThermalData_NetworkStrength[ThermalData_NetworkStrength["GOOD"] = 3] = "GOOD";
-    ThermalData_NetworkStrength[ThermalData_NetworkStrength["GREAT"] = 4] = "GREAT";
-})(ThermalData_NetworkStrength = exports.ThermalData_NetworkStrength || (exports.ThermalData_NetworkStrength = {}));
-class ThermalData extends capnp_ts_1.Struct {
+var DeviceState_ThermalStatus;
+(function (DeviceState_ThermalStatus) {
+    DeviceState_ThermalStatus[DeviceState_ThermalStatus["GREEN"] = 0] = "GREEN";
+    DeviceState_ThermalStatus[DeviceState_ThermalStatus["YELLOW"] = 1] = "YELLOW";
+    DeviceState_ThermalStatus[DeviceState_ThermalStatus["RED"] = 2] = "RED";
+    DeviceState_ThermalStatus[DeviceState_ThermalStatus["DANGER"] = 3] = "DANGER";
+})(DeviceState_ThermalStatus = exports.DeviceState_ThermalStatus || (exports.DeviceState_ThermalStatus = {}));
+var DeviceState_NetworkType;
+(function (DeviceState_NetworkType) {
+    DeviceState_NetworkType[DeviceState_NetworkType["NONE"] = 0] = "NONE";
+    DeviceState_NetworkType[DeviceState_NetworkType["WIFI"] = 1] = "WIFI";
+    DeviceState_NetworkType[DeviceState_NetworkType["CELL2G"] = 2] = "CELL2G";
+    DeviceState_NetworkType[DeviceState_NetworkType["CELL3G"] = 3] = "CELL3G";
+    DeviceState_NetworkType[DeviceState_NetworkType["CELL4G"] = 4] = "CELL4G";
+    DeviceState_NetworkType[DeviceState_NetworkType["CELL5G"] = 5] = "CELL5G";
+})(DeviceState_NetworkType = exports.DeviceState_NetworkType || (exports.DeviceState_NetworkType = {}));
+var DeviceState_NetworkStrength;
+(function (DeviceState_NetworkStrength) {
+    DeviceState_NetworkStrength[DeviceState_NetworkStrength["UNKNOWN"] = 0] = "UNKNOWN";
+    DeviceState_NetworkStrength[DeviceState_NetworkStrength["POOR"] = 1] = "POOR";
+    DeviceState_NetworkStrength[DeviceState_NetworkStrength["MODERATE"] = 2] = "MODERATE";
+    DeviceState_NetworkStrength[DeviceState_NetworkStrength["GOOD"] = 3] = "GOOD";
+    DeviceState_NetworkStrength[DeviceState_NetworkStrength["GREAT"] = 4] = "GREAT";
+})(DeviceState_NetworkStrength = exports.DeviceState_NetworkStrength || (exports.DeviceState_NetworkStrength = {}));
+class DeviceState extends capnp_ts_1.Struct {
     getFreeSpacePercent() { return capnp_ts_1.Struct.getFloat32(16, this); }
     setFreeSpacePercent(value) { capnp_ts_1.Struct.setFloat32(16, value, this); }
     getMemoryUsagePercent() { return capnp_ts_1.Struct.getInt8(25, this); }
@@ -708,14 +708,14 @@ class ThermalData extends capnp_ts_1.Struct {
     setUsbOnline(value) { capnp_ts_1.Struct.setBit(193, value, this); }
     getNetworkType() { return capnp_ts_1.Struct.getUint16(48, this); }
     setNetworkType(value) { capnp_ts_1.Struct.setUint16(48, value, this); }
-    getOffroadPowerUsage() { return capnp_ts_1.Struct.getUint32(52, this); }
-    setOffroadPowerUsage(value) { capnp_ts_1.Struct.setUint32(52, value, this); }
+    getOffroadPowerUsageUwh() { return capnp_ts_1.Struct.getUint32(52, this); }
+    setOffroadPowerUsageUwh(value) { capnp_ts_1.Struct.setUint32(52, value, this); }
     getNetworkStrength() { return capnp_ts_1.Struct.getUint16(50, this); }
     setNetworkStrength(value) { capnp_ts_1.Struct.setUint16(50, value, this); }
-    getCarBatteryCapacity() { return capnp_ts_1.Struct.getUint32(56, this); }
-    setCarBatteryCapacity(value) { capnp_ts_1.Struct.setUint32(56, value, this); }
-    getFanSpeedRpmDesired() { return capnp_ts_1.Struct.getUint16(22, this); }
-    setFanSpeedRpmDesired(value) { capnp_ts_1.Struct.setUint16(22, value, this); }
+    getCarBatteryCapacityUwh() { return capnp_ts_1.Struct.getUint32(56, this); }
+    setCarBatteryCapacityUwh(value) { capnp_ts_1.Struct.setUint32(56, value, this); }
+    getFanSpeedPercentDesired() { return capnp_ts_1.Struct.getUint16(22, this); }
+    setFanSpeedPercentDesired(value) { capnp_ts_1.Struct.setUint16(22, value, this); }
     getStarted() { return capnp_ts_1.Struct.getBit(192, this); }
     setStarted(value) { capnp_ts_1.Struct.setBit(192, value, this); }
     getStartedMonoTime() { return capnp_ts_1.Struct.getUint64(32, this); }
@@ -732,24 +732,24 @@ class ThermalData extends capnp_ts_1.Struct {
     setChargingError(value) { capnp_ts_1.Struct.setBit(194, value, this); }
     getChargingDisabled() { return capnp_ts_1.Struct.getBit(195, this); }
     setChargingDisabled(value) { capnp_ts_1.Struct.setBit(195, value, this); }
-    adoptCpu(value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(1, this)); }
-    disownCpu() { return capnp_ts_1.Struct.disown(this.getCpu()); }
-    getCpu() { return capnp_ts_1.Struct.getList(1, capnp.Float32List, this); }
-    hasCpu() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(1, this)); }
-    initCpu(length) { return capnp_ts_1.Struct.initList(1, capnp.Float32List, length, this); }
-    setCpu(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(1, this)); }
-    adoptGpu(value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(2, this)); }
-    disownGpu() { return capnp_ts_1.Struct.disown(this.getGpu()); }
-    getGpu() { return capnp_ts_1.Struct.getList(2, capnp.Float32List, this); }
-    hasGpu() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(2, this)); }
-    initGpu(length) { return capnp_ts_1.Struct.initList(2, capnp.Float32List, length, this); }
-    setGpu(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(2, this)); }
-    getMem() { return capnp_ts_1.Struct.getFloat32(60, this); }
-    setMem(value) { capnp_ts_1.Struct.setFloat32(60, value, this); }
-    getBat() { return capnp_ts_1.Struct.getFloat32(64, this); }
-    setBat(value) { capnp_ts_1.Struct.setFloat32(64, value, this); }
-    getAmbient() { return capnp_ts_1.Struct.getFloat32(68, this); }
-    setAmbient(value) { capnp_ts_1.Struct.setFloat32(68, value, this); }
+    adoptCpuTempC(value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(1, this)); }
+    disownCpuTempC() { return capnp_ts_1.Struct.disown(this.getCpuTempC()); }
+    getCpuTempC() { return capnp_ts_1.Struct.getList(1, capnp.Float32List, this); }
+    hasCpuTempC() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(1, this)); }
+    initCpuTempC(length) { return capnp_ts_1.Struct.initList(1, capnp.Float32List, length, this); }
+    setCpuTempC(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(1, this)); }
+    adoptGpuTempC(value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(2, this)); }
+    disownGpuTempC() { return capnp_ts_1.Struct.disown(this.getGpuTempC()); }
+    getGpuTempC() { return capnp_ts_1.Struct.getList(2, capnp.Float32List, this); }
+    hasGpuTempC() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(2, this)); }
+    initGpuTempC(length) { return capnp_ts_1.Struct.initList(2, capnp.Float32List, length, this); }
+    setGpuTempC(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(2, this)); }
+    getMemoryTempC() { return capnp_ts_1.Struct.getFloat32(60, this); }
+    setMemoryTempC(value) { capnp_ts_1.Struct.setFloat32(60, value, this); }
+    getBatteryTempC() { return capnp_ts_1.Struct.getFloat32(64, this); }
+    setBatteryTempC(value) { capnp_ts_1.Struct.setFloat32(64, value, this); }
+    getAmbientTempC() { return capnp_ts_1.Struct.getFloat32(68, this); }
+    setAmbientTempC(value) { capnp_ts_1.Struct.setFloat32(68, value, this); }
     getThermalStatus() { return capnp_ts_1.Struct.getUint16(26, this); }
     setThermalStatus(value) { capnp_ts_1.Struct.setUint16(26, value, this); }
     getCpu0DEPRECATED() { return capnp_ts_1.Struct.getUint16(0, this); }
@@ -768,62 +768,62 @@ class ThermalData extends capnp_ts_1.Struct {
     setBatDEPRECATED(value) { capnp_ts_1.Struct.setUint32(12, value, this); }
     getPa0DEPRECATED() { return capnp_ts_1.Struct.getUint16(46, this); }
     setPa0DEPRECATED(value) { capnp_ts_1.Struct.setUint16(46, value, this); }
-    toString() { return "ThermalData_" + super.toString(); }
+    toString() { return "DeviceState_" + super.toString(); }
 }
-ThermalData.ThermalStatus = ThermalData_ThermalStatus;
-ThermalData.NetworkType = ThermalData_NetworkType;
-ThermalData.NetworkStrength = ThermalData_NetworkStrength;
-ThermalData._capnp = { displayName: "ThermalData", id: "8d8231a40b7fe6e0", size: new capnp_ts_1.ObjectSize(72, 3) };
-exports.ThermalData = ThermalData;
-var HealthData_FaultStatus;
-(function (HealthData_FaultStatus) {
-    HealthData_FaultStatus[HealthData_FaultStatus["NONE"] = 0] = "NONE";
-    HealthData_FaultStatus[HealthData_FaultStatus["FAULT_TEMP"] = 1] = "FAULT_TEMP";
-    HealthData_FaultStatus[HealthData_FaultStatus["FAULT_PERM"] = 2] = "FAULT_PERM";
-})(HealthData_FaultStatus = exports.HealthData_FaultStatus || (exports.HealthData_FaultStatus = {}));
-var HealthData_FaultType;
-(function (HealthData_FaultType) {
-    HealthData_FaultType[HealthData_FaultType["RELAY_MALFUNCTION"] = 0] = "RELAY_MALFUNCTION";
-    HealthData_FaultType[HealthData_FaultType["UNUSED_INTERRUPT_HANDLED"] = 1] = "UNUSED_INTERRUPT_HANDLED";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_CAN1"] = 2] = "INTERRUPT_RATE_CAN1";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_CAN2"] = 3] = "INTERRUPT_RATE_CAN2";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_CAN3"] = 4] = "INTERRUPT_RATE_CAN3";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_TACH"] = 5] = "INTERRUPT_RATE_TACH";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_GMLAN"] = 6] = "INTERRUPT_RATE_GMLAN";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_INTERRUPTS"] = 7] = "INTERRUPT_RATE_INTERRUPTS";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_SPI_DMA"] = 8] = "INTERRUPT_RATE_SPI_DMA";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_SPI_CS"] = 9] = "INTERRUPT_RATE_SPI_CS";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_UART1"] = 10] = "INTERRUPT_RATE_UART1";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_UART2"] = 11] = "INTERRUPT_RATE_UART2";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_UART3"] = 12] = "INTERRUPT_RATE_UART3";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_UART5"] = 13] = "INTERRUPT_RATE_UART5";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_UART_DMA"] = 14] = "INTERRUPT_RATE_UART_DMA";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_USB"] = 15] = "INTERRUPT_RATE_USB";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_TIM1"] = 16] = "INTERRUPT_RATE_TIM1";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_TIM3"] = 17] = "INTERRUPT_RATE_TIM3";
-    HealthData_FaultType[HealthData_FaultType["REGISTER_DIVERGENT"] = 18] = "REGISTER_DIVERGENT";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_KLINE_INIT"] = 19] = "INTERRUPT_RATE_KLINE_INIT";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_CLOCK_SOURCE"] = 20] = "INTERRUPT_RATE_CLOCK_SOURCE";
-    HealthData_FaultType[HealthData_FaultType["INTERRUPT_RATE_TIM9"] = 21] = "INTERRUPT_RATE_TIM9";
-})(HealthData_FaultType = exports.HealthData_FaultType || (exports.HealthData_FaultType = {}));
-var HealthData_PandaType;
-(function (HealthData_PandaType) {
-    HealthData_PandaType[HealthData_PandaType["UNKNOWN"] = 0] = "UNKNOWN";
-    HealthData_PandaType[HealthData_PandaType["WHITE_PANDA"] = 1] = "WHITE_PANDA";
-    HealthData_PandaType[HealthData_PandaType["GREY_PANDA"] = 2] = "GREY_PANDA";
-    HealthData_PandaType[HealthData_PandaType["BLACK_PANDA"] = 3] = "BLACK_PANDA";
-    HealthData_PandaType[HealthData_PandaType["PEDAL"] = 4] = "PEDAL";
-    HealthData_PandaType[HealthData_PandaType["UNO"] = 5] = "UNO";
-    HealthData_PandaType[HealthData_PandaType["DOS"] = 6] = "DOS";
-})(HealthData_PandaType = exports.HealthData_PandaType || (exports.HealthData_PandaType = {}));
-var HealthData_UsbPowerMode;
-(function (HealthData_UsbPowerMode) {
-    HealthData_UsbPowerMode[HealthData_UsbPowerMode["NONE"] = 0] = "NONE";
-    HealthData_UsbPowerMode[HealthData_UsbPowerMode["CLIENT"] = 1] = "CLIENT";
-    HealthData_UsbPowerMode[HealthData_UsbPowerMode["CDP"] = 2] = "CDP";
-    HealthData_UsbPowerMode[HealthData_UsbPowerMode["DCP"] = 3] = "DCP";
-})(HealthData_UsbPowerMode = exports.HealthData_UsbPowerMode || (exports.HealthData_UsbPowerMode = {}));
-class HealthData extends capnp_ts_1.Struct {
+DeviceState.ThermalStatus = DeviceState_ThermalStatus;
+DeviceState.NetworkType = DeviceState_NetworkType;
+DeviceState.NetworkStrength = DeviceState_NetworkStrength;
+DeviceState._capnp = { displayName: "DeviceState", id: "a4d8b5af2aa492eb", size: new capnp_ts_1.ObjectSize(72, 3) };
+exports.DeviceState = DeviceState;
+var PandaState_FaultStatus;
+(function (PandaState_FaultStatus) {
+    PandaState_FaultStatus[PandaState_FaultStatus["NONE"] = 0] = "NONE";
+    PandaState_FaultStatus[PandaState_FaultStatus["FAULT_TEMP"] = 1] = "FAULT_TEMP";
+    PandaState_FaultStatus[PandaState_FaultStatus["FAULT_PERM"] = 2] = "FAULT_PERM";
+})(PandaState_FaultStatus = exports.PandaState_FaultStatus || (exports.PandaState_FaultStatus = {}));
+var PandaState_FaultType;
+(function (PandaState_FaultType) {
+    PandaState_FaultType[PandaState_FaultType["RELAY_MALFUNCTION"] = 0] = "RELAY_MALFUNCTION";
+    PandaState_FaultType[PandaState_FaultType["UNUSED_INTERRUPT_HANDLED"] = 1] = "UNUSED_INTERRUPT_HANDLED";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_CAN1"] = 2] = "INTERRUPT_RATE_CAN1";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_CAN2"] = 3] = "INTERRUPT_RATE_CAN2";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_CAN3"] = 4] = "INTERRUPT_RATE_CAN3";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_TACH"] = 5] = "INTERRUPT_RATE_TACH";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_GMLAN"] = 6] = "INTERRUPT_RATE_GMLAN";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_INTERRUPTS"] = 7] = "INTERRUPT_RATE_INTERRUPTS";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_SPI_DMA"] = 8] = "INTERRUPT_RATE_SPI_DMA";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_SPI_CS"] = 9] = "INTERRUPT_RATE_SPI_CS";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_UART1"] = 10] = "INTERRUPT_RATE_UART1";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_UART2"] = 11] = "INTERRUPT_RATE_UART2";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_UART3"] = 12] = "INTERRUPT_RATE_UART3";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_UART5"] = 13] = "INTERRUPT_RATE_UART5";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_UART_DMA"] = 14] = "INTERRUPT_RATE_UART_DMA";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_USB"] = 15] = "INTERRUPT_RATE_USB";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_TIM1"] = 16] = "INTERRUPT_RATE_TIM1";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_TIM3"] = 17] = "INTERRUPT_RATE_TIM3";
+    PandaState_FaultType[PandaState_FaultType["REGISTER_DIVERGENT"] = 18] = "REGISTER_DIVERGENT";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_KLINE_INIT"] = 19] = "INTERRUPT_RATE_KLINE_INIT";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_CLOCK_SOURCE"] = 20] = "INTERRUPT_RATE_CLOCK_SOURCE";
+    PandaState_FaultType[PandaState_FaultType["INTERRUPT_RATE_TIM9"] = 21] = "INTERRUPT_RATE_TIM9";
+})(PandaState_FaultType = exports.PandaState_FaultType || (exports.PandaState_FaultType = {}));
+var PandaState_PandaType;
+(function (PandaState_PandaType) {
+    PandaState_PandaType[PandaState_PandaType["UNKNOWN"] = 0] = "UNKNOWN";
+    PandaState_PandaType[PandaState_PandaType["WHITE_PANDA"] = 1] = "WHITE_PANDA";
+    PandaState_PandaType[PandaState_PandaType["GREY_PANDA"] = 2] = "GREY_PANDA";
+    PandaState_PandaType[PandaState_PandaType["BLACK_PANDA"] = 3] = "BLACK_PANDA";
+    PandaState_PandaType[PandaState_PandaType["PEDAL"] = 4] = "PEDAL";
+    PandaState_PandaType[PandaState_PandaType["UNO"] = 5] = "UNO";
+    PandaState_PandaType[PandaState_PandaType["DOS"] = 6] = "DOS";
+})(PandaState_PandaType = exports.PandaState_PandaType || (exports.PandaState_PandaType = {}));
+var PandaState_UsbPowerMode;
+(function (PandaState_UsbPowerMode) {
+    PandaState_UsbPowerMode[PandaState_UsbPowerMode["NONE"] = 0] = "NONE";
+    PandaState_UsbPowerMode[PandaState_UsbPowerMode["CLIENT"] = 1] = "CLIENT";
+    PandaState_UsbPowerMode[PandaState_UsbPowerMode["CDP"] = 2] = "CDP";
+    PandaState_UsbPowerMode[PandaState_UsbPowerMode["DCP"] = 3] = "DCP";
+})(PandaState_UsbPowerMode = exports.PandaState_UsbPowerMode || (exports.PandaState_UsbPowerMode = {}));
+class PandaState extends capnp_ts_1.Struct {
     getVoltage() { return capnp_ts_1.Struct.getUint32(0, this); }
     setVoltage(value) { capnp_ts_1.Struct.setUint32(0, value, this); }
     getCurrent() { return capnp_ts_1.Struct.getUint32(4, this); }
@@ -854,6 +854,8 @@ class HealthData extends capnp_ts_1.Struct {
     setIgnitionCan(value) { capnp_ts_1.Struct.setBit(69, value, this); }
     getSafetyModel() { return capnp_ts_1.Struct.getUint16(28, this); }
     setSafetyModel(value) { capnp_ts_1.Struct.setUint16(28, value, this); }
+    getSafetyParam() { return capnp_ts_1.Struct.getInt16(40, this); }
+    setSafetyParam(value) { capnp_ts_1.Struct.setInt16(40, value, this); }
     getFaultStatus() { return capnp_ts_1.Struct.getUint16(30, this); }
     setFaultStatus(value) { capnp_ts_1.Struct.setUint16(30, value, this); }
     getPowerSaveEnabled() { return capnp_ts_1.Struct.getBit(70, this); }
@@ -868,14 +870,14 @@ class HealthData extends capnp_ts_1.Struct {
     setFaults(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this)); }
     getStartedSignalDetectedDEPRECATED() { return capnp_ts_1.Struct.getBit(67, this); }
     setStartedSignalDetectedDEPRECATED(value) { capnp_ts_1.Struct.setBit(67, value, this); }
-    toString() { return "HealthData_" + super.toString(); }
+    toString() { return "PandaState_" + super.toString(); }
 }
-HealthData.FaultStatus = HealthData_FaultStatus;
-HealthData.FaultType = HealthData_FaultType;
-HealthData.PandaType = HealthData_PandaType;
-HealthData.UsbPowerMode = HealthData_UsbPowerMode;
-HealthData._capnp = { displayName: "HealthData", id: "cfa2b0c2c82af1e4", size: new capnp_ts_1.ObjectSize(40, 1) };
-exports.HealthData = HealthData;
+PandaState.FaultStatus = PandaState_FaultStatus;
+PandaState.FaultType = PandaState_FaultType;
+PandaState.PandaType = PandaState_PandaType;
+PandaState.UsbPowerMode = PandaState_UsbPowerMode;
+PandaState._capnp = { displayName: "PandaState", id: "a7649e2575e4591e", size: new capnp_ts_1.ObjectSize(48, 1) };
+exports.PandaState = PandaState;
 class RadarState_LeadData extends capnp_ts_1.Struct {
     getDRel() { return capnp_ts_1.Struct.getFloat32(0, this); }
     setDRel(value) { capnp_ts_1.Struct.setFloat32(0, value, this); }
@@ -1067,12 +1069,12 @@ var ControlsState_AlertSize;
 class ControlsState_LateralINDIState extends capnp_ts_1.Struct {
     getActive() { return capnp_ts_1.Struct.getBit(0, this); }
     setActive(value) { capnp_ts_1.Struct.setBit(0, value, this); }
-    getSteerAngle() { return capnp_ts_1.Struct.getFloat32(4, this); }
-    setSteerAngle(value) { capnp_ts_1.Struct.setFloat32(4, value, this); }
-    getSteerRate() { return capnp_ts_1.Struct.getFloat32(8, this); }
-    setSteerRate(value) { capnp_ts_1.Struct.setFloat32(8, value, this); }
-    getSteerAccel() { return capnp_ts_1.Struct.getFloat32(12, this); }
-    setSteerAccel(value) { capnp_ts_1.Struct.setFloat32(12, value, this); }
+    getSteeringAngleDeg() { return capnp_ts_1.Struct.getFloat32(4, this); }
+    setSteeringAngleDeg(value) { capnp_ts_1.Struct.setFloat32(4, value, this); }
+    getSteeringRateDeg() { return capnp_ts_1.Struct.getFloat32(8, this); }
+    setSteeringRateDeg(value) { capnp_ts_1.Struct.setFloat32(8, value, this); }
+    getSteeringAccelDeg() { return capnp_ts_1.Struct.getFloat32(12, this); }
+    setSteeringAccelDeg(value) { capnp_ts_1.Struct.setFloat32(12, value, this); }
     getRateSetPoint() { return capnp_ts_1.Struct.getFloat32(16, this); }
     setRateSetPoint(value) { capnp_ts_1.Struct.setFloat32(16, value, this); }
     getAccelSetPoint() { return capnp_ts_1.Struct.getFloat32(20, this); }
@@ -1094,10 +1096,10 @@ exports.ControlsState_LateralINDIState = ControlsState_LateralINDIState;
 class ControlsState_LateralPIDState extends capnp_ts_1.Struct {
     getActive() { return capnp_ts_1.Struct.getBit(0, this); }
     setActive(value) { capnp_ts_1.Struct.setBit(0, value, this); }
-    getSteerAngle() { return capnp_ts_1.Struct.getFloat32(4, this); }
-    setSteerAngle(value) { capnp_ts_1.Struct.setFloat32(4, value, this); }
-    getSteerRate() { return capnp_ts_1.Struct.getFloat32(8, this); }
-    setSteerRate(value) { capnp_ts_1.Struct.setFloat32(8, value, this); }
+    getSteeringAngleDeg() { return capnp_ts_1.Struct.getFloat32(4, this); }
+    setSteeringAngleDeg(value) { capnp_ts_1.Struct.setFloat32(4, value, this); }
+    getSteeringRateDeg() { return capnp_ts_1.Struct.getFloat32(8, this); }
+    setSteeringRateDeg(value) { capnp_ts_1.Struct.setFloat32(8, value, this); }
     getAngleError() { return capnp_ts_1.Struct.getFloat32(12, this); }
     setAngleError(value) { capnp_ts_1.Struct.setFloat32(12, value, this); }
     getP() { return capnp_ts_1.Struct.getFloat32(16, this); }
@@ -1117,8 +1119,8 @@ exports.ControlsState_LateralPIDState = ControlsState_LateralPIDState;
 class ControlsState_LateralLQRState extends capnp_ts_1.Struct {
     getActive() { return capnp_ts_1.Struct.getBit(0, this); }
     setActive(value) { capnp_ts_1.Struct.setBit(0, value, this); }
-    getSteerAngle() { return capnp_ts_1.Struct.getFloat32(4, this); }
-    setSteerAngle(value) { capnp_ts_1.Struct.setFloat32(4, value, this); }
+    getSteeringAngleDeg() { return capnp_ts_1.Struct.getFloat32(4, this); }
+    setSteeringAngleDeg(value) { capnp_ts_1.Struct.setFloat32(4, value, this); }
     getI() { return capnp_ts_1.Struct.getFloat32(8, this); }
     setI(value) { capnp_ts_1.Struct.setFloat32(8, value, this); }
     getOutput() { return capnp_ts_1.Struct.getFloat32(12, this); }
@@ -1131,11 +1133,25 @@ class ControlsState_LateralLQRState extends capnp_ts_1.Struct {
 }
 ControlsState_LateralLQRState._capnp = { displayName: "LateralLQRState", id: "9024e2d790c82ade", size: new capnp_ts_1.ObjectSize(24, 0) };
 exports.ControlsState_LateralLQRState = ControlsState_LateralLQRState;
+class ControlsState_LateralAngleState extends capnp_ts_1.Struct {
+    getActive() { return capnp_ts_1.Struct.getBit(0, this); }
+    setActive(value) { capnp_ts_1.Struct.setBit(0, value, this); }
+    getSteeringAngleDeg() { return capnp_ts_1.Struct.getFloat32(4, this); }
+    setSteeringAngleDeg(value) { capnp_ts_1.Struct.setFloat32(4, value, this); }
+    getOutput() { return capnp_ts_1.Struct.getFloat32(8, this); }
+    setOutput(value) { capnp_ts_1.Struct.setFloat32(8, value, this); }
+    getSaturated() { return capnp_ts_1.Struct.getBit(1, this); }
+    setSaturated(value) { capnp_ts_1.Struct.setBit(1, value, this); }
+    toString() { return "ControlsState_LateralAngleState_" + super.toString(); }
+}
+ControlsState_LateralAngleState._capnp = { displayName: "LateralAngleState", id: "a2e4ea88ac9980f1", size: new capnp_ts_1.ObjectSize(16, 0) };
+exports.ControlsState_LateralAngleState = ControlsState_LateralAngleState;
 var ControlsState_LateralControlState_Which;
 (function (ControlsState_LateralControlState_Which) {
     ControlsState_LateralControlState_Which[ControlsState_LateralControlState_Which["INDI_STATE"] = 0] = "INDI_STATE";
     ControlsState_LateralControlState_Which[ControlsState_LateralControlState_Which["PID_STATE"] = 1] = "PID_STATE";
     ControlsState_LateralControlState_Which[ControlsState_LateralControlState_Which["LQR_STATE"] = 2] = "LQR_STATE";
+    ControlsState_LateralControlState_Which[ControlsState_LateralControlState_Which["ANGLE_STATE"] = 3] = "ANGLE_STATE";
 })(ControlsState_LateralControlState_Which = exports.ControlsState_LateralControlState_Which || (exports.ControlsState_LateralControlState_Which = {}));
 class ControlsState_LateralControlState extends capnp_ts_1.Struct {
     adoptIndiState(value) {
@@ -1195,12 +1211,32 @@ class ControlsState_LateralControlState extends capnp_ts_1.Struct {
         capnp_ts_1.Struct.setUint16(142, 2, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(5, this));
     }
+    adoptAngleState(value) {
+        capnp_ts_1.Struct.setUint16(142, 3, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(5, this));
+    }
+    disownAngleState() { return capnp_ts_1.Struct.disown(this.getAngleState()); }
+    getAngleState() {
+        capnp_ts_1.Struct.testWhich("angleState", capnp_ts_1.Struct.getUint16(142, this), 3, this);
+        return capnp_ts_1.Struct.getStruct(5, ControlsState_LateralAngleState, this);
+    }
+    hasAngleState() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(5, this)); }
+    initAngleState() {
+        capnp_ts_1.Struct.setUint16(142, 3, this);
+        return capnp_ts_1.Struct.initStructAt(5, ControlsState_LateralAngleState, this);
+    }
+    isAngleState() { return capnp_ts_1.Struct.getUint16(142, this) === 3; }
+    setAngleState(value) {
+        capnp_ts_1.Struct.setUint16(142, 3, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(5, this));
+    }
     toString() { return "ControlsState_LateralControlState_" + super.toString(); }
     which() { return capnp_ts_1.Struct.getUint16(142, this); }
 }
 ControlsState_LateralControlState.INDI_STATE = ControlsState_LateralControlState_Which.INDI_STATE;
 ControlsState_LateralControlState.PID_STATE = ControlsState_LateralControlState_Which.PID_STATE;
 ControlsState_LateralControlState.LQR_STATE = ControlsState_LateralControlState_Which.LQR_STATE;
+ControlsState_LateralControlState.ANGLE_STATE = ControlsState_LateralControlState_Which.ANGLE_STATE;
 ControlsState_LateralControlState._capnp = { displayName: "lateralControlState", id: "fd5b914d6b444695", size: new capnp_ts_1.ObjectSize(176, 6) };
 exports.ControlsState_LateralControlState = ControlsState_LateralControlState;
 class ControlsState extends capnp_ts_1.Struct {
@@ -1238,8 +1274,8 @@ class ControlsState extends capnp_ts_1.Struct {
     setUfAccelCmd(value) { capnp_ts_1.Struct.setFloat32(124, value, this); }
     getATarget() { return capnp_ts_1.Struct.getFloat32(132, this); }
     setATarget(value) { capnp_ts_1.Struct.setFloat32(132, value, this); }
-    getAngleSteersDes() { return capnp_ts_1.Struct.getFloat32(112, this); }
-    setAngleSteersDes(value) { capnp_ts_1.Struct.setFloat32(112, value, this); }
+    getSteeringAngleDesiredDeg() { return capnp_ts_1.Struct.getFloat32(112, this); }
+    setSteeringAngleDesiredDeg(value) { capnp_ts_1.Struct.setFloat32(112, value, this); }
     getCurvature() { return capnp_ts_1.Struct.getFloat32(136, this); }
     setCurvature(value) { capnp_ts_1.Struct.setFloat32(136, value, this); }
     getForceDecel() { return capnp_ts_1.Struct.getBit(713, this); }
@@ -1329,6 +1365,7 @@ ControlsState.AlertSize = ControlsState_AlertSize;
 ControlsState.LateralINDIState = ControlsState_LateralINDIState;
 ControlsState.LateralPIDState = ControlsState_LateralPIDState;
 ControlsState.LateralLQRState = ControlsState_LateralLQRState;
+ControlsState.LateralAngleState = ControlsState_LateralAngleState;
 ControlsState._capnp = { displayName: "ControlsState", id: "97ff69c53601abf1", size: new capnp_ts_1.ObjectSize(176, 6) };
 exports.ControlsState = ControlsState;
 class ModelDataV2_XYZTData extends capnp_ts_1.Struct {
@@ -1712,20 +1749,22 @@ class LateralPlan extends capnp_ts_1.Struct {
     setDPathPoints(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(4, this)); }
     getDProb() { return capnp_ts_1.Struct.getFloat32(36, this); }
     setDProb(value) { capnp_ts_1.Struct.setFloat32(36, value, this); }
-    getAngleSteers() { return capnp_ts_1.Struct.getFloat32(16, this); }
-    setAngleSteers(value) { capnp_ts_1.Struct.setFloat32(16, value, this); }
-    getRateSteers() { return capnp_ts_1.Struct.getFloat32(28, this); }
-    setRateSteers(value) { capnp_ts_1.Struct.setFloat32(28, value, this); }
     getMpcSolutionValid() { return capnp_ts_1.Struct.getBit(160, this); }
     setMpcSolutionValid(value) { capnp_ts_1.Struct.setBit(160, value, this); }
-    getAngleOffset() { return capnp_ts_1.Struct.getFloat32(24, this); }
-    setAngleOffset(value) { capnp_ts_1.Struct.setFloat32(24, value, this); }
     getDesire() { return capnp_ts_1.Struct.getUint16(22, this); }
     setDesire(value) { capnp_ts_1.Struct.setUint16(22, value, this); }
     getLaneChangeState() { return capnp_ts_1.Struct.getUint16(32, this); }
     setLaneChangeState(value) { capnp_ts_1.Struct.setUint16(32, value, this); }
     getLaneChangeDirection() { return capnp_ts_1.Struct.getUint16(34, this); }
     setLaneChangeDirection(value) { capnp_ts_1.Struct.setUint16(34, value, this); }
+    getCurvature() { return capnp_ts_1.Struct.getFloat32(40, this); }
+    setCurvature(value) { capnp_ts_1.Struct.setFloat32(40, value, this); }
+    getCurvatureRate() { return capnp_ts_1.Struct.getFloat32(44, this); }
+    setCurvatureRate(value) { capnp_ts_1.Struct.setFloat32(44, value, this); }
+    getRawCurvature() { return capnp_ts_1.Struct.getFloat32(48, this); }
+    setRawCurvature(value) { capnp_ts_1.Struct.setFloat32(48, value, this); }
+    getRawCurvatureRate() { return capnp_ts_1.Struct.getFloat32(52, this); }
+    setRawCurvatureRate(value) { capnp_ts_1.Struct.setFloat32(52, value, this); }
     getCProbDEPRECATED() { return capnp_ts_1.Struct.getFloat32(4, this); }
     setCProbDEPRECATED(value) { capnp_ts_1.Struct.setFloat32(4, value, this); }
     adoptDPolyDEPRECATED(value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); }
@@ -1762,12 +1801,18 @@ class LateralPlan extends capnp_ts_1.Struct {
     setSensorValidDEPRECATED(value) { capnp_ts_1.Struct.setBit(163, value, this); }
     getParamsValidDEPRECATED() { return capnp_ts_1.Struct.getBit(161, this); }
     setParamsValidDEPRECATED(value) { capnp_ts_1.Struct.setBit(161, value, this); }
+    getSteeringAngleDegDEPRECATED() { return capnp_ts_1.Struct.getFloat32(16, this); }
+    setSteeringAngleDegDEPRECATED(value) { capnp_ts_1.Struct.setFloat32(16, value, this); }
+    getSteeringRateDegDEPRECATED() { return capnp_ts_1.Struct.getFloat32(28, this); }
+    setSteeringRateDegDEPRECATED(value) { capnp_ts_1.Struct.setFloat32(28, value, this); }
+    getAngleOffsetDegDEPRECATED() { return capnp_ts_1.Struct.getFloat32(24, this); }
+    setAngleOffsetDegDEPRECATED(value) { capnp_ts_1.Struct.setFloat32(24, value, this); }
     toString() { return "LateralPlan_" + super.toString(); }
 }
 LateralPlan.Desire = LateralPlan_Desire;
 LateralPlan.LaneChangeState = LateralPlan_LaneChangeState;
 LateralPlan.LaneChangeDirection = LateralPlan_LaneChangeDirection;
-LateralPlan._capnp = { displayName: "LateralPlan", id: "e1e9318e2ae8b51e", size: new capnp_ts_1.ObjectSize(40, 5) };
+LateralPlan._capnp = { displayName: "LateralPlan", id: "e1e9318e2ae8b51e", size: new capnp_ts_1.ObjectSize(56, 5) };
 exports.LateralPlan = LateralPlan;
 var LiveLocationKalman_Status;
 (function (LiveLocationKalman_Status) {
@@ -1903,124 +1948,6 @@ LiveLocationKalman.Status = LiveLocationKalman_Status;
 LiveLocationKalman.Measurement = LiveLocationKalman_Measurement;
 LiveLocationKalman._capnp = { displayName: "LiveLocationKalman", id: "ebc5703d1ee7c129", size: new capnp_ts_1.ObjectSize(24, 14), defaultInputsOK: capnp.getBitMask(true, 0), defaultPosenetOK: capnp.getBitMask(true, 1), defaultGpsOK: capnp.getBitMask(true, 2), defaultSensorsOK: capnp.getBitMask(true, 3), defaultDeviceStable: capnp.getBitMask(true, 4) };
 exports.LiveLocationKalman = LiveLocationKalman;
-class LiveLocationData_Accuracy extends capnp_ts_1.Struct {
-    adoptPNEDError(value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); }
-    disownPNEDError() { return capnp_ts_1.Struct.disown(this.getPNEDError()); }
-    getPNEDError() { return capnp_ts_1.Struct.getList(0, capnp.Float32List, this); }
-    hasPNEDError() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
-    initPNEDError(length) { return capnp_ts_1.Struct.initList(0, capnp.Float32List, length, this); }
-    setPNEDError(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this)); }
-    adoptVNEDError(value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(1, this)); }
-    disownVNEDError() { return capnp_ts_1.Struct.disown(this.getVNEDError()); }
-    getVNEDError() { return capnp_ts_1.Struct.getList(1, capnp.Float32List, this); }
-    hasVNEDError() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(1, this)); }
-    initVNEDError(length) { return capnp_ts_1.Struct.initList(1, capnp.Float32List, length, this); }
-    setVNEDError(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(1, this)); }
-    getRollError() { return capnp_ts_1.Struct.getFloat32(0, this); }
-    setRollError(value) { capnp_ts_1.Struct.setFloat32(0, value, this); }
-    getPitchError() { return capnp_ts_1.Struct.getFloat32(4, this); }
-    setPitchError(value) { capnp_ts_1.Struct.setFloat32(4, value, this); }
-    getHeadingError() { return capnp_ts_1.Struct.getFloat32(8, this); }
-    setHeadingError(value) { capnp_ts_1.Struct.setFloat32(8, value, this); }
-    getEllipsoidSemiMajorError() { return capnp_ts_1.Struct.getFloat32(12, this); }
-    setEllipsoidSemiMajorError(value) { capnp_ts_1.Struct.setFloat32(12, value, this); }
-    getEllipsoidSemiMinorError() { return capnp_ts_1.Struct.getFloat32(16, this); }
-    setEllipsoidSemiMinorError(value) { capnp_ts_1.Struct.setFloat32(16, value, this); }
-    getEllipsoidOrientationError() { return capnp_ts_1.Struct.getFloat32(20, this); }
-    setEllipsoidOrientationError(value) { capnp_ts_1.Struct.setFloat32(20, value, this); }
-    toString() { return "LiveLocationData_Accuracy_" + super.toString(); }
-}
-LiveLocationData_Accuracy._capnp = { displayName: "Accuracy", id: "943dc4625473b03f", size: new capnp_ts_1.ObjectSize(24, 2) };
-exports.LiveLocationData_Accuracy = LiveLocationData_Accuracy;
-var LiveLocationData_SensorSource;
-(function (LiveLocationData_SensorSource) {
-    LiveLocationData_SensorSource[LiveLocationData_SensorSource["APPLANIX"] = 0] = "APPLANIX";
-    LiveLocationData_SensorSource[LiveLocationData_SensorSource["KALMAN"] = 1] = "KALMAN";
-    LiveLocationData_SensorSource[LiveLocationData_SensorSource["ORBSLAM"] = 2] = "ORBSLAM";
-    LiveLocationData_SensorSource[LiveLocationData_SensorSource["TIMING"] = 3] = "TIMING";
-    LiveLocationData_SensorSource[LiveLocationData_SensorSource["DUMMY"] = 4] = "DUMMY";
-})(LiveLocationData_SensorSource = exports.LiveLocationData_SensorSource || (exports.LiveLocationData_SensorSource = {}));
-class LiveLocationData extends capnp_ts_1.Struct {
-    getStatus() { return capnp_ts_1.Struct.getUint8(0, this); }
-    setStatus(value) { capnp_ts_1.Struct.setUint8(0, value, this); }
-    getLat() { return capnp_ts_1.Struct.getFloat64(8, this); }
-    setLat(value) { capnp_ts_1.Struct.setFloat64(8, value, this); }
-    getLon() { return capnp_ts_1.Struct.getFloat64(16, this); }
-    setLon(value) { capnp_ts_1.Struct.setFloat64(16, value, this); }
-    getAlt() { return capnp_ts_1.Struct.getFloat32(4, this); }
-    setAlt(value) { capnp_ts_1.Struct.setFloat32(4, value, this); }
-    getSpeed() { return capnp_ts_1.Struct.getFloat32(24, this); }
-    setSpeed(value) { capnp_ts_1.Struct.setFloat32(24, value, this); }
-    adoptVNED(value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); }
-    disownVNED() { return capnp_ts_1.Struct.disown(this.getVNED()); }
-    getVNED() { return capnp_ts_1.Struct.getList(0, capnp.Float32List, this); }
-    hasVNED() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
-    initVNED(length) { return capnp_ts_1.Struct.initList(0, capnp.Float32List, length, this); }
-    setVNED(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this)); }
-    getRoll() { return capnp_ts_1.Struct.getFloat32(28, this); }
-    setRoll(value) { capnp_ts_1.Struct.setFloat32(28, value, this); }
-    getPitch() { return capnp_ts_1.Struct.getFloat32(32, this); }
-    setPitch(value) { capnp_ts_1.Struct.setFloat32(32, value, this); }
-    getHeading() { return capnp_ts_1.Struct.getFloat32(36, this); }
-    setHeading(value) { capnp_ts_1.Struct.setFloat32(36, value, this); }
-    getWanderAngle() { return capnp_ts_1.Struct.getFloat32(40, this); }
-    setWanderAngle(value) { capnp_ts_1.Struct.setFloat32(40, value, this); }
-    getTrackAngle() { return capnp_ts_1.Struct.getFloat32(44, this); }
-    setTrackAngle(value) { capnp_ts_1.Struct.setFloat32(44, value, this); }
-    adoptGyro(value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(1, this)); }
-    disownGyro() { return capnp_ts_1.Struct.disown(this.getGyro()); }
-    getGyro() { return capnp_ts_1.Struct.getList(1, capnp.Float32List, this); }
-    hasGyro() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(1, this)); }
-    initGyro(length) { return capnp_ts_1.Struct.initList(1, capnp.Float32List, length, this); }
-    setGyro(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(1, this)); }
-    adoptAccel(value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(2, this)); }
-    disownAccel() { return capnp_ts_1.Struct.disown(this.getAccel()); }
-    getAccel() { return capnp_ts_1.Struct.getList(2, capnp.Float32List, this); }
-    hasAccel() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(2, this)); }
-    initAccel(length) { return capnp_ts_1.Struct.initList(2, capnp.Float32List, length, this); }
-    setAccel(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(2, this)); }
-    adoptAccuracy(value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(3, this)); }
-    disownAccuracy() { return capnp_ts_1.Struct.disown(this.getAccuracy()); }
-    getAccuracy() { return capnp_ts_1.Struct.getStruct(3, LiveLocationData_Accuracy, this); }
-    hasAccuracy() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(3, this)); }
-    initAccuracy() { return capnp_ts_1.Struct.initStructAt(3, LiveLocationData_Accuracy, this); }
-    setAccuracy(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(3, this)); }
-    getSource() { return capnp_ts_1.Struct.getUint16(2, this); }
-    setSource(value) { capnp_ts_1.Struct.setUint16(2, value, this); }
-    getFixMonoTime() { return capnp_ts_1.Struct.getUint64(48, this); }
-    setFixMonoTime(value) { capnp_ts_1.Struct.setUint64(48, value, this); }
-    getGpsWeek() { return capnp_ts_1.Struct.getInt32(56, this); }
-    setGpsWeek(value) { capnp_ts_1.Struct.setInt32(56, value, this); }
-    getTimeOfWeek() { return capnp_ts_1.Struct.getFloat64(64, this); }
-    setTimeOfWeek(value) { capnp_ts_1.Struct.setFloat64(64, value, this); }
-    adoptPositionECEF(value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(4, this)); }
-    disownPositionECEF() { return capnp_ts_1.Struct.disown(this.getPositionECEF()); }
-    getPositionECEF() { return capnp_ts_1.Struct.getList(4, capnp.Float64List, this); }
-    hasPositionECEF() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(4, this)); }
-    initPositionECEF(length) { return capnp_ts_1.Struct.initList(4, capnp.Float64List, length, this); }
-    setPositionECEF(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(4, this)); }
-    adoptPoseQuatECEF(value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(5, this)); }
-    disownPoseQuatECEF() { return capnp_ts_1.Struct.disown(this.getPoseQuatECEF()); }
-    getPoseQuatECEF() { return capnp_ts_1.Struct.getList(5, capnp.Float32List, this); }
-    hasPoseQuatECEF() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(5, this)); }
-    initPoseQuatECEF(length) { return capnp_ts_1.Struct.initList(5, capnp.Float32List, length, this); }
-    setPoseQuatECEF(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(5, this)); }
-    getPitchCalibration() { return capnp_ts_1.Struct.getFloat32(60, this); }
-    setPitchCalibration(value) { capnp_ts_1.Struct.setFloat32(60, value, this); }
-    getYawCalibration() { return capnp_ts_1.Struct.getFloat32(72, this); }
-    setYawCalibration(value) { capnp_ts_1.Struct.setFloat32(72, value, this); }
-    adoptImuFrame(value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(6, this)); }
-    disownImuFrame() { return capnp_ts_1.Struct.disown(this.getImuFrame()); }
-    getImuFrame() { return capnp_ts_1.Struct.getList(6, capnp.Float32List, this); }
-    hasImuFrame() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(6, this)); }
-    initImuFrame(length) { return capnp_ts_1.Struct.initList(6, capnp.Float32List, length, this); }
-    setImuFrame(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(6, this)); }
-    toString() { return "LiveLocationData_" + super.toString(); }
-}
-LiveLocationData.Accuracy = LiveLocationData_Accuracy;
-LiveLocationData.SensorSource = LiveLocationData_SensorSource;
-LiveLocationData._capnp = { displayName: "LiveLocationData", id: "b99b2bc7a57e8128", size: new capnp_ts_1.ObjectSize(80, 7) };
-exports.LiveLocationData = LiveLocationData;
 class ProcLog_Process extends capnp_ts_1.Struct {
     getPid() { return capnp_ts_1.Struct.getInt32(0, this); }
     setPid(value) { capnp_ts_1.Struct.setInt32(0, value, this); }
@@ -2549,12 +2476,12 @@ class LiveMpcData extends capnp_ts_1.Struct {
     hasPsi() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(2, this)); }
     initPsi(length) { return capnp_ts_1.Struct.initList(2, capnp.Float32List, length, this); }
     setPsi(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(2, this)); }
-    adoptDelta(value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(3, this)); }
-    disownDelta() { return capnp_ts_1.Struct.disown(this.getDelta()); }
-    getDelta() { return capnp_ts_1.Struct.getList(3, capnp.Float32List, this); }
-    hasDelta() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(3, this)); }
-    initDelta(length) { return capnp_ts_1.Struct.initList(3, capnp.Float32List, length, this); }
-    setDelta(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(3, this)); }
+    adoptCurvature(value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(3, this)); }
+    disownCurvature() { return capnp_ts_1.Struct.disown(this.getCurvature()); }
+    getCurvature() { return capnp_ts_1.Struct.getList(3, capnp.Float32List, this); }
+    hasCurvature() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(3, this)); }
+    initCurvature(length) { return capnp_ts_1.Struct.initList(3, capnp.Float32List, length, this); }
+    setCurvature(value) { capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(3, this)); }
     getQpIterations() { return capnp_ts_1.Struct.getUint32(0, this); }
     setQpIterations(value) { capnp_ts_1.Struct.setUint32(0, value, this); }
     getCalculationTime() { return capnp_ts_1.Struct.getUint64(8, this); }
@@ -2616,28 +2543,6 @@ class LiveLongitudinalMpcData extends capnp_ts_1.Struct {
 }
 LiveLongitudinalMpcData._capnp = { displayName: "LiveLongitudinalMpcData", id: "e7e17c434f865ae2", size: new capnp_ts_1.ObjectSize(32, 6) };
 exports.LiveLongitudinalMpcData = LiveLongitudinalMpcData;
-var UiLayoutState_App;
-(function (UiLayoutState_App) {
-    UiLayoutState_App[UiLayoutState_App["HOME"] = 0] = "HOME";
-    UiLayoutState_App[UiLayoutState_App["MUSIC"] = 1] = "MUSIC";
-    UiLayoutState_App[UiLayoutState_App["NAV"] = 2] = "NAV";
-    UiLayoutState_App[UiLayoutState_App["SETTINGS"] = 3] = "SETTINGS";
-    UiLayoutState_App[UiLayoutState_App["NONE"] = 4] = "NONE";
-})(UiLayoutState_App = exports.UiLayoutState_App || (exports.UiLayoutState_App = {}));
-class UiLayoutState extends capnp_ts_1.Struct {
-    getActiveApp() { return capnp_ts_1.Struct.getUint16(0, this); }
-    setActiveApp(value) { capnp_ts_1.Struct.setUint16(0, value, this); }
-    getSidebarCollapsed() { return capnp_ts_1.Struct.getBit(16, this); }
-    setSidebarCollapsed(value) { capnp_ts_1.Struct.setBit(16, value, this); }
-    getMapEnabled() { return capnp_ts_1.Struct.getBit(17, this); }
-    setMapEnabled(value) { capnp_ts_1.Struct.setBit(17, value, this); }
-    getMockEngaged() { return capnp_ts_1.Struct.getBit(18, this); }
-    setMockEngaged(value) { capnp_ts_1.Struct.setBit(18, value, this); }
-    toString() { return "UiLayoutState_" + super.toString(); }
-}
-UiLayoutState.App = UiLayoutState_App;
-UiLayoutState._capnp = { displayName: "UiLayoutState", id: "88dcce08ad29dda0", size: new capnp_ts_1.ObjectSize(8, 0) };
-exports.UiLayoutState = UiLayoutState;
 class Joystick extends capnp_ts_1.Struct {
     adoptAxes(value) { capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this)); }
     disownAxes() { return capnp_ts_1.Struct.disown(this.getAxes()); }
@@ -2795,10 +2700,10 @@ class LiveParametersData extends capnp_ts_1.Struct {
     setValid(value) { capnp_ts_1.Struct.setBit(0, value, this); }
     getGyroBias() { return capnp_ts_1.Struct.getFloat32(4, this); }
     setGyroBias(value) { capnp_ts_1.Struct.setFloat32(4, value, this); }
-    getAngleOffset() { return capnp_ts_1.Struct.getFloat32(8, this); }
-    setAngleOffset(value) { capnp_ts_1.Struct.setFloat32(8, value, this); }
-    getAngleOffsetAverage() { return capnp_ts_1.Struct.getFloat32(12, this); }
-    setAngleOffsetAverage(value) { capnp_ts_1.Struct.setFloat32(12, value, this); }
+    getAngleOffsetDeg() { return capnp_ts_1.Struct.getFloat32(8, this); }
+    setAngleOffsetDeg(value) { capnp_ts_1.Struct.setFloat32(8, value, this); }
+    getAngleOffsetAverageDeg() { return capnp_ts_1.Struct.getFloat32(12, this); }
+    setAngleOffsetAverageDeg(value) { capnp_ts_1.Struct.setFloat32(12, value, this); }
     getStiffnessFactor() { return capnp_ts_1.Struct.getFloat32(16, this); }
     setStiffnessFactor(value) { capnp_ts_1.Struct.setFloat32(16, value, this); }
     getSteerRatio() { return capnp_ts_1.Struct.getFloat32(20, this); }
@@ -2952,49 +2857,45 @@ var Event_Which;
     Event_Which[Event_Which["INIT_DATA"] = 0] = "INIT_DATA";
     Event_Which[Event_Which["SENTINEL"] = 71] = "SENTINEL";
     Event_Which[Event_Which["BOOT"] = 59] = "BOOT";
-    Event_Which[Event_Which["FRAME"] = 1] = "FRAME";
     Event_Which[Event_Which["GPS_NMEA"] = 2] = "GPS_NMEA";
     Event_Which[Event_Which["CAN"] = 4] = "CAN";
-    Event_Which[Event_Which["THERMAL"] = 5] = "THERMAL";
     Event_Which[Event_Which["CONTROLS_STATE"] = 6] = "CONTROLS_STATE";
     Event_Which[Event_Which["SENSOR_EVENTS"] = 10] = "SENSOR_EVENTS";
-    Event_Which[Event_Which["HEALTH"] = 11] = "HEALTH";
+    Event_Which[Event_Which["PANDA_STATE"] = 11] = "PANDA_STATE";
     Event_Which[Event_Which["RADAR_STATE"] = 12] = "RADAR_STATE";
-    Event_Which[Event_Which["ENCODE_IDX"] = 14] = "ENCODE_IDX";
     Event_Which[Event_Which["LIVE_TRACKS"] = 15] = "LIVE_TRACKS";
     Event_Which[Event_Which["SENDCAN"] = 16] = "SENDCAN";
-    Event_Which[Event_Which["LOG_MESSAGE"] = 17] = "LOG_MESSAGE";
     Event_Which[Event_Which["LIVE_CALIBRATION"] = 18] = "LIVE_CALIBRATION";
-    Event_Which[Event_Which["ANDROID_LOG"] = 19] = "ANDROID_LOG";
-    Event_Which[Event_Which["GPS_LOCATION"] = 20] = "GPS_LOCATION";
     Event_Which[Event_Which["CAR_STATE"] = 21] = "CAR_STATE";
     Event_Which[Event_Which["CAR_CONTROL"] = 22] = "CAR_CONTROL";
     Event_Which[Event_Which["LONGITUDINAL_PLAN"] = 23] = "LONGITUDINAL_PLAN";
     Event_Which[Event_Which["LATERAL_PLAN"] = 63] = "LATERAL_PLAN";
-    Event_Which[Event_Which["LIVE_LOCATION"] = 24] = "LIVE_LOCATION";
-    Event_Which[Event_Which["PROC_LOG"] = 32] = "PROC_LOG";
     Event_Which[Event_Which["UBLOX_GNSS"] = 33] = "UBLOX_GNSS";
-    Event_Which[Event_Which["CLOCKS"] = 34] = "CLOCKS";
     Event_Which[Event_Which["LIVE_MPC"] = 35] = "LIVE_MPC";
     Event_Which[Event_Which["LIVE_LONGITUDINAL_MPC"] = 36] = "LIVE_LONGITUDINAL_MPC";
     Event_Which[Event_Which["UBLOX_RAW"] = 38] = "UBLOX_RAW";
     Event_Which[Event_Which["GPS_LOCATION_EXTERNAL"] = 47] = "GPS_LOCATION_EXTERNAL";
-    Event_Which[Event_Which["LOCATION"] = 48] = "LOCATION";
-    Event_Which[Event_Which["UI_LAYOUT_STATE"] = 56] = "UI_LAYOUT_STATE";
     Event_Which[Event_Which["DRIVER_STATE"] = 58] = "DRIVER_STATE";
     Event_Which[Event_Which["LIVE_PARAMETERS"] = 60] = "LIVE_PARAMETERS";
     Event_Which[Event_Which["CAMERA_ODOMETRY"] = 62] = "CAMERA_ODOMETRY";
     Event_Which[Event_Which["THUMBNAIL"] = 65] = "THUMBNAIL";
     Event_Which[Event_Which["CAR_EVENTS"] = 66] = "CAR_EVENTS";
     Event_Which[Event_Which["CAR_PARAMS"] = 67] = "CAR_PARAMS";
-    Event_Which[Event_Which["FRONT_FRAME"] = 68] = "FRONT_FRAME";
     Event_Which[Event_Which["DRIVER_MONITORING_STATE"] = 69] = "DRIVER_MONITORING_STATE";
     Event_Which[Event_Which["LIVE_LOCATION_KALMAN"] = 70] = "LIVE_LOCATION_KALMAN";
-    Event_Which[Event_Which["WIDE_FRAME"] = 72] = "WIDE_FRAME";
     Event_Which[Event_Which["MODEL_V2"] = 73] = "MODEL_V2";
-    Event_Which[Event_Which["FRONT_ENCODE_IDX"] = 74] = "FRONT_ENCODE_IDX";
-    Event_Which[Event_Which["WIDE_ENCODE_IDX"] = 75] = "WIDE_ENCODE_IDX";
+    Event_Which[Event_Which["ROAD_CAMERA_STATE"] = 1] = "ROAD_CAMERA_STATE";
+    Event_Which[Event_Which["DRIVER_CAMERA_STATE"] = 68] = "DRIVER_CAMERA_STATE";
+    Event_Which[Event_Which["WIDE_ROAD_CAMERA_STATE"] = 72] = "WIDE_ROAD_CAMERA_STATE";
+    Event_Which[Event_Which["ROAD_ENCODE_IDX"] = 14] = "ROAD_ENCODE_IDX";
+    Event_Which[Event_Which["DRIVER_ENCODE_IDX"] = 74] = "DRIVER_ENCODE_IDX";
+    Event_Which[Event_Which["WIDE_ROAD_ENCODE_IDX"] = 75] = "WIDE_ROAD_ENCODE_IDX";
+    Event_Which[Event_Which["ANDROID_LOG"] = 19] = "ANDROID_LOG";
     Event_Which[Event_Which["MANAGER_STATE"] = 76] = "MANAGER_STATE";
+    Event_Which[Event_Which["PROC_LOG"] = 32] = "PROC_LOG";
+    Event_Which[Event_Which["CLOCKS"] = 34] = "CLOCKS";
+    Event_Which[Event_Which["DEVICE_STATE"] = 5] = "DEVICE_STATE";
+    Event_Which[Event_Which["LOG_MESSAGE"] = 17] = "LOG_MESSAGE";
     Event_Which[Event_Which["TEST_JOYSTICK"] = 51] = "TEST_JOYSTICK";
     Event_Which[Event_Which["MODEL"] = 8] = "MODEL";
     Event_Which[Event_Which["LIVE_LOCATION_KALMAN_DEPRECATED"] = 50] = "LIVE_LOCATION_KALMAN_DEPRECATED";
@@ -3002,6 +2903,7 @@ var Event_Which;
     Event_Which[Event_Which["LIVE_UIDEPRECATED"] = 13] = "LIVE_UIDEPRECATED";
     Event_Which[Event_Which["SENSOR_EVENT_DEPRECATED"] = 3] = "SENSOR_EVENT_DEPRECATED";
     Event_Which[Event_Which["LIVE_EVENT_DEPRECATED"] = 7] = "LIVE_EVENT_DEPRECATED";
+    Event_Which[Event_Which["LIVE_LOCATION_DEPRECATED"] = 24] = "LIVE_LOCATION_DEPRECATED";
     Event_Which[Event_Which["ETHERNET_DATA_DEPRECATED"] = 25] = "ETHERNET_DATA_DEPRECATED";
     Event_Which[Event_Which["CELL_INFO_DEPRECATED"] = 27] = "CELL_INFO_DEPRECATED";
     Event_Which[Event_Which["WIFI_SCAN_DEPRECATED"] = 28] = "WIFI_SCAN_DEPRECATED";
@@ -3019,6 +2921,7 @@ var Event_Which;
     Event_Which[Event_Which["LIVE_LOCATION_CORRECTED_DEPRECATED"] = 45] = "LIVE_LOCATION_CORRECTED_DEPRECATED";
     Event_Which[Event_Which["NAV_UPDATE_DEPRECATED"] = 26] = "NAV_UPDATE_DEPRECATED";
     Event_Which[Event_Which["ORB_OBSERVATION_DEPRECATED"] = 46] = "ORB_OBSERVATION_DEPRECATED";
+    Event_Which[Event_Which["LOCATION_DEPRECATED"] = 48] = "LOCATION_DEPRECATED";
     Event_Which[Event_Which["ORB_ODOMETRY_DEPRECATED"] = 52] = "ORB_ODOMETRY_DEPRECATED";
     Event_Which[Event_Which["ORB_FEATURES_DEPRECATED"] = 53] = "ORB_FEATURES_DEPRECATED";
     Event_Which[Event_Which["APPLANIX_LOCATION_DEPRECATED"] = 54] = "APPLANIX_LOCATION_DEPRECATED";
@@ -3026,6 +2929,8 @@ var Event_Which;
     Event_Which[Event_Which["ORB_FEATURES_SUMMARY_DEPRECATED"] = 57] = "ORB_FEATURES_SUMMARY_DEPRECATED";
     Event_Which[Event_Which["FEATURES_DEPRECATED"] = 9] = "FEATURES_DEPRECATED";
     Event_Which[Event_Which["KALMAN_ODOMETRY_DEPRECATED"] = 64] = "KALMAN_ODOMETRY_DEPRECATED";
+    Event_Which[Event_Which["GPS_LOCATION_DEPRECATED"] = 20] = "GPS_LOCATION_DEPRECATED";
+    Event_Which[Event_Which["UI_LAYOUT_STATE_DEPRECATED"] = 56] = "UI_LAYOUT_STATE_DEPRECATED";
 })(Event_Which = exports.Event_Which || (exports.Event_Which = {}));
 class Event extends capnp_ts_1.Struct {
     getLogMonoTime() { return capnp_ts_1.Struct.getUint64(0, this); }
@@ -3089,25 +2994,6 @@ class Event extends capnp_ts_1.Struct {
         capnp_ts_1.Struct.setUint16(8, 59, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     }
-    adoptFrame(value) {
-        capnp_ts_1.Struct.setUint16(8, 1, this);
-        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    disownFrame() { return capnp_ts_1.Struct.disown(this.getFrame()); }
-    getFrame() {
-        capnp_ts_1.Struct.testWhich("frame", capnp_ts_1.Struct.getUint16(8, this), 1, this);
-        return capnp_ts_1.Struct.getStruct(0, FrameData, this);
-    }
-    hasFrame() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
-    initFrame() {
-        capnp_ts_1.Struct.setUint16(8, 1, this);
-        return capnp_ts_1.Struct.initStructAt(0, FrameData, this);
-    }
-    isFrame() { return capnp_ts_1.Struct.getUint16(8, this) === 1; }
-    setFrame(value) {
-        capnp_ts_1.Struct.setUint16(8, 1, this);
-        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
     adoptGpsNMEA(value) {
         capnp_ts_1.Struct.setUint16(8, 2, this);
         capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
@@ -3144,25 +3030,6 @@ class Event extends capnp_ts_1.Struct {
     isCan() { return capnp_ts_1.Struct.getUint16(8, this) === 4; }
     setCan(value) {
         capnp_ts_1.Struct.setUint16(8, 4, this);
-        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    adoptThermal(value) {
-        capnp_ts_1.Struct.setUint16(8, 5, this);
-        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    disownThermal() { return capnp_ts_1.Struct.disown(this.getThermal()); }
-    getThermal() {
-        capnp_ts_1.Struct.testWhich("thermal", capnp_ts_1.Struct.getUint16(8, this), 5, this);
-        return capnp_ts_1.Struct.getStruct(0, ThermalData, this);
-    }
-    hasThermal() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
-    initThermal() {
-        capnp_ts_1.Struct.setUint16(8, 5, this);
-        return capnp_ts_1.Struct.initStructAt(0, ThermalData, this);
-    }
-    isThermal() { return capnp_ts_1.Struct.getUint16(8, this) === 5; }
-    setThermal(value) {
-        capnp_ts_1.Struct.setUint16(8, 5, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     }
     adoptControlsState(value) {
@@ -3203,22 +3070,22 @@ class Event extends capnp_ts_1.Struct {
         capnp_ts_1.Struct.setUint16(8, 10, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     }
-    adoptHealth(value) {
+    adoptPandaState(value) {
         capnp_ts_1.Struct.setUint16(8, 11, this);
         capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
     }
-    disownHealth() { return capnp_ts_1.Struct.disown(this.getHealth()); }
-    getHealth() {
-        capnp_ts_1.Struct.testWhich("health", capnp_ts_1.Struct.getUint16(8, this), 11, this);
-        return capnp_ts_1.Struct.getStruct(0, HealthData, this);
+    disownPandaState() { return capnp_ts_1.Struct.disown(this.getPandaState()); }
+    getPandaState() {
+        capnp_ts_1.Struct.testWhich("pandaState", capnp_ts_1.Struct.getUint16(8, this), 11, this);
+        return capnp_ts_1.Struct.getStruct(0, PandaState, this);
     }
-    hasHealth() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
-    initHealth() {
+    hasPandaState() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
+    initPandaState() {
         capnp_ts_1.Struct.setUint16(8, 11, this);
-        return capnp_ts_1.Struct.initStructAt(0, HealthData, this);
+        return capnp_ts_1.Struct.initStructAt(0, PandaState, this);
     }
-    isHealth() { return capnp_ts_1.Struct.getUint16(8, this) === 11; }
-    setHealth(value) {
+    isPandaState() { return capnp_ts_1.Struct.getUint16(8, this) === 11; }
+    setPandaState(value) {
         capnp_ts_1.Struct.setUint16(8, 11, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     }
@@ -3239,25 +3106,6 @@ class Event extends capnp_ts_1.Struct {
     isRadarState() { return capnp_ts_1.Struct.getUint16(8, this) === 12; }
     setRadarState(value) {
         capnp_ts_1.Struct.setUint16(8, 12, this);
-        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    adoptEncodeIdx(value) {
-        capnp_ts_1.Struct.setUint16(8, 14, this);
-        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    disownEncodeIdx() { return capnp_ts_1.Struct.disown(this.getEncodeIdx()); }
-    getEncodeIdx() {
-        capnp_ts_1.Struct.testWhich("encodeIdx", capnp_ts_1.Struct.getUint16(8, this), 14, this);
-        return capnp_ts_1.Struct.getStruct(0, EncodeIndex, this);
-    }
-    hasEncodeIdx() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
-    initEncodeIdx() {
-        capnp_ts_1.Struct.setUint16(8, 14, this);
-        return capnp_ts_1.Struct.initStructAt(0, EncodeIndex, this);
-    }
-    isEncodeIdx() { return capnp_ts_1.Struct.getUint16(8, this) === 14; }
-    setEncodeIdx(value) {
-        capnp_ts_1.Struct.setUint16(8, 14, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     }
     adoptLiveTracks(value) {
@@ -3298,15 +3146,6 @@ class Event extends capnp_ts_1.Struct {
         capnp_ts_1.Struct.setUint16(8, 16, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     }
-    getLogMessage() {
-        capnp_ts_1.Struct.testWhich("logMessage", capnp_ts_1.Struct.getUint16(8, this), 17, this);
-        return capnp_ts_1.Struct.getText(0, this);
-    }
-    isLogMessage() { return capnp_ts_1.Struct.getUint16(8, this) === 17; }
-    setLogMessage(value) {
-        capnp_ts_1.Struct.setUint16(8, 17, this);
-        capnp_ts_1.Struct.setText(0, value, this);
-    }
     adoptLiveCalibration(value) {
         capnp_ts_1.Struct.setUint16(8, 18, this);
         capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
@@ -3324,44 +3163,6 @@ class Event extends capnp_ts_1.Struct {
     isLiveCalibration() { return capnp_ts_1.Struct.getUint16(8, this) === 18; }
     setLiveCalibration(value) {
         capnp_ts_1.Struct.setUint16(8, 18, this);
-        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    adoptAndroidLog(value) {
-        capnp_ts_1.Struct.setUint16(8, 19, this);
-        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    disownAndroidLog() { return capnp_ts_1.Struct.disown(this.getAndroidLog()); }
-    getAndroidLog() {
-        capnp_ts_1.Struct.testWhich("androidLog", capnp_ts_1.Struct.getUint16(8, this), 19, this);
-        return capnp_ts_1.Struct.getStruct(0, AndroidLogEntry, this);
-    }
-    hasAndroidLog() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
-    initAndroidLog() {
-        capnp_ts_1.Struct.setUint16(8, 19, this);
-        return capnp_ts_1.Struct.initStructAt(0, AndroidLogEntry, this);
-    }
-    isAndroidLog() { return capnp_ts_1.Struct.getUint16(8, this) === 19; }
-    setAndroidLog(value) {
-        capnp_ts_1.Struct.setUint16(8, 19, this);
-        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    adoptGpsLocation(value) {
-        capnp_ts_1.Struct.setUint16(8, 20, this);
-        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    disownGpsLocation() { return capnp_ts_1.Struct.disown(this.getGpsLocation()); }
-    getGpsLocation() {
-        capnp_ts_1.Struct.testWhich("gpsLocation", capnp_ts_1.Struct.getUint16(8, this), 20, this);
-        return capnp_ts_1.Struct.getStruct(0, GpsLocationData, this);
-    }
-    hasGpsLocation() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
-    initGpsLocation() {
-        capnp_ts_1.Struct.setUint16(8, 20, this);
-        return capnp_ts_1.Struct.initStructAt(0, GpsLocationData, this);
-    }
-    isGpsLocation() { return capnp_ts_1.Struct.getUint16(8, this) === 20; }
-    setGpsLocation(value) {
-        capnp_ts_1.Struct.setUint16(8, 20, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     }
     adoptCarState(value) {
@@ -3440,44 +3241,6 @@ class Event extends capnp_ts_1.Struct {
         capnp_ts_1.Struct.setUint16(8, 63, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     }
-    adoptLiveLocation(value) {
-        capnp_ts_1.Struct.setUint16(8, 24, this);
-        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    disownLiveLocation() { return capnp_ts_1.Struct.disown(this.getLiveLocation()); }
-    getLiveLocation() {
-        capnp_ts_1.Struct.testWhich("liveLocation", capnp_ts_1.Struct.getUint16(8, this), 24, this);
-        return capnp_ts_1.Struct.getStruct(0, LiveLocationData, this);
-    }
-    hasLiveLocation() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
-    initLiveLocation() {
-        capnp_ts_1.Struct.setUint16(8, 24, this);
-        return capnp_ts_1.Struct.initStructAt(0, LiveLocationData, this);
-    }
-    isLiveLocation() { return capnp_ts_1.Struct.getUint16(8, this) === 24; }
-    setLiveLocation(value) {
-        capnp_ts_1.Struct.setUint16(8, 24, this);
-        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    adoptProcLog(value) {
-        capnp_ts_1.Struct.setUint16(8, 32, this);
-        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    disownProcLog() { return capnp_ts_1.Struct.disown(this.getProcLog()); }
-    getProcLog() {
-        capnp_ts_1.Struct.testWhich("procLog", capnp_ts_1.Struct.getUint16(8, this), 32, this);
-        return capnp_ts_1.Struct.getStruct(0, ProcLog, this);
-    }
-    hasProcLog() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
-    initProcLog() {
-        capnp_ts_1.Struct.setUint16(8, 32, this);
-        return capnp_ts_1.Struct.initStructAt(0, ProcLog, this);
-    }
-    isProcLog() { return capnp_ts_1.Struct.getUint16(8, this) === 32; }
-    setProcLog(value) {
-        capnp_ts_1.Struct.setUint16(8, 32, this);
-        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
     adoptUbloxGnss(value) {
         capnp_ts_1.Struct.setUint16(8, 33, this);
         capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
@@ -3495,25 +3258,6 @@ class Event extends capnp_ts_1.Struct {
     isUbloxGnss() { return capnp_ts_1.Struct.getUint16(8, this) === 33; }
     setUbloxGnss(value) {
         capnp_ts_1.Struct.setUint16(8, 33, this);
-        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    adoptClocks(value) {
-        capnp_ts_1.Struct.setUint16(8, 34, this);
-        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    disownClocks() { return capnp_ts_1.Struct.disown(this.getClocks()); }
-    getClocks() {
-        capnp_ts_1.Struct.testWhich("clocks", capnp_ts_1.Struct.getUint16(8, this), 34, this);
-        return capnp_ts_1.Struct.getStruct(0, Clocks, this);
-    }
-    hasClocks() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
-    initClocks() {
-        capnp_ts_1.Struct.setUint16(8, 34, this);
-        return capnp_ts_1.Struct.initStructAt(0, Clocks, this);
-    }
-    isClocks() { return capnp_ts_1.Struct.getUint16(8, this) === 34; }
-    setClocks(value) {
-        capnp_ts_1.Struct.setUint16(8, 34, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     }
     adoptLiveMpc(value) {
@@ -3590,44 +3334,6 @@ class Event extends capnp_ts_1.Struct {
     isGpsLocationExternal() { return capnp_ts_1.Struct.getUint16(8, this) === 47; }
     setGpsLocationExternal(value) {
         capnp_ts_1.Struct.setUint16(8, 47, this);
-        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    adoptLocation(value) {
-        capnp_ts_1.Struct.setUint16(8, 48, this);
-        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    disownLocation() { return capnp_ts_1.Struct.disown(this.getLocation()); }
-    getLocation() {
-        capnp_ts_1.Struct.testWhich("location", capnp_ts_1.Struct.getUint16(8, this), 48, this);
-        return capnp_ts_1.Struct.getStruct(0, LiveLocationData, this);
-    }
-    hasLocation() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
-    initLocation() {
-        capnp_ts_1.Struct.setUint16(8, 48, this);
-        return capnp_ts_1.Struct.initStructAt(0, LiveLocationData, this);
-    }
-    isLocation() { return capnp_ts_1.Struct.getUint16(8, this) === 48; }
-    setLocation(value) {
-        capnp_ts_1.Struct.setUint16(8, 48, this);
-        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    adoptUiLayoutState(value) {
-        capnp_ts_1.Struct.setUint16(8, 56, this);
-        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    disownUiLayoutState() { return capnp_ts_1.Struct.disown(this.getUiLayoutState()); }
-    getUiLayoutState() {
-        capnp_ts_1.Struct.testWhich("uiLayoutState", capnp_ts_1.Struct.getUint16(8, this), 56, this);
-        return capnp_ts_1.Struct.getStruct(0, UiLayoutState, this);
-    }
-    hasUiLayoutState() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
-    initUiLayoutState() {
-        capnp_ts_1.Struct.setUint16(8, 56, this);
-        return capnp_ts_1.Struct.initStructAt(0, UiLayoutState, this);
-    }
-    isUiLayoutState() { return capnp_ts_1.Struct.getUint16(8, this) === 56; }
-    setUiLayoutState(value) {
-        capnp_ts_1.Struct.setUint16(8, 56, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     }
     adoptDriverState(value) {
@@ -3744,25 +3450,6 @@ class Event extends capnp_ts_1.Struct {
         capnp_ts_1.Struct.setUint16(8, 67, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     }
-    adoptFrontFrame(value) {
-        capnp_ts_1.Struct.setUint16(8, 68, this);
-        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    disownFrontFrame() { return capnp_ts_1.Struct.disown(this.getFrontFrame()); }
-    getFrontFrame() {
-        capnp_ts_1.Struct.testWhich("frontFrame", capnp_ts_1.Struct.getUint16(8, this), 68, this);
-        return capnp_ts_1.Struct.getStruct(0, FrameData, this);
-    }
-    hasFrontFrame() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
-    initFrontFrame() {
-        capnp_ts_1.Struct.setUint16(8, 68, this);
-        return capnp_ts_1.Struct.initStructAt(0, FrameData, this);
-    }
-    isFrontFrame() { return capnp_ts_1.Struct.getUint16(8, this) === 68; }
-    setFrontFrame(value) {
-        capnp_ts_1.Struct.setUint16(8, 68, this);
-        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
     adoptDriverMonitoringState(value) {
         capnp_ts_1.Struct.setUint16(8, 69, this);
         capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
@@ -3801,25 +3488,6 @@ class Event extends capnp_ts_1.Struct {
         capnp_ts_1.Struct.setUint16(8, 70, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     }
-    adoptWideFrame(value) {
-        capnp_ts_1.Struct.setUint16(8, 72, this);
-        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
-    disownWideFrame() { return capnp_ts_1.Struct.disown(this.getWideFrame()); }
-    getWideFrame() {
-        capnp_ts_1.Struct.testWhich("wideFrame", capnp_ts_1.Struct.getUint16(8, this), 72, this);
-        return capnp_ts_1.Struct.getStruct(0, FrameData, this);
-    }
-    hasWideFrame() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
-    initWideFrame() {
-        capnp_ts_1.Struct.setUint16(8, 72, this);
-        return capnp_ts_1.Struct.initStructAt(0, FrameData, this);
-    }
-    isWideFrame() { return capnp_ts_1.Struct.getUint16(8, this) === 72; }
-    setWideFrame(value) {
-        capnp_ts_1.Struct.setUint16(8, 72, this);
-        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
-    }
     adoptModelV2(value) {
         capnp_ts_1.Struct.setUint16(8, 73, this);
         capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
@@ -3839,42 +3507,137 @@ class Event extends capnp_ts_1.Struct {
         capnp_ts_1.Struct.setUint16(8, 73, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     }
-    adoptFrontEncodeIdx(value) {
+    adoptRoadCameraState(value) {
+        capnp_ts_1.Struct.setUint16(8, 1, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    disownRoadCameraState() { return capnp_ts_1.Struct.disown(this.getRoadCameraState()); }
+    getRoadCameraState() {
+        capnp_ts_1.Struct.testWhich("roadCameraState", capnp_ts_1.Struct.getUint16(8, this), 1, this);
+        return capnp_ts_1.Struct.getStruct(0, FrameData, this);
+    }
+    hasRoadCameraState() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
+    initRoadCameraState() {
+        capnp_ts_1.Struct.setUint16(8, 1, this);
+        return capnp_ts_1.Struct.initStructAt(0, FrameData, this);
+    }
+    isRoadCameraState() { return capnp_ts_1.Struct.getUint16(8, this) === 1; }
+    setRoadCameraState(value) {
+        capnp_ts_1.Struct.setUint16(8, 1, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    adoptDriverCameraState(value) {
+        capnp_ts_1.Struct.setUint16(8, 68, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    disownDriverCameraState() { return capnp_ts_1.Struct.disown(this.getDriverCameraState()); }
+    getDriverCameraState() {
+        capnp_ts_1.Struct.testWhich("driverCameraState", capnp_ts_1.Struct.getUint16(8, this), 68, this);
+        return capnp_ts_1.Struct.getStruct(0, FrameData, this);
+    }
+    hasDriverCameraState() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
+    initDriverCameraState() {
+        capnp_ts_1.Struct.setUint16(8, 68, this);
+        return capnp_ts_1.Struct.initStructAt(0, FrameData, this);
+    }
+    isDriverCameraState() { return capnp_ts_1.Struct.getUint16(8, this) === 68; }
+    setDriverCameraState(value) {
+        capnp_ts_1.Struct.setUint16(8, 68, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    adoptWideRoadCameraState(value) {
+        capnp_ts_1.Struct.setUint16(8, 72, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    disownWideRoadCameraState() { return capnp_ts_1.Struct.disown(this.getWideRoadCameraState()); }
+    getWideRoadCameraState() {
+        capnp_ts_1.Struct.testWhich("wideRoadCameraState", capnp_ts_1.Struct.getUint16(8, this), 72, this);
+        return capnp_ts_1.Struct.getStruct(0, FrameData, this);
+    }
+    hasWideRoadCameraState() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
+    initWideRoadCameraState() {
+        capnp_ts_1.Struct.setUint16(8, 72, this);
+        return capnp_ts_1.Struct.initStructAt(0, FrameData, this);
+    }
+    isWideRoadCameraState() { return capnp_ts_1.Struct.getUint16(8, this) === 72; }
+    setWideRoadCameraState(value) {
+        capnp_ts_1.Struct.setUint16(8, 72, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    adoptRoadEncodeIdx(value) {
+        capnp_ts_1.Struct.setUint16(8, 14, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    disownRoadEncodeIdx() { return capnp_ts_1.Struct.disown(this.getRoadEncodeIdx()); }
+    getRoadEncodeIdx() {
+        capnp_ts_1.Struct.testWhich("roadEncodeIdx", capnp_ts_1.Struct.getUint16(8, this), 14, this);
+        return capnp_ts_1.Struct.getStruct(0, EncodeIndex, this);
+    }
+    hasRoadEncodeIdx() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
+    initRoadEncodeIdx() {
+        capnp_ts_1.Struct.setUint16(8, 14, this);
+        return capnp_ts_1.Struct.initStructAt(0, EncodeIndex, this);
+    }
+    isRoadEncodeIdx() { return capnp_ts_1.Struct.getUint16(8, this) === 14; }
+    setRoadEncodeIdx(value) {
+        capnp_ts_1.Struct.setUint16(8, 14, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    adoptDriverEncodeIdx(value) {
         capnp_ts_1.Struct.setUint16(8, 74, this);
         capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
     }
-    disownFrontEncodeIdx() { return capnp_ts_1.Struct.disown(this.getFrontEncodeIdx()); }
-    getFrontEncodeIdx() {
-        capnp_ts_1.Struct.testWhich("frontEncodeIdx", capnp_ts_1.Struct.getUint16(8, this), 74, this);
+    disownDriverEncodeIdx() { return capnp_ts_1.Struct.disown(this.getDriverEncodeIdx()); }
+    getDriverEncodeIdx() {
+        capnp_ts_1.Struct.testWhich("driverEncodeIdx", capnp_ts_1.Struct.getUint16(8, this), 74, this);
         return capnp_ts_1.Struct.getStruct(0, EncodeIndex, this);
     }
-    hasFrontEncodeIdx() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
-    initFrontEncodeIdx() {
+    hasDriverEncodeIdx() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
+    initDriverEncodeIdx() {
         capnp_ts_1.Struct.setUint16(8, 74, this);
         return capnp_ts_1.Struct.initStructAt(0, EncodeIndex, this);
     }
-    isFrontEncodeIdx() { return capnp_ts_1.Struct.getUint16(8, this) === 74; }
-    setFrontEncodeIdx(value) {
+    isDriverEncodeIdx() { return capnp_ts_1.Struct.getUint16(8, this) === 74; }
+    setDriverEncodeIdx(value) {
         capnp_ts_1.Struct.setUint16(8, 74, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     }
-    adoptWideEncodeIdx(value) {
+    adoptWideRoadEncodeIdx(value) {
         capnp_ts_1.Struct.setUint16(8, 75, this);
         capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
     }
-    disownWideEncodeIdx() { return capnp_ts_1.Struct.disown(this.getWideEncodeIdx()); }
-    getWideEncodeIdx() {
-        capnp_ts_1.Struct.testWhich("wideEncodeIdx", capnp_ts_1.Struct.getUint16(8, this), 75, this);
+    disownWideRoadEncodeIdx() { return capnp_ts_1.Struct.disown(this.getWideRoadEncodeIdx()); }
+    getWideRoadEncodeIdx() {
+        capnp_ts_1.Struct.testWhich("wideRoadEncodeIdx", capnp_ts_1.Struct.getUint16(8, this), 75, this);
         return capnp_ts_1.Struct.getStruct(0, EncodeIndex, this);
     }
-    hasWideEncodeIdx() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
-    initWideEncodeIdx() {
+    hasWideRoadEncodeIdx() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
+    initWideRoadEncodeIdx() {
         capnp_ts_1.Struct.setUint16(8, 75, this);
         return capnp_ts_1.Struct.initStructAt(0, EncodeIndex, this);
     }
-    isWideEncodeIdx() { return capnp_ts_1.Struct.getUint16(8, this) === 75; }
-    setWideEncodeIdx(value) {
+    isWideRoadEncodeIdx() { return capnp_ts_1.Struct.getUint16(8, this) === 75; }
+    setWideRoadEncodeIdx(value) {
         capnp_ts_1.Struct.setUint16(8, 75, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    adoptAndroidLog(value) {
+        capnp_ts_1.Struct.setUint16(8, 19, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    disownAndroidLog() { return capnp_ts_1.Struct.disown(this.getAndroidLog()); }
+    getAndroidLog() {
+        capnp_ts_1.Struct.testWhich("androidLog", capnp_ts_1.Struct.getUint16(8, this), 19, this);
+        return capnp_ts_1.Struct.getStruct(0, AndroidLogEntry, this);
+    }
+    hasAndroidLog() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
+    initAndroidLog() {
+        capnp_ts_1.Struct.setUint16(8, 19, this);
+        return capnp_ts_1.Struct.initStructAt(0, AndroidLogEntry, this);
+    }
+    isAndroidLog() { return capnp_ts_1.Struct.getUint16(8, this) === 19; }
+    setAndroidLog(value) {
+        capnp_ts_1.Struct.setUint16(8, 19, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     }
     adoptManagerState(value) {
@@ -3895,6 +3658,72 @@ class Event extends capnp_ts_1.Struct {
     setManagerState(value) {
         capnp_ts_1.Struct.setUint16(8, 76, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    adoptProcLog(value) {
+        capnp_ts_1.Struct.setUint16(8, 32, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    disownProcLog() { return capnp_ts_1.Struct.disown(this.getProcLog()); }
+    getProcLog() {
+        capnp_ts_1.Struct.testWhich("procLog", capnp_ts_1.Struct.getUint16(8, this), 32, this);
+        return capnp_ts_1.Struct.getStruct(0, ProcLog, this);
+    }
+    hasProcLog() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
+    initProcLog() {
+        capnp_ts_1.Struct.setUint16(8, 32, this);
+        return capnp_ts_1.Struct.initStructAt(0, ProcLog, this);
+    }
+    isProcLog() { return capnp_ts_1.Struct.getUint16(8, this) === 32; }
+    setProcLog(value) {
+        capnp_ts_1.Struct.setUint16(8, 32, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    adoptClocks(value) {
+        capnp_ts_1.Struct.setUint16(8, 34, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    disownClocks() { return capnp_ts_1.Struct.disown(this.getClocks()); }
+    getClocks() {
+        capnp_ts_1.Struct.testWhich("clocks", capnp_ts_1.Struct.getUint16(8, this), 34, this);
+        return capnp_ts_1.Struct.getStruct(0, Clocks, this);
+    }
+    hasClocks() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
+    initClocks() {
+        capnp_ts_1.Struct.setUint16(8, 34, this);
+        return capnp_ts_1.Struct.initStructAt(0, Clocks, this);
+    }
+    isClocks() { return capnp_ts_1.Struct.getUint16(8, this) === 34; }
+    setClocks(value) {
+        capnp_ts_1.Struct.setUint16(8, 34, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    adoptDeviceState(value) {
+        capnp_ts_1.Struct.setUint16(8, 5, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    disownDeviceState() { return capnp_ts_1.Struct.disown(this.getDeviceState()); }
+    getDeviceState() {
+        capnp_ts_1.Struct.testWhich("deviceState", capnp_ts_1.Struct.getUint16(8, this), 5, this);
+        return capnp_ts_1.Struct.getStruct(0, DeviceState, this);
+    }
+    hasDeviceState() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
+    initDeviceState() {
+        capnp_ts_1.Struct.setUint16(8, 5, this);
+        return capnp_ts_1.Struct.initStructAt(0, DeviceState, this);
+    }
+    isDeviceState() { return capnp_ts_1.Struct.getUint16(8, this) === 5; }
+    setDeviceState(value) {
+        capnp_ts_1.Struct.setUint16(8, 5, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    getLogMessage() {
+        capnp_ts_1.Struct.testWhich("logMessage", capnp_ts_1.Struct.getUint16(8, this), 17, this);
+        return capnp_ts_1.Struct.getText(0, this);
+    }
+    isLogMessage() { return capnp_ts_1.Struct.getUint16(8, this) === 17; }
+    setLogMessage(value) {
+        capnp_ts_1.Struct.setUint16(8, 17, this);
+        capnp_ts_1.Struct.setText(0, value, this);
     }
     adoptTestJoystick(value) {
         capnp_ts_1.Struct.setUint16(8, 51, this);
@@ -3941,12 +3770,12 @@ class Event extends capnp_ts_1.Struct {
     disownLiveLocationKalmanDEPRECATED() { return capnp_ts_1.Struct.disown(this.getLiveLocationKalmanDEPRECATED()); }
     getLiveLocationKalmanDEPRECATED() {
         capnp_ts_1.Struct.testWhich("liveLocationKalmanDEPRECATED", capnp_ts_1.Struct.getUint16(8, this), 50, this);
-        return capnp_ts_1.Struct.getStruct(0, LiveLocationData, this);
+        return capnp_ts_1.Struct.getStruct(0, legacy_capnp_1.LiveLocationData, this);
     }
     hasLiveLocationKalmanDEPRECATED() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
     initLiveLocationKalmanDEPRECATED() {
         capnp_ts_1.Struct.setUint16(8, 50, this);
-        return capnp_ts_1.Struct.initStructAt(0, LiveLocationData, this);
+        return capnp_ts_1.Struct.initStructAt(0, legacy_capnp_1.LiveLocationData, this);
     }
     isLiveLocationKalmanDEPRECATED() { return capnp_ts_1.Struct.getUint16(8, this) === 50; }
     setLiveLocationKalmanDEPRECATED(value) {
@@ -4027,6 +3856,25 @@ class Event extends capnp_ts_1.Struct {
     isLiveEventDEPRECATED() { return capnp_ts_1.Struct.getUint16(8, this) === 7; }
     setLiveEventDEPRECATED(value) {
         capnp_ts_1.Struct.setUint16(8, 7, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    adoptLiveLocationDEPRECATED(value) {
+        capnp_ts_1.Struct.setUint16(8, 24, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    disownLiveLocationDEPRECATED() { return capnp_ts_1.Struct.disown(this.getLiveLocationDEPRECATED()); }
+    getLiveLocationDEPRECATED() {
+        capnp_ts_1.Struct.testWhich("liveLocationDEPRECATED", capnp_ts_1.Struct.getUint16(8, this), 24, this);
+        return capnp_ts_1.Struct.getStruct(0, legacy_capnp_1.LiveLocationData, this);
+    }
+    hasLiveLocationDEPRECATED() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
+    initLiveLocationDEPRECATED() {
+        capnp_ts_1.Struct.setUint16(8, 24, this);
+        return capnp_ts_1.Struct.initStructAt(0, legacy_capnp_1.LiveLocationData, this);
+    }
+    isLiveLocationDEPRECATED() { return capnp_ts_1.Struct.getUint16(8, this) === 24; }
+    setLiveLocationDEPRECATED(value) {
+        capnp_ts_1.Struct.setUint16(8, 24, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     }
     adoptEthernetDataDEPRECATED(value) {
@@ -4283,12 +4131,12 @@ class Event extends capnp_ts_1.Struct {
     disownLiveLocationTimingDEPRECATED() { return capnp_ts_1.Struct.disown(this.getLiveLocationTimingDEPRECATED()); }
     getLiveLocationTimingDEPRECATED() {
         capnp_ts_1.Struct.testWhich("liveLocationTimingDEPRECATED", capnp_ts_1.Struct.getUint16(8, this), 43, this);
-        return capnp_ts_1.Struct.getStruct(0, LiveLocationData, this);
+        return capnp_ts_1.Struct.getStruct(0, legacy_capnp_1.LiveLocationData, this);
     }
     hasLiveLocationTimingDEPRECATED() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
     initLiveLocationTimingDEPRECATED() {
         capnp_ts_1.Struct.setUint16(8, 43, this);
-        return capnp_ts_1.Struct.initStructAt(0, LiveLocationData, this);
+        return capnp_ts_1.Struct.initStructAt(0, legacy_capnp_1.LiveLocationData, this);
     }
     isLiveLocationTimingDEPRECATED() { return capnp_ts_1.Struct.getUint16(8, this) === 43; }
     setLiveLocationTimingDEPRECATED(value) {
@@ -4302,12 +4150,12 @@ class Event extends capnp_ts_1.Struct {
     disownLiveLocationCorrectedDEPRECATED() { return capnp_ts_1.Struct.disown(this.getLiveLocationCorrectedDEPRECATED()); }
     getLiveLocationCorrectedDEPRECATED() {
         capnp_ts_1.Struct.testWhich("liveLocationCorrectedDEPRECATED", capnp_ts_1.Struct.getUint16(8, this), 45, this);
-        return capnp_ts_1.Struct.getStruct(0, LiveLocationData, this);
+        return capnp_ts_1.Struct.getStruct(0, legacy_capnp_1.LiveLocationData, this);
     }
     hasLiveLocationCorrectedDEPRECATED() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
     initLiveLocationCorrectedDEPRECATED() {
         capnp_ts_1.Struct.setUint16(8, 45, this);
-        return capnp_ts_1.Struct.initStructAt(0, LiveLocationData, this);
+        return capnp_ts_1.Struct.initStructAt(0, legacy_capnp_1.LiveLocationData, this);
     }
     isLiveLocationCorrectedDEPRECATED() { return capnp_ts_1.Struct.getUint16(8, this) === 45; }
     setLiveLocationCorrectedDEPRECATED(value) {
@@ -4350,6 +4198,25 @@ class Event extends capnp_ts_1.Struct {
     isOrbObservationDEPRECATED() { return capnp_ts_1.Struct.getUint16(8, this) === 46; }
     setOrbObservationDEPRECATED(value) {
         capnp_ts_1.Struct.setUint16(8, 46, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    adoptLocationDEPRECATED(value) {
+        capnp_ts_1.Struct.setUint16(8, 48, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    disownLocationDEPRECATED() { return capnp_ts_1.Struct.disown(this.getLocationDEPRECATED()); }
+    getLocationDEPRECATED() {
+        capnp_ts_1.Struct.testWhich("locationDEPRECATED", capnp_ts_1.Struct.getUint16(8, this), 48, this);
+        return capnp_ts_1.Struct.getStruct(0, legacy_capnp_1.LiveLocationData, this);
+    }
+    hasLocationDEPRECATED() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
+    initLocationDEPRECATED() {
+        capnp_ts_1.Struct.setUint16(8, 48, this);
+        return capnp_ts_1.Struct.initStructAt(0, legacy_capnp_1.LiveLocationData, this);
+    }
+    isLocationDEPRECATED() { return capnp_ts_1.Struct.getUint16(8, this) === 48; }
+    setLocationDEPRECATED(value) {
+        capnp_ts_1.Struct.setUint16(8, 48, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     }
     adoptOrbOdometryDEPRECATED(value) {
@@ -4397,12 +4264,12 @@ class Event extends capnp_ts_1.Struct {
     disownApplanixLocationDEPRECATED() { return capnp_ts_1.Struct.disown(this.getApplanixLocationDEPRECATED()); }
     getApplanixLocationDEPRECATED() {
         capnp_ts_1.Struct.testWhich("applanixLocationDEPRECATED", capnp_ts_1.Struct.getUint16(8, this), 54, this);
-        return capnp_ts_1.Struct.getStruct(0, LiveLocationData, this);
+        return capnp_ts_1.Struct.getStruct(0, legacy_capnp_1.LiveLocationData, this);
     }
     hasApplanixLocationDEPRECATED() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
     initApplanixLocationDEPRECATED() {
         capnp_ts_1.Struct.setUint16(8, 54, this);
-        return capnp_ts_1.Struct.initStructAt(0, LiveLocationData, this);
+        return capnp_ts_1.Struct.initStructAt(0, legacy_capnp_1.LiveLocationData, this);
     }
     isApplanixLocationDEPRECATED() { return capnp_ts_1.Struct.getUint16(8, this) === 54; }
     setApplanixLocationDEPRECATED(value) {
@@ -4485,55 +4352,89 @@ class Event extends capnp_ts_1.Struct {
         capnp_ts_1.Struct.setUint16(8, 64, this);
         capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
     }
+    adoptGpsLocationDEPRECATED(value) {
+        capnp_ts_1.Struct.setUint16(8, 20, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    disownGpsLocationDEPRECATED() { return capnp_ts_1.Struct.disown(this.getGpsLocationDEPRECATED()); }
+    getGpsLocationDEPRECATED() {
+        capnp_ts_1.Struct.testWhich("gpsLocationDEPRECATED", capnp_ts_1.Struct.getUint16(8, this), 20, this);
+        return capnp_ts_1.Struct.getStruct(0, GpsLocationData, this);
+    }
+    hasGpsLocationDEPRECATED() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
+    initGpsLocationDEPRECATED() {
+        capnp_ts_1.Struct.setUint16(8, 20, this);
+        return capnp_ts_1.Struct.initStructAt(0, GpsLocationData, this);
+    }
+    isGpsLocationDEPRECATED() { return capnp_ts_1.Struct.getUint16(8, this) === 20; }
+    setGpsLocationDEPRECATED(value) {
+        capnp_ts_1.Struct.setUint16(8, 20, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    adoptUiLayoutStateDEPRECATED(value) {
+        capnp_ts_1.Struct.setUint16(8, 56, this);
+        capnp_ts_1.Struct.adopt(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
+    disownUiLayoutStateDEPRECATED() { return capnp_ts_1.Struct.disown(this.getUiLayoutStateDEPRECATED()); }
+    getUiLayoutStateDEPRECATED() {
+        capnp_ts_1.Struct.testWhich("uiLayoutStateDEPRECATED", capnp_ts_1.Struct.getUint16(8, this), 56, this);
+        return capnp_ts_1.Struct.getStruct(0, legacy_capnp_1.UiLayoutState, this);
+    }
+    hasUiLayoutStateDEPRECATED() { return !capnp_ts_1.Struct.isNull(capnp_ts_1.Struct.getPointer(0, this)); }
+    initUiLayoutStateDEPRECATED() {
+        capnp_ts_1.Struct.setUint16(8, 56, this);
+        return capnp_ts_1.Struct.initStructAt(0, legacy_capnp_1.UiLayoutState, this);
+    }
+    isUiLayoutStateDEPRECATED() { return capnp_ts_1.Struct.getUint16(8, this) === 56; }
+    setUiLayoutStateDEPRECATED(value) {
+        capnp_ts_1.Struct.setUint16(8, 56, this);
+        capnp_ts_1.Struct.copyFrom(value, capnp_ts_1.Struct.getPointer(0, this));
+    }
     toString() { return "Event_" + super.toString(); }
     which() { return capnp_ts_1.Struct.getUint16(8, this); }
 }
 Event.INIT_DATA = Event_Which.INIT_DATA;
 Event.SENTINEL = Event_Which.SENTINEL;
 Event.BOOT = Event_Which.BOOT;
-Event.FRAME = Event_Which.FRAME;
 Event.GPS_NMEA = Event_Which.GPS_NMEA;
 Event.CAN = Event_Which.CAN;
-Event.THERMAL = Event_Which.THERMAL;
 Event.CONTROLS_STATE = Event_Which.CONTROLS_STATE;
 Event.SENSOR_EVENTS = Event_Which.SENSOR_EVENTS;
-Event.HEALTH = Event_Which.HEALTH;
+Event.PANDA_STATE = Event_Which.PANDA_STATE;
 Event.RADAR_STATE = Event_Which.RADAR_STATE;
-Event.ENCODE_IDX = Event_Which.ENCODE_IDX;
 Event.LIVE_TRACKS = Event_Which.LIVE_TRACKS;
 Event.SENDCAN = Event_Which.SENDCAN;
-Event.LOG_MESSAGE = Event_Which.LOG_MESSAGE;
 Event.LIVE_CALIBRATION = Event_Which.LIVE_CALIBRATION;
-Event.ANDROID_LOG = Event_Which.ANDROID_LOG;
-Event.GPS_LOCATION = Event_Which.GPS_LOCATION;
 Event.CAR_STATE = Event_Which.CAR_STATE;
 Event.CAR_CONTROL = Event_Which.CAR_CONTROL;
 Event.LONGITUDINAL_PLAN = Event_Which.LONGITUDINAL_PLAN;
 Event.LATERAL_PLAN = Event_Which.LATERAL_PLAN;
-Event.LIVE_LOCATION = Event_Which.LIVE_LOCATION;
-Event.PROC_LOG = Event_Which.PROC_LOG;
 Event.UBLOX_GNSS = Event_Which.UBLOX_GNSS;
-Event.CLOCKS = Event_Which.CLOCKS;
 Event.LIVE_MPC = Event_Which.LIVE_MPC;
 Event.LIVE_LONGITUDINAL_MPC = Event_Which.LIVE_LONGITUDINAL_MPC;
 Event.UBLOX_RAW = Event_Which.UBLOX_RAW;
 Event.GPS_LOCATION_EXTERNAL = Event_Which.GPS_LOCATION_EXTERNAL;
-Event.LOCATION = Event_Which.LOCATION;
-Event.UI_LAYOUT_STATE = Event_Which.UI_LAYOUT_STATE;
 Event.DRIVER_STATE = Event_Which.DRIVER_STATE;
 Event.LIVE_PARAMETERS = Event_Which.LIVE_PARAMETERS;
 Event.CAMERA_ODOMETRY = Event_Which.CAMERA_ODOMETRY;
 Event.THUMBNAIL = Event_Which.THUMBNAIL;
 Event.CAR_EVENTS = Event_Which.CAR_EVENTS;
 Event.CAR_PARAMS = Event_Which.CAR_PARAMS;
-Event.FRONT_FRAME = Event_Which.FRONT_FRAME;
 Event.DRIVER_MONITORING_STATE = Event_Which.DRIVER_MONITORING_STATE;
 Event.LIVE_LOCATION_KALMAN = Event_Which.LIVE_LOCATION_KALMAN;
-Event.WIDE_FRAME = Event_Which.WIDE_FRAME;
 Event.MODEL_V2 = Event_Which.MODEL_V2;
-Event.FRONT_ENCODE_IDX = Event_Which.FRONT_ENCODE_IDX;
-Event.WIDE_ENCODE_IDX = Event_Which.WIDE_ENCODE_IDX;
+Event.ROAD_CAMERA_STATE = Event_Which.ROAD_CAMERA_STATE;
+Event.DRIVER_CAMERA_STATE = Event_Which.DRIVER_CAMERA_STATE;
+Event.WIDE_ROAD_CAMERA_STATE = Event_Which.WIDE_ROAD_CAMERA_STATE;
+Event.ROAD_ENCODE_IDX = Event_Which.ROAD_ENCODE_IDX;
+Event.DRIVER_ENCODE_IDX = Event_Which.DRIVER_ENCODE_IDX;
+Event.WIDE_ROAD_ENCODE_IDX = Event_Which.WIDE_ROAD_ENCODE_IDX;
+Event.ANDROID_LOG = Event_Which.ANDROID_LOG;
 Event.MANAGER_STATE = Event_Which.MANAGER_STATE;
+Event.PROC_LOG = Event_Which.PROC_LOG;
+Event.CLOCKS = Event_Which.CLOCKS;
+Event.DEVICE_STATE = Event_Which.DEVICE_STATE;
+Event.LOG_MESSAGE = Event_Which.LOG_MESSAGE;
 Event.TEST_JOYSTICK = Event_Which.TEST_JOYSTICK;
 Event.MODEL = Event_Which.MODEL;
 Event.LIVE_LOCATION_KALMAN_DEPRECATED = Event_Which.LIVE_LOCATION_KALMAN_DEPRECATED;
@@ -4541,6 +4442,7 @@ Event.ORBSLAM_CORRECTION_DEPRECATED = Event_Which.ORBSLAM_CORRECTION_DEPRECATED;
 Event.LIVE_UIDEPRECATED = Event_Which.LIVE_UIDEPRECATED;
 Event.SENSOR_EVENT_DEPRECATED = Event_Which.SENSOR_EVENT_DEPRECATED;
 Event.LIVE_EVENT_DEPRECATED = Event_Which.LIVE_EVENT_DEPRECATED;
+Event.LIVE_LOCATION_DEPRECATED = Event_Which.LIVE_LOCATION_DEPRECATED;
 Event.ETHERNET_DATA_DEPRECATED = Event_Which.ETHERNET_DATA_DEPRECATED;
 Event.CELL_INFO_DEPRECATED = Event_Which.CELL_INFO_DEPRECATED;
 Event.WIFI_SCAN_DEPRECATED = Event_Which.WIFI_SCAN_DEPRECATED;
@@ -4558,6 +4460,7 @@ Event.LIVE_LOCATION_TIMING_DEPRECATED = Event_Which.LIVE_LOCATION_TIMING_DEPRECA
 Event.LIVE_LOCATION_CORRECTED_DEPRECATED = Event_Which.LIVE_LOCATION_CORRECTED_DEPRECATED;
 Event.NAV_UPDATE_DEPRECATED = Event_Which.NAV_UPDATE_DEPRECATED;
 Event.ORB_OBSERVATION_DEPRECATED = Event_Which.ORB_OBSERVATION_DEPRECATED;
+Event.LOCATION_DEPRECATED = Event_Which.LOCATION_DEPRECATED;
 Event.ORB_ODOMETRY_DEPRECATED = Event_Which.ORB_ODOMETRY_DEPRECATED;
 Event.ORB_FEATURES_DEPRECATED = Event_Which.ORB_FEATURES_DEPRECATED;
 Event.APPLANIX_LOCATION_DEPRECATED = Event_Which.APPLANIX_LOCATION_DEPRECATED;
@@ -4565,6 +4468,8 @@ Event.ORB_KEY_FRAME_DEPRECATED = Event_Which.ORB_KEY_FRAME_DEPRECATED;
 Event.ORB_FEATURES_SUMMARY_DEPRECATED = Event_Which.ORB_FEATURES_SUMMARY_DEPRECATED;
 Event.FEATURES_DEPRECATED = Event_Which.FEATURES_DEPRECATED;
 Event.KALMAN_ODOMETRY_DEPRECATED = Event_Which.KALMAN_ODOMETRY_DEPRECATED;
+Event.GPS_LOCATION_DEPRECATED = Event_Which.GPS_LOCATION_DEPRECATED;
+Event.UI_LAYOUT_STATE_DEPRECATED = Event_Which.UI_LAYOUT_STATE_DEPRECATED;
 Event._capnp = { displayName: "Event", id: "d314cfd957229c11", size: new capnp_ts_1.ObjectSize(16, 1), defaultValid: capnp.getBitMask(true, 0) };
 exports.Event = Event;
 Map._Entries = capnp.CompositeList(Map_Entry);

@@ -39,7 +39,7 @@ var CarEvent_EventName;
     CarEvent_EventName[CarEvent_EventName["LOW_SPEED_LOCKOUT"] = 27] = "LOW_SPEED_LOCKOUT";
     CarEvent_EventName[CarEvent_EventName["PLANNER_ERROR"] = 28] = "PLANNER_ERROR";
     CarEvent_EventName[CarEvent_EventName["DEBUG_ALERT"] = 29] = "DEBUG_ALERT";
-    CarEvent_EventName[CarEvent_EventName["STEER_TEMP_UNAVAILABLE_MUTE"] = 30] = "STEER_TEMP_UNAVAILABLE_MUTE";
+    CarEvent_EventName[CarEvent_EventName["STEER_TEMP_UNAVAILABLE_USER_OVERRIDE"] = 30] = "STEER_TEMP_UNAVAILABLE_USER_OVERRIDE";
     CarEvent_EventName[CarEvent_EventName["RESUME_REQUIRED"] = 31] = "RESUME_REQUIRED";
     CarEvent_EventName[CarEvent_EventName["PRE_DRIVER_DISTRACTED"] = 32] = "PRE_DRIVER_DISTRACTED";
     CarEvent_EventName[CarEvent_EventName["PROMPT_DRIVER_DISTRACTED"] = 33] = "PROMPT_DRIVER_DISTRACTED";
@@ -50,7 +50,7 @@ var CarEvent_EventName;
     CarEvent_EventName[CarEvent_EventName["BELOW_STEER_SPEED"] = 38] = "BELOW_STEER_SPEED";
     CarEvent_EventName[CarEvent_EventName["LOW_BATTERY"] = 39] = "LOW_BATTERY";
     CarEvent_EventName[CarEvent_EventName["VEHICLE_MODEL_INVALID"] = 40] = "VEHICLE_MODEL_INVALID";
-    CarEvent_EventName[CarEvent_EventName["CONTROLS_FAILED"] = 41] = "CONTROLS_FAILED";
+    CarEvent_EventName[CarEvent_EventName["ACC_FAULTED"] = 41] = "ACC_FAULTED";
     CarEvent_EventName[CarEvent_EventName["SENSOR_DATA_INVALID"] = 42] = "SENSOR_DATA_INVALID";
     CarEvent_EventName[CarEvent_EventName["COMM_ISSUE"] = 43] = "COMM_ISSUE";
     CarEvent_EventName[CarEvent_EventName["TOO_DISTRACTED"] = 44] = "TOO_DISTRACTED";
@@ -75,36 +75,39 @@ var CarEvent_EventName;
     CarEvent_EventName[CarEvent_EventName["STARTUP_NO_CAR"] = 63] = "STARTUP_NO_CAR";
     CarEvent_EventName[CarEvent_EventName["STARTUP_NO_CONTROL"] = 64] = "STARTUP_NO_CONTROL";
     CarEvent_EventName[CarEvent_EventName["STARTUP_MASTER"] = 65] = "STARTUP_MASTER";
-    CarEvent_EventName[CarEvent_EventName["FCW"] = 66] = "FCW";
-    CarEvent_EventName[CarEvent_EventName["STEER_SATURATED"] = 67] = "STEER_SATURATED";
-    CarEvent_EventName[CarEvent_EventName["BELOW_ENGAGE_SPEED"] = 68] = "BELOW_ENGAGE_SPEED";
-    CarEvent_EventName[CarEvent_EventName["NO_GPS"] = 69] = "NO_GPS";
-    CarEvent_EventName[CarEvent_EventName["WRONG_CRUISE_MODE"] = 70] = "WRONG_CRUISE_MODE";
-    CarEvent_EventName[CarEvent_EventName["MODELD_LAGGING"] = 71] = "MODELD_LAGGING";
-    CarEvent_EventName[CarEvent_EventName["DEVICE_FALLING"] = 72] = "DEVICE_FALLING";
-    CarEvent_EventName[CarEvent_EventName["FAN_MALFUNCTION"] = 73] = "FAN_MALFUNCTION";
-    CarEvent_EventName[CarEvent_EventName["CAMERA_MALFUNCTION"] = 74] = "CAMERA_MALFUNCTION";
-    CarEvent_EventName[CarEvent_EventName["GPS_MALFUNCTION"] = 75] = "GPS_MALFUNCTION";
-    CarEvent_EventName[CarEvent_EventName["STARTUP_ONEPLUS"] = 76] = "STARTUP_ONEPLUS";
+    CarEvent_EventName[CarEvent_EventName["STARTUP_FUZZY_FINGERPRINT"] = 66] = "STARTUP_FUZZY_FINGERPRINT";
+    CarEvent_EventName[CarEvent_EventName["FCW"] = 67] = "FCW";
+    CarEvent_EventName[CarEvent_EventName["STEER_SATURATED"] = 68] = "STEER_SATURATED";
+    CarEvent_EventName[CarEvent_EventName["BELOW_ENGAGE_SPEED"] = 69] = "BELOW_ENGAGE_SPEED";
+    CarEvent_EventName[CarEvent_EventName["NO_GPS"] = 70] = "NO_GPS";
+    CarEvent_EventName[CarEvent_EventName["WRONG_CRUISE_MODE"] = 71] = "WRONG_CRUISE_MODE";
+    CarEvent_EventName[CarEvent_EventName["MODELD_LAGGING"] = 72] = "MODELD_LAGGING";
+    CarEvent_EventName[CarEvent_EventName["DEVICE_FALLING"] = 73] = "DEVICE_FALLING";
+    CarEvent_EventName[CarEvent_EventName["FAN_MALFUNCTION"] = 74] = "FAN_MALFUNCTION";
+    CarEvent_EventName[CarEvent_EventName["CAMERA_MALFUNCTION"] = 75] = "CAMERA_MALFUNCTION";
+    CarEvent_EventName[CarEvent_EventName["GPS_MALFUNCTION"] = 76] = "GPS_MALFUNCTION";
     CarEvent_EventName[CarEvent_EventName["PROCESS_NOT_RUNNING"] = 77] = "PROCESS_NOT_RUNNING";
-    CarEvent_EventName[CarEvent_EventName["RADAR_CAN_ERROR_DEPRECATED"] = 78] = "RADAR_CAN_ERROR_DEPRECATED";
-    CarEvent_EventName[CarEvent_EventName["RADAR_COMM_ISSUE_DEPRECATED"] = 79] = "RADAR_COMM_ISSUE_DEPRECATED";
-    CarEvent_EventName[CarEvent_EventName["GAS_UNAVAILABLE_DEPRECATED"] = 80] = "GAS_UNAVAILABLE_DEPRECATED";
-    CarEvent_EventName[CarEvent_EventName["DATA_NEEDED_DEPRECATED"] = 81] = "DATA_NEEDED_DEPRECATED";
-    CarEvent_EventName[CarEvent_EventName["MODEL_COMM_ISSUE_DEPRECATED"] = 82] = "MODEL_COMM_ISSUE_DEPRECATED";
-    CarEvent_EventName[CarEvent_EventName["IPAS_OVERRIDE_DEPRECATED"] = 83] = "IPAS_OVERRIDE_DEPRECATED";
-    CarEvent_EventName[CarEvent_EventName["GEOFENCE_DEPRECATED"] = 84] = "GEOFENCE_DEPRECATED";
-    CarEvent_EventName[CarEvent_EventName["DRIVER_MONITOR_ON_DEPRECATED"] = 85] = "DRIVER_MONITOR_ON_DEPRECATED";
-    CarEvent_EventName[CarEvent_EventName["DRIVER_MONITOR_OFF_DEPRECATED"] = 86] = "DRIVER_MONITOR_OFF_DEPRECATED";
-    CarEvent_EventName[CarEvent_EventName["CALIBRATION_PROGRESS_DEPRECATED"] = 87] = "CALIBRATION_PROGRESS_DEPRECATED";
-    CarEvent_EventName[CarEvent_EventName["INVALID_GIRAFFE_HONDA_DEPRECATED"] = 88] = "INVALID_GIRAFFE_HONDA_DEPRECATED";
-    CarEvent_EventName[CarEvent_EventName["INVALID_GIRAFFE_TOYOTA_DEPRECATED"] = 89] = "INVALID_GIRAFFE_TOYOTA_DEPRECATED";
-    CarEvent_EventName[CarEvent_EventName["INTERNET_CONNECTIVITY_NEEDED_DEPRECATED"] = 90] = "INTERNET_CONNECTIVITY_NEEDED_DEPRECATED";
-    CarEvent_EventName[CarEvent_EventName["WHITE_PANDA_UNSUPPORTED_DEPRECATED"] = 91] = "WHITE_PANDA_UNSUPPORTED_DEPRECATED";
-    CarEvent_EventName[CarEvent_EventName["COMM_ISSUE_WARNING_DEPRECATED"] = 92] = "COMM_ISSUE_WARNING_DEPRECATED";
-    CarEvent_EventName[CarEvent_EventName["FOCUS_RECOVER_ACTIVE_DEPRECATED"] = 93] = "FOCUS_RECOVER_ACTIVE_DEPRECATED";
-    CarEvent_EventName[CarEvent_EventName["NEOS_UPDATE_REQUIRED_DEPRECATED"] = 94] = "NEOS_UPDATE_REQUIRED_DEPRECATED";
-    CarEvent_EventName[CarEvent_EventName["MODEL_LAG_WARNING_DEPRECATED"] = 95] = "MODEL_LAG_WARNING_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["DASHCAM_MODE"] = 78] = "DASHCAM_MODE";
+    CarEvent_EventName[CarEvent_EventName["CONTROLS_INITIALIZING"] = 79] = "CONTROLS_INITIALIZING";
+    CarEvent_EventName[CarEvent_EventName["RADAR_CAN_ERROR_DEPRECATED"] = 80] = "RADAR_CAN_ERROR_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["RADAR_COMM_ISSUE_DEPRECATED"] = 81] = "RADAR_COMM_ISSUE_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["GAS_UNAVAILABLE_DEPRECATED"] = 82] = "GAS_UNAVAILABLE_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["DATA_NEEDED_DEPRECATED"] = 83] = "DATA_NEEDED_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["MODEL_COMM_ISSUE_DEPRECATED"] = 84] = "MODEL_COMM_ISSUE_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["IPAS_OVERRIDE_DEPRECATED"] = 85] = "IPAS_OVERRIDE_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["GEOFENCE_DEPRECATED"] = 86] = "GEOFENCE_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["DRIVER_MONITOR_ON_DEPRECATED"] = 87] = "DRIVER_MONITOR_ON_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["DRIVER_MONITOR_OFF_DEPRECATED"] = 88] = "DRIVER_MONITOR_OFF_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["CALIBRATION_PROGRESS_DEPRECATED"] = 89] = "CALIBRATION_PROGRESS_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["INVALID_GIRAFFE_HONDA_DEPRECATED"] = 90] = "INVALID_GIRAFFE_HONDA_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["INVALID_GIRAFFE_TOYOTA_DEPRECATED"] = 91] = "INVALID_GIRAFFE_TOYOTA_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["INTERNET_CONNECTIVITY_NEEDED_DEPRECATED"] = 92] = "INTERNET_CONNECTIVITY_NEEDED_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["WHITE_PANDA_UNSUPPORTED_DEPRECATED"] = 93] = "WHITE_PANDA_UNSUPPORTED_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["COMM_ISSUE_WARNING_DEPRECATED"] = 94] = "COMM_ISSUE_WARNING_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["FOCUS_RECOVER_ACTIVE_DEPRECATED"] = 95] = "FOCUS_RECOVER_ACTIVE_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["NEOS_UPDATE_REQUIRED_DEPRECATED"] = 96] = "NEOS_UPDATE_REQUIRED_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["MODEL_LAG_WARNING_DEPRECATED"] = 97] = "MODEL_LAG_WARNING_DEPRECATED";
+    CarEvent_EventName[CarEvent_EventName["STARTUP_ONEPLUS_DEPRECATED"] = 98] = "STARTUP_ONEPLUS_DEPRECATED";
 })(CarEvent_EventName = exports.CarEvent_EventName || (exports.CarEvent_EventName = {}));
 class CarEvent extends capnp_ts_1.Struct {
     getName() { return capnp_ts_1.Struct.getUint16(0, this); }
@@ -231,10 +234,10 @@ class CarState extends capnp_ts_1.Struct {
     setBrakePressed(value) { capnp_ts_1.Struct.setBit(65, value, this); }
     getBrakeLights() { return capnp_ts_1.Struct.getBit(68, this); }
     setBrakeLights(value) { capnp_ts_1.Struct.setBit(68, value, this); }
-    getSteeringAngle() { return capnp_ts_1.Struct.getFloat32(16, this); }
-    setSteeringAngle(value) { capnp_ts_1.Struct.setFloat32(16, value, this); }
-    getSteeringRate() { return capnp_ts_1.Struct.getFloat32(24, this); }
-    setSteeringRate(value) { capnp_ts_1.Struct.setFloat32(24, value, this); }
+    getSteeringAngleDeg() { return capnp_ts_1.Struct.getFloat32(16, this); }
+    setSteeringAngleDeg(value) { capnp_ts_1.Struct.setFloat32(16, value, this); }
+    getSteeringRateDeg() { return capnp_ts_1.Struct.getFloat32(24, this); }
+    setSteeringRateDeg(value) { capnp_ts_1.Struct.setFloat32(24, value, this); }
     getSteeringTorque() { return capnp_ts_1.Struct.getFloat32(20, this); }
     setSteeringTorque(value) { capnp_ts_1.Struct.setFloat32(20, value, this); }
     getSteeringTorqueEps() { return capnp_ts_1.Struct.getFloat32(40, this); }
@@ -362,8 +365,8 @@ class CarControl_Actuators extends capnp_ts_1.Struct {
     setBrake(value) { capnp_ts_1.Struct.setFloat32(4, value, this); }
     getSteer() { return capnp_ts_1.Struct.getFloat32(8, this); }
     setSteer(value) { capnp_ts_1.Struct.setFloat32(8, value, this); }
-    getSteerAngle() { return capnp_ts_1.Struct.getFloat32(12, this); }
-    setSteerAngle(value) { capnp_ts_1.Struct.setFloat32(12, value, this); }
+    getSteeringAngleDeg() { return capnp_ts_1.Struct.getFloat32(12, this); }
+    setSteeringAngleDeg(value) { capnp_ts_1.Struct.setFloat32(12, value, this); }
     toString() { return "CarControl_Actuators_" + super.toString(); }
 }
 CarControl_Actuators._capnp = { displayName: "Actuators", id: "e97275a919432828", size: new capnp_ts_1.ObjectSize(16, 0) };
@@ -823,6 +826,8 @@ class CarParams extends capnp_ts_1.Struct {
     setCarName(value) { capnp_ts_1.Struct.setText(0, value, this); }
     getCarFingerprint() { return capnp_ts_1.Struct.getText(1, this); }
     setCarFingerprint(value) { capnp_ts_1.Struct.setText(1, value, this); }
+    getFuzzyFingerprint() { return capnp_ts_1.Struct.getBit(13, this); }
+    setFuzzyFingerprint(value) { capnp_ts_1.Struct.setBit(13, value, this); }
     getEnableGasInterceptor() { return capnp_ts_1.Struct.getBit(0, this); }
     setEnableGasInterceptor(value) { capnp_ts_1.Struct.setBit(0, value, this); }
     getEnableCruise() { return capnp_ts_1.Struct.getBit(1, this); }
@@ -833,12 +838,14 @@ class CarParams extends capnp_ts_1.Struct {
     setEnableDsu(value) { capnp_ts_1.Struct.setBit(3, value, this); }
     getEnableApgs() { return capnp_ts_1.Struct.getBit(4, this); }
     setEnableApgs(value) { capnp_ts_1.Struct.setBit(4, value, this); }
+    getEnableBsm() { return capnp_ts_1.Struct.getBit(14, this); }
+    setEnableBsm(value) { capnp_ts_1.Struct.setBit(14, value, this); }
     getMinEnableSpeed() { return capnp_ts_1.Struct.getFloat32(4, this); }
     setMinEnableSpeed(value) { capnp_ts_1.Struct.setFloat32(4, value, this); }
     getMinSteerSpeed() { return capnp_ts_1.Struct.getFloat32(8, this); }
     setMinSteerSpeed(value) { capnp_ts_1.Struct.setFloat32(8, value, this); }
-    getMaxSteerAngle() { return capnp_ts_1.Struct.getFloat32(96, this); }
-    setMaxSteerAngle(value) { capnp_ts_1.Struct.setFloat32(96, value, this); }
+    getMaxSteeringAngleDeg() { return capnp_ts_1.Struct.getFloat32(96, this); }
+    setMaxSteeringAngleDeg(value) { capnp_ts_1.Struct.setFloat32(96, value, this); }
     getSafetyModel() { return capnp_ts_1.Struct.getUint16(2, this); }
     setSafetyModel(value) { capnp_ts_1.Struct.setUint16(2, value, this); }
     getSafetyModelPassive() { return capnp_ts_1.Struct.getUint16(62, this, CarParams._capnp.defaultSafetyModelPassive); }
