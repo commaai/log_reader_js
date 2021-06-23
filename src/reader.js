@@ -1,4 +1,4 @@
-const CapnpStream = require('capnp-split');
+const CapnpStream = require('./stream');
 const EventWrapper = require('./event');
 const Event = require('geval/event');
 

@@ -1,6 +1,6 @@
 {
   "name": "@commaai/log_reader",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "description": "Read in comma.ai capnp logfiles whilst retaining sanity",
   "main": "index.js",
   "repository": "git@github.com:commaai/log_reader_js.git",
@@ -19,14 +19,14 @@
   },
   "dependencies": {
     "@commaai/capnp-json": "^0.8.1",
+    "@commaai/wasm-bz2": "^0.0.4",
     "JSONStream": "^1.3.2",
     "ap": "^0.2.0",
-    "capnp-split": "=0.1.1",
     "capnp-ts": "^0.4.0",
     "commander": "^2.15.1",
     "file-type": "^7.6.0",
     "geval": "^2.2.0",
     "stream-selector": "^0.4.0",
-    "wasm-bz2": "^0.0.4"
+    "through2": "^2.0.3"
   }
 }
